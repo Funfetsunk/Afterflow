@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b7itjw46eov5f"]
+
+[ext_resource type="Script" uid="uid://dtmj1n72uh1h0" path="res://scenes/props/shrine.gd" id="1_vus6a"]
+[ext_resource type="Texture2D" path="res://resources/lights/soft_light.tres" id="2_l20gf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vus6a"]
+size = Vector2(44, 34)
+
+[node name="Shrine" type="Area2D" unique_id=561156043]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_vus6a")
+
+[node name="Shape" type="CollisionShape2D" parent="." unique_id=1606901790]
+shape = SubResource("RectangleShape2D_vus6a")
+
+[node name="Glow" type="PointLight2D" parent="." unique_id=1135960539]
+position = Vector2(-1, -22)
+color = Color(0.56, 0.83, 1, 1)
+energy = 0.6
+texture = ExtResource("2_l20gf")
+texture_scale = 0.5

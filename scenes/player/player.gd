@@ -209,7 +209,7 @@ func _on_animation_finished() -> void:
 # --- taking hits ------------------------------------------------------------
 
 func take_hit(damage: int, from: Vector2, _knockback: float = 0.0) -> void:
-	if _invulnerable > 0.0 or state == State.DEAD:
+	if _invulnerable > 0.0 or state == State.DEAD or Game.input_locked:
 		return
 	Game.damage(damage)
 	_invulnerable = invulnerable_time

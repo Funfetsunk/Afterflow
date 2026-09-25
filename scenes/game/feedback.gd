@@ -29,20 +29,21 @@ func shake(strength: float, seconds: float) -> void:
 
 func spark(at: Vector2) -> void:
 	var s := _effect_sprite(SPARK, at)
-	if s == null:
-		return
-	await get_tree().create_timer(0.08, true, false, true).timeout
-	s.queue_free()
+	if s:
+		var tween := s.create_tween().set_ignore_time_scale(true)
+		tween.tween_interval(0.08)
+		tween.tween_callback(s.queue_free)
 
 
 func poof(at: Vector2) -> void:
 	var s := _effect_sprite(POOF[0], at)
 	if s == null:
 		return
+	var tween := s.create_tween()
 	for tex in POOF:
-		s.texture = tex
-		await get_tree().create_timer(0.07).timeout
-	s.queue_free()
+		tween.tween_callback(func(): s.texture = tex)
+		tween.tween_interval(0.07)
+	tween.tween_callback(s.queue_free)
 
 
 func _effect_sprite(tex: Texture2D, at: Vector2) -> Sprite2D:

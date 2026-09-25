@@ -8,7 +8,7 @@ light comes from the top left.
            sprig_end, item_frame, key_icon
   items    lantern (icon and pickup), key, heart_leaf, torn_page
   panels   panel_dialogue (9-slice, 24x24, 8px margins), panel_diary (9-slice)
-  effects  slash_0..2 (the stick's arc, facing east; rotated in-engine),
+  effects  slash_0..2 (the stick's arc, facing east; rotated in-engine), shockwave (the warden's slam),
            spin_0..3, hit_spark, poof_0..2, faded_mark (lantern-revealed writing)
 
 Run from the project root:
@@ -234,6 +234,19 @@ def poof_frames():
     return frames
 
 
+def shockwave():
+    """The warden's slam: a broken ring of pale dust, 96px across (its reach)."""
+    img = canvas(96, 96)
+    px = img.load()
+    for y in range(96):
+        for x in range(96):
+            d = math.hypot(x + 0.5 - 48, y + 0.5 - 48)
+            a = math.degrees(math.atan2(y - 48, x - 48))
+            if 40 <= d <= 44 and int(a / 15) % 3 != 2:
+                px[x, y] = P["pale"] if d > 42 else P["grey"]
+    return img
+
+
 def faded_mark():
     """A carved spiral with an eye at its heart: the recurring symbol, revealed by lantern light."""
     img = canvas(16, 16)
@@ -263,6 +276,7 @@ def main():
         "panel_diary": panel("cream", "brown", "white"),
         "hit_spark": hit_spark(),
         "faded_mark": faded_mark(),
+        "shockwave": shockwave(),
     }
     for i, f in enumerate(arc_frames(12, 4, [(-100, -40), (-70, 20), (-20, 80)], ("white", "pale"))):
         sprites[f"slash_{i}"] = f

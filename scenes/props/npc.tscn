@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bnlx08men4vc6"]
+
+[ext_resource type="Script" uid="uid://bgjjgqs1jhawx" path="res://scenes/props/npc.gd" id="1_y76bp"]
+[ext_resource type="Resource" path="res://resources/dialogue/miller.tres" id="2_8ptwj"]
+[ext_resource type="Texture2D" uid="uid://day2jb5ixj14o" path="res://assets/characters/miller/miller_s.png" id="3_b8lkw"]
+[ext_resource type="Texture2D" uid="uid://beh6jhd52fhn2" path="res://assets/characters/miller/miller_e.png" id="4_d24cj"]
+[ext_resource type="Texture2D" uid="uid://cwwidlitw08xi" path="res://assets/characters/miller/miller_n.png" id="5_o86xu"]
+[ext_resource type="Texture2D" uid="uid://8w4rs322rr5i" path="res://assets/characters/miller/miller_w.png" id="6_r1d3c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dt2f5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5rgh"]
+size = Vector2(12, 6)
+
+[node name="NPC" type="Area2D" unique_id=748650602]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_y76bp")
+dialogue = ExtResource("2_8ptwj")
+textures = Array[Texture2D]([ExtResource("3_b8lkw"), ExtResource("4_d24cj"), ExtResource("5_o86xu"), ExtResource("6_r1d3c")])
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=87135788]
+texture = ExtResource("3_b8lkw")
+offset = Vector2(0, -13)
+
+[node name="TalkShape" type="CollisionShape2D" parent="." unique_id=71962468]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_dt2f5")
+
+[node name="Body" type="StaticBody2D" parent="." unique_id=190303607]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Feet" type="CollisionShape2D" parent="Body" unique_id=120810667]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_v5rgh")

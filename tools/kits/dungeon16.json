@@ -1,0 +1,15 @@
+{
+ "tile": 16,
+ "tiles": {
+  "floor_0": "art/final/tiles/dungeon16/floor_0.png",
+  "floor_1": "art/final/tiles/dungeon16/floor_1.png",
+  "floor_2": "art/final/tiles/dungeon16/floor_2.png",
+  "floor_3": "art/final/tiles/dungeon16/floor_3.png",
+  "floor_shadow": "art/final/tiles/dungeon16/floor_shadow.png",
+  "wall_top": "art/final/tiles/dungeon16/wall_top.png",
+  "wall_face": "art/final/tiles/dungeon16/wall_face.png",
+  "wall_edge_l": "art/final/tiles/dungeon16/wall_edge_l.png",
+  "wall_edge_r": "art/final/tiles/dungeon16/wall_edge_r.png",
+  "wall_edge_t": "art/final/tiles/dungeon16/wall_edge_t.png"
+ }
+}

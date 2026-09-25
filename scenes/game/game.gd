@@ -11,6 +11,9 @@ signal flag_set(flag: StringName)
 signal diary_entry_added(entry_id: StringName)
 
 const SAVE_PATH := "user://save.json"
+## Where Awa wakes before she has touched a shrine (the grass by the river).
+const START_AREA := "res://scenes/world/meadow.tscn"
+const START_POINT := &"Start"
 
 ## Starting health, in leaves (one hit wilts one leaf).
 @export var start_max_health: int = 5
@@ -22,8 +25,8 @@ var current_item: StringName = &""
 var small_keys: int = 0
 var flags: Dictionary = {}
 var diary: Array[StringName] = []
-var respawn_area: String = ""
-var respawn_point: StringName = &""
+var respawn_area: String = START_AREA
+var respawn_point: StringName = START_POINT
 
 ## True while a dialogue, the diary or a transition owns the controls.
 var input_locked: bool = false
@@ -130,8 +133,8 @@ func load_game() -> Array:
 	small_keys = int(data.get("small_keys", 0))
 	flags = data.get("flags", {})
 	diary.assign(data.get("diary", []).map(func(d): return StringName(d)))
-	respawn_area = data.get("respawn_area", "")
-	respawn_point = StringName(data.get("respawn_point", ""))
+	respawn_area = data.get("respawn_area", START_AREA)
+	respawn_point = StringName(data.get("respawn_point", START_POINT))
 	health_changed.emit(health, max_health)
 	item_changed.emit(current_item)
 	keys_changed.emit(small_keys)
@@ -146,5 +149,5 @@ func reset() -> void:
 	small_keys = 0
 	flags.clear()
 	diary.clear()
-	respawn_area = ""
-	respawn_point = &""
+	respawn_area = START_AREA
+	respawn_point = START_POINT

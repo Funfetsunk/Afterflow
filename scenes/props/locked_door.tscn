@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://d10nbqql0j33w"]
+
+[ext_resource type="Script" uid="uid://cnrxnux5u3yjl" path="res://scenes/props/locked_door.gd" id="1_14eay"]
+[ext_resource type="Texture2D" uid="uid://cijmk1htiaaye" path="res://assets/dungeon/door_locked.png" id="2_7axe8"]
+[ext_resource type="Script" uid="uid://d0v6oj5vapjud" path="res://scenes/props/door_touch.gd" id="3_f8jx2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uibdi"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_or8nn"]
+size = Vector2(32, 36)
+
+[node name="LockedDoor" type="StaticBody2D" unique_id=1452271836]
+script = ExtResource("1_14eay")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=392203517]
+texture = ExtResource("2_7axe8")
+
+[node name="Shape" type="CollisionShape2D" parent="." unique_id=1774840844]
+shape = SubResource("RectangleShape2D_uibdi")
+
+[node name="Touch" type="Area2D" parent="." unique_id=1358890198]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("3_f8jx2")
+
+[node name="Shape" type="CollisionShape2D" parent="Touch" unique_id=1768541009]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_or8nn")

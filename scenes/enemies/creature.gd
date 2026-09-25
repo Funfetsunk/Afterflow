@@ -51,6 +51,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Game.input_locked:                       # the world holds still while Awa reads or talks
+		return
 	_timer -= delta
 	var player := get_tree().get_first_node_in_group("player") as Node2D
 	var to_player := (player.global_position - global_position) if player else Vector2.INF

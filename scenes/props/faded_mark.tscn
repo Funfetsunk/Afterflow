@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://uw7nso3eyfe1"]
+
+[ext_resource type="Script" uid="uid://b1ee1ta1dfa1v" path="res://scenes/props/faded_mark.gd" id="1_fe4o4"]
+[ext_resource type="Texture2D" uid="uid://cijs0wrvjxvel" path="res://assets/ui/faded_mark.png" id="2_la4wg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tyyjm"]
+light_mode = 2
+
+[node name="FadedMark" type="Node2D" unique_id=2108137407]
+script = ExtResource("1_fe4o4")
+
+[node name="Mark" type="Sprite2D" parent="." unique_id=464755049]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_tyyjm")
+texture = ExtResource("2_la4wg")

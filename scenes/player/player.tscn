@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://comh8felsqdrg" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="SpriteFrames" path="res://resources/sprites/awa_frames.tres" id="2_dovo2"]
+[ext_resource type="Texture2D" path="res://resources/lights/soft_light.tres" id="3_gmlin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
 size = Vector2(10, 6)
@@ -12,16 +13,9 @@ size = Vector2(18, 12)
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
 radius = 7.0
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_p47bc"]
-width = 128
-height = 128
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.5)
-
 [node name="Player" type="CharacterBody2D" unique_id=2142728879]
 collision_layer = 2
-collision_mask = 129
+collision_mask = 137
 motion_mode = 1
 script = ExtResource("1_8afob")
 
@@ -61,4 +55,5 @@ position = Vector2(0, -10)
 enabled = false
 color = Color(1, 0.86, 0.6, 1)
 energy = 1.1
-texture = SubResource("GradientTexture2D_p47bc")
+range_item_cull_mask = 3
+texture = ExtResource("3_gmlin")

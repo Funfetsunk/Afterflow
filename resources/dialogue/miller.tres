@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3]
+
+[ext_resource type="Script" path="res://scenes/game/dialogue_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+speaker = "The miller"
+lines = PackedStringArray("Morning, love. Sleep well by the river? Folk always do.", "The old cottage past the crossing's been empty since before my time. Mind the moss things if you go poking about.", "Eastward's the Old Wood. Quiet in there. Too quiet, my gran used to say.")
+after_flag = &"lantern_found"
+after_lines = PackedStringArray("Found a lantern, did you? Suits you.", "My gran used to talk about a red-haired girl who fished off that crossing when she was small. Had a lantern just like that one.", "You've the look of her, you know. Ha! Off you go, then. The Old Wood's east along the lane.")
+sets_flag = &""
+diary_entry = &""
+after_diary_entry = &"miller"

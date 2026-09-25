@@ -5,7 +5,8 @@ so a map that looks right as a mock is painted into Godot cell for cell. Every
 layout tile is looked up in the exported atlases (tools/export_assets.py) and
 becomes (source id, atlas cell) in resources/tilesets/meadow.tres:
 
-  ground       the Wang terrain tiles, fill/ledge extras and the lane crossing
+  ground       the Wang terrain tiles, fill/ledge extras, the lane crossing and
+               the dungeon kit (flat walls and floors)
   objects_1..n everything painted on top, in painter's order; when a cell is
                already taken, the tile goes to the next objects layer, so
                overlaps (a roof over a tree crown) survive
@@ -33,11 +34,13 @@ from PIL import Image
 T = 16
 TS = Path("assets/tilesets")
 KITS = Path("tools/kits")
-SHEETS = {"art/final/ts_meadow_grass-path_opt3_ns.png": 0, "art/final/ts_meadow_grass-water_opt2_ns.png": 1}
-KIT_SOURCES = {"cottage16": 3, "fence16": 4, "ruin16": 5, "forest16": 6}
+SHEETS = {"art/final/ts_meadow_grass-path_opt3_ns.png": 0, "art/final/ts_meadow_grass-water_opt2_ns.png": 1,
+          "art/final/ts_wood_leaves-grass_v2.png": 9}
+KIT_SOURCES = {"cottage16": 3, "fence16": 4, "ruin16": 5, "forest16": 6, "dungeon16": 8}
 FORD_CELLS = set()                               # the lane crossing is ground, not an object
 TEXTURES = {0: "terrain/meadow_grass_path.png", 1: "terrain/meadow_grass_water.png", 2: "terrain/meadow_extras.png",
-            3: "cottage16.png", 4: "fence16.png", 5: "ruin16.png", 6: "forest16.png", 7: "stamps.png"}
+            3: "cottage16.png", 4: "fence16.png", 5: "ruin16.png", 6: "forest16.png", 7: "stamps.png",
+            8: "dungeon16.png", 9: "terrain/wood_leaves_grass.png"}
 
 
 def build_lookup():
@@ -46,6 +49,8 @@ def build_lookup():
     extras = json.loads((TS / "terrain" / "meadow_extras.json").read_text())["tiles"]
     for i in range(8):
         lookup[f"art/final/ts_meadow_grass-fill_ns{i}.png"] = (2, tuple(extras[f"grass_fill_{i}"]))
+    for i in range(6):
+        lookup[f"art/final/ts_wood_leaves_fill_{i}.png"] = (2, tuple(extras[f"leaves_fill_{i}"]))
     for i in range(7):
         lookup[f"art/final/ts_meadow_ledge_ns_top{i}.png"] = (2, tuple(extras[f"ledge_top_{i}"]))
         lookup[f"art/final/ts_meadow_ledge_ns_bot{i}.png"] = (2, tuple(extras[f"ledge_bot_{i}"]))
@@ -95,7 +100,7 @@ def main():
         if img not in lookup:
             sys.exit(f"No atlas tile for {img}; re-run tools/export_assets.py and tools/build_tileset.py")
         entry = lookup[img]
-        if entry[0] == 2 or entry in FORD_CELLS:
+        if entry[0] in (2, 8) or entry in FORD_CELLS:
             ground[cell] = entry
             continue
         for layer in objects:

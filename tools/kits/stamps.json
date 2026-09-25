@@ -390,5 +390,47 @@
     "art/final/tiles/stamps/gable_d2_r6c4.png"
    ]
   ]
+ },
+ "hollow_oak": {
+  "cols": 5,
+  "rows": 5,
+  "source": "art/final/obj_hollow_oak.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/hollow_oak_r0c0.png",
+    "art/final/tiles/stamps/hollow_oak_r0c1.png",
+    "art/final/tiles/stamps/hollow_oak_r0c2.png",
+    "art/final/tiles/stamps/hollow_oak_r0c3.png",
+    "art/final/tiles/stamps/hollow_oak_r0c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/hollow_oak_r1c0.png",
+    "art/final/tiles/stamps/hollow_oak_r1c1.png",
+    "art/final/tiles/stamps/hollow_oak_r1c2.png",
+    "art/final/tiles/stamps/hollow_oak_r1c3.png",
+    "art/final/tiles/stamps/hollow_oak_r1c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/hollow_oak_r2c0.png",
+    "art/final/tiles/stamps/hollow_oak_r2c1.png",
+    "art/final/tiles/stamps/hollow_oak_r2c2.png",
+    "art/final/tiles/stamps/hollow_oak_r2c3.png",
+    "art/final/tiles/stamps/hollow_oak_r2c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/hollow_oak_r3c0.png",
+    "art/final/tiles/stamps/hollow_oak_r3c1.png",
+    "art/final/tiles/stamps/hollow_oak_r3c2.png",
+    "art/final/tiles/stamps/hollow_oak_r3c3.png",
+    "art/final/tiles/stamps/hollow_oak_r3c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/hollow_oak_r4c0.png",
+    "art/final/tiles/stamps/hollow_oak_r4c1.png",
+    "art/final/tiles/stamps/hollow_oak_r4c2.png",
+    "art/final/tiles/stamps/hollow_oak_r4c3.png",
+    "art/final/tiles/stamps/hollow_oak_r4c4.png"
+   ]
+  ]
  }
 }

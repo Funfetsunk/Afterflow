@@ -11,8 +11,10 @@ Sources (ids are stable, so painted maps keep working after a rebuild):
   1 terrain/meadow_grass_water  Wang sheet: grass / bank (ledge face) / water
   2 terrain/meadow_extras       grass fill variants, north-star ledge pairs
   3 cottage16  4 fence16  5 ruin16  6 forest16  7 stamps
+  8 dungeon16 (hollow-oak rooms: walls block, floors don't)
+  9 terrain/wood_leaves_grass    Wang sheet: grass / woodland leaf litter
 
-Terrain set 0 (match corners): 0 grass, 1 path, 2 water, 3 bank. Painting grass
+Terrain set 0 (match corners): 0 grass, 1 path, 2 water, 3 bank, 4 leaves. Painting grass
 picks at random among every all-grass tile, weighted by `probability`, so the
 fill variants scatter on their own; the north-star ledge pairs outweigh the
 sheet's own straight ledge tiles.
@@ -42,7 +44,7 @@ TS = Path("assets/tilesets")
 OUT = Path("resources/tilesets/meadow.tres")
 
 TERRAINS = [("grass", "0.33, 0.49, 0.39"), ("path", "0.59, 0.42, 0.42"),
-            ("water", "0.3, 0.4, 0.71"), ("bank", "0.18, 0.13, 0.18")]
+            ("water", "0.3, 0.4, 0.71"), ("bank", "0.18, 0.13, 0.18"), ("leaves", "0.3, 0.24, 0.14")]
 CORNER_BITS = {"NW": "top_left_corner", "NE": "top_right_corner",
                "SW": "bottom_left_corner", "SE": "bottom_right_corner"}
 QUARTERS = {"NW": (-H, -H), "NE": (0, -H), "SW": (-H, 0), "SE": (0, 0)}
@@ -130,17 +132,20 @@ def main():
     # 2: extras (grass fill variants, ledge pairs)
     a = Atlas(2, "res://assets/tilesets/terrain/meadow_extras.png")
     for name, cell in json.loads((TS / "terrain" / "meadow_extras.json").read_text())["tiles"].items():
+        lower = "water"
         if name.startswith("grass_fill"):
             corners = dict.fromkeys(CORNER_BITS, "upper")
+        elif name.startswith("leaves_fill"):
+            corners, lower = dict.fromkeys(CORNER_BITS, "lower"), "leaves"
         elif name.startswith("ledge_top"):
             corners = {"NW": "upper", "NE": "upper", "SW": "transition", "SE": "transition"}
         else:
             corners = {"NW": "transition", "NE": "transition", "SW": "lower", "SE": "lower"}
-        terrain_tile(a, cell, corners, "water", 1.0)
+        terrain_tile(a, cell, corners, lower, 1.0)
     atlases.append(a)
 
     # 3-6: kits
-    for sid, kit in ((3, "cottage16"), (4, "fence16"), (5, "ruin16"), (6, "forest16")):
+    for sid, kit in ((3, "cottage16"), (4, "fence16"), (5, "ruin16"), (6, "forest16"), (8, "dungeon16")):
         a = Atlas(sid, f"res://assets/tilesets/{kit}.png")
         png = TS / f"{kit}.png"
         for name, cell in json.loads((TS / f"{kit}.json").read_text())["tiles"].items():
@@ -151,6 +156,7 @@ def main():
                 "fence16": True,
                 "ruin16": cov >= 0.3,
                 "forest16": cov >= 0.6,
+                "dungeon16": name.startswith("wall"),
             }[kit]
             if block:
                 t["polys"].append((WORLD, FULL))
@@ -173,6 +179,8 @@ def main():
                     block = bottom and c == cols // 2         # the trunk
                 elif name.startswith(("bush", "standing_stone", "shrine")):
                     block = bottom
+                elif name == "hollow_oak":
+                    block = not (bottom and 1 <= c <= 3)      # the doorway at its foot is open
                 elif name == "ford":
                     # the lane runs down local x 8-23 (the cut is offset 8px): the left
                     # column blocks only its outer half, the right column all of it
@@ -185,6 +193,15 @@ def main():
                 if block:
                     t["polys"].append((WORLD, FULL))
     atlases.append(a)
+
+    # 9: woodland floor Wang sheet (grass / leaf litter)
+    a = Atlas(9, "res://assets/tilesets/terrain/wood_leaves_grass.png")
+    for tile in json.loads((TS / "terrain" / "wood_leaves_grass.json").read_text())["tiles"]:
+        corners = tile["corners"]
+        key = "".join(corners[c][0] for c in ("NW", "NE", "SW", "SE"))
+        terrain_tile(a, tile["cell"], corners, "leaves", 0.25 if key == "uuuu" else None)
+    atlases.append(a)
+    atlases.sort(key=lambda at: at.sid)
 
     lines = ['[gd_resource type="TileSet" format=3]', ""]
     for at in atlases:

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3]
+
+[ext_resource type="Script" path="res://scenes/game/dialogue_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+lines = PackedStringArray("You wake in the long grass by the river. The sun is warm. You don't remember lying down.", "There's a diary in your satchel, full of your own handwriting. (Tab or Back to read it.)", "Move with the left stick or WASD. Talk and pick things up with A or E. Swing your walking stick with X or J; hold it, then let go, to spin.")

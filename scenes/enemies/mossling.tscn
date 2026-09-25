@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dx4d4x0jph1pt"]
+
+[ext_resource type="Script" uid="uid://cjwh1sfbfx5i3" path="res://scenes/enemies/creature.gd" id="1_4nm7e"]
+[ext_resource type="Texture2D" uid="uid://bgont0u73gn3p" path="res://assets/enemies/mossling/mossling_s.png" id="2_xfuyr"]
+[ext_resource type="Texture2D" uid="uid://d3ulyy57x42pr" path="res://assets/enemies/mossling/mossling_e.png" id="3_j25ts"]
+[ext_resource type="Texture2D" uid="uid://dg8log8tli2oa" path="res://assets/enemies/mossling/mossling_n.png" id="4_gulv2"]
+[ext_resource type="Texture2D" uid="uid://dqiu1jypij47o" path="res://assets/enemies/mossling/mossling_w.png" id="5_yft6m"]
+[ext_resource type="Shader" uid="uid://lt3xahy3c6hf" path="res://resources/shaders/hit_flash.gdshader" id="6_t6swk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s8h6k"]
+resource_local_to_scene = true
+shader = ExtResource("6_t6swk")
+shader_parameter/flash = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqw82"]
+size = Vector2(12, 6)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b2nlc"]
+radius = 7.0
+
+[node name="Mossling" type="CharacterBody2D" unique_id=1872493516]
+collision_layer = 4
+collision_mask = 129
+motion_mode = 1
+script = ExtResource("1_4nm7e")
+textures = Array[Texture2D]([ExtResource("2_xfuyr"), ExtResource("3_j25ts"), ExtResource("4_gulv2"), ExtResource("5_yft6m")])
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1505930426]
+material = SubResource("ShaderMaterial_s8h6k")
+texture = ExtResource("2_xfuyr")
+offset = Vector2(0, -9)
+
+[node name="Feet" type="CollisionShape2D" parent="." unique_id=1221781152]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_fqw82")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1817988045]
+collision_layer = 64
+collision_mask = 2
+monitorable = false
+
+[node name="Shape" type="CollisionShape2D" parent="Hitbox" unique_id=1448369853]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_b2nlc")
