@@ -48,7 +48,7 @@ MCP generations draw from the subscription allowance (2,000 per cycle on Tier 1,
 
 | Cycle | Plan | Generations used (Afterflow) | Notes |
 |---|---|---|---|
-| 2026-09-21 → 2026-10-21 | Tier 1 (Pixel Apprentice) | 169 | 859 of 2,000 were already used this cycle before Afterflow started; 1,140 left on 2026-09-25; 1,000 left after north-star round 1; 990 after 16px grass-path; 981 after the 16px river; 977 after Awa v2; 971 after trees |
+| 2026-09-21 → 2026-10-21 | Tier 1 (Pixel Apprentice) | 178 | 859 of 2,000 were already used this cycle before Afterflow started; 1,140 left on 2026-09-25; 1,000 left after north-star round 1; 990 after 16px grass-path; 981 after the 16px river; 977 after Awa v2; 971 after trees; 962 after the forest tileset attempt |
 
 ---
 
@@ -77,7 +77,9 @@ Direction reset on 2026-09-25 (Art Bible §0): 320×180, 16px tiles, 16-bit SNES
 | `npc_villager01` | The miller, 16-bit | ~24–28px | — | — | — | — | planned | |
 | `obj_trees` | Meadow trees (oak, birch), 16-bit | 48×48 / 32×48 canvas | oak opt1–3 `672d4c05-9eb4-4173-b152-eacc80bb9b3d`, `9fb3883b-1f64-407e-82ae-5bd84158f71b`, `f12d1d84-2fd4-40ba-aaf1-78cd8eb5e03f`<br>birch opt1–3 `b05c4dbc-059a-4c98-b7e2-2a60d066b09d`, `3e0fd666-7c9f-4576-87a9-e3585d797fd8`, `7f9a660d-840c-43af-9e83-5967e0944a1f` | 6 | oak opt3, oak opt1, birch opt1 (Claude's picks) | 6 | approved (as stamps) | `create_image_pixflux`, seeds 1–3, locked §3 parameters, `no_background`, **`color_image_url` = the north star** (forced palette, via its public GitHub raw URL). Then remap to afterflow-v1 and `recolour.py <in> <out> --strip-ground 547e64 374e4a 313638 676633 d5e04b a2a947 --ground-rows N --map d5e04b=676633` (baked ground shadow removed, loud yellow highlights to olive; N = 4 oak opt3, 8 oak opt1, 6 birch opt1), cropped → `obj_tree_oak`, `obj_tree_oak_b`, `obj_tree_birch`. Rejected: oak opt2 (khaki, yellow ground ring), birch opt2 (blue diamond canopy), birch opt3 (khaki). Scene: `art/mocks/review_v2_village_trees_6x.png` |
 | `obj_shrine01` | Shrine, 16-bit | 16×32 | — | — | — | — | planned | |
-| `ts_forest` | Forest canopy ↔ meadow grass autotile | 16px | — | — | — | — | planned | Tree masses of any size |
+| `ts_forest` | Forest canopy ↔ meadow grass autotile | 16px | opt1 `3d6eb3b3-92c1-469a-980a-d06faab52f5c`<br>opt2 `32eb8c0b-90e6-4138-a071-d9597b86a3b1`<br>opt3 `d4158e9b-0214-462d-bb63-44813e66a83c` | 3 | — | 9 | rejected | **All three rejected** (`art/mocks/review_v2_forest_tilesets_rejected.png`): opt1 a flat 4-colour dark blob, opt2 striped crop rows with an orange trim, opt3 a regular polka-dot grid. PixelLab's terrain model doesn't draw tree crowns. **Replaced by a woodland built from the approved tree stamps** (overlapping staggered rows of `oak_a`/`oak_b`/`birch_a`, back to front): `art/mocks/review_v2_forest_stamps_6x.png`, in review. Tree masses of any size. Grass is the **lower** terrain here (`lower_base_tile_id` = approved grass `85b48458-e668-48e9-ab68-c57aa28fe613`), canopy the upper. opt1: canopy edge with shadow and trunks, 0.25; opt2: trunk row as a one-tile cliff, 1.0 (25 tiles); opt3: bumpy shadowed edge, 0.5 |
+| `ts_forest16` | **Paintable woodland** (one tile layer) baked from the approved tree stamps | 16px tiles | — (0 generations) | — | tool + library | 0 | approved | **Approved by Tom, 2026-09-25.** Tom chose the stamp woodland look ('yes for now'). `tools/paint_forest.py layout COL ROW W H` plants `oak_a`/`oak_b`/`birch_a` on a staggered lattice (every 2 columns, alternate rows shifted; species from a fixed position pattern, so maps are reproducible), draws back to front, fills gaps **fully enclosed by crowns** with deep shade `313638` (a rectangular fill looked blocky), slices into cells and reuses identical tiles from the shared library `art/final/tiles/forest16/` (index `tools/kits/forest16.json`; 55 tiles after two test forests). Review: `art/mocks/review_v2_forest_tiles_6x.png` |
+| `ts_ruin16` | Crumbled ruin-wall kit, 16-bit | 16px tiles | — | — | — | — | planned | Art Bible §5.3: crumbled, not angular |
 | `enm_meadow01` | Meadow creature | ~16–24px | — | — | — | — | planned | Sets the enemy signature |
 
 ---
@@ -116,6 +118,16 @@ opt3 transition 0.5: low dark stone and earth river wall with a grassy lip, simp
 ```
 oak (48×48): round leafy English oak tree with a dense rounded canopy and a short thick trunk, seen from a high top-down angle, cosy English countryside, 16-bit SNES-era top-down adventure pixel art, bold dark outlines, limited palette, light from the top left
 birch (32×48): slender silver birch tree with a pale white trunk and a light airy leafy canopy, seen from a high top-down angle, cosy English countryside, 16-bit SNES-era top-down adventure pixel art, bold dark outlines, limited palette, light from the top left
+```
+
+### `ts_forest`
+```
+lower_description: (approved grass) + lower_base_tile_id 85b48458-e668-48e9-ab68-c57aa28fe613
+opt1/opt2 upper: dense dark green forest canopy seen from above, rounded leafy tree crowns packed together, olive highlights on top-left, cosy English countryside, 16-bit SNES-era top-down adventure pixel art, bold dark outlines, limited palette, light from the top left
+opt3 upper: thick woodland of round leafy treetops seen from above, dark green with olive highlights, cosy English countryside, 16-bit SNES-era top-down adventure pixel art, bold dark outlines, limited palette, light from the top left
+opt1 transition 0.25: rounded edge of the canopy with a dark shadow and a few tree trunks showing beneath it
+opt2 transition 1.0: a row of tree trunks and dark shade beneath the edge of the canopy
+opt3 transition 0.5: bumpy rounded canopy edge casting a dark shadow onto the grass
 ```
 
 <!-- Add one block per asset. -->
