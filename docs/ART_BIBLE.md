@@ -1,6 +1,6 @@
 # Afterflow — Art Bible
 
-> **Status:** v0.12, provisional. **Direction reset on 2026-09-25** (see §0). Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
+> **Status:** v0.14, provisional. **Direction reset on 2026-09-25** (see §0). Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
 > **Rule:** every asset request follows this document. If an asset needs to break a rule, update this document first.
 
 ---
@@ -35,6 +35,7 @@ A small English countryside in **bold, readable 16-bit top-down pixel art**, **w
 | Character sprite directions | **4** (south, west, east, north) |
 | Movement | 8-way analog (sprites don't need diagonals) |
 | Pixel density | Uniform. No scaled-up or scaled-down sprites in-game. |
+| **Everything is tiles** | **All environment art lives on the 16px grid as tiles** (Tom, 2026-09-25). Only characters, enemies and items are free-moving sprites. Three kinds: **terrain autotiles** (grass, path, river, forest canopy, hedges: paint any shape), **modular kits** (cottage walls/roofs, fences, crumbled ruin walls, cliffs: any length or footprint), **fixed tile stamps** (a single tree, standing stone, shrine: placed as a block of tiles, per-tile collision in Godot). |
 
 ### 2.1 Sizes 🔬
 
@@ -127,7 +128,7 @@ cosy English countryside, 16-bit SNES-era top-down adventure pixel art, bold dar
 
 ### 5.1 Meadow village (Biome 1)
 
-A small English hamlet, deliberately **smaller in scale** than a real village. Stone cottages, timber framing, slate roofs, split-rail fences, barrels, log piles, birch and oak trees, and worn dirt paths through warm olive and yellow-green grass. It should feel lived-in, cosy and golden-afternoon. **Buildings are assembled from slices cut from the north star** (`tools/build_cottage.py`: end, wall, window, door slices plus a chimney piece), so every house can have its own length and layout, with variety from arrangement and props: fences, bushes, flowers, pots, signs, log piles.
+A small English hamlet, deliberately **smaller in scale** than a real village. Stone cottages, timber framing, slate roofs, split-rail fences, barrels, log piles, birch and oak trees, and worn dirt paths through warm olive and yellow-green grass. It should feel lived-in, cosy and golden-afternoon. **Buildings are painted from the 16px cottage kit** (`ts_cottage16`: roof nine-slice layer + 2-row wall layer with windows and door, chimney stamps, cast-shadow column; `tools/paint_cottage16.py`), so every house can have its own footprint. Houses must stay **grounded**: grass tufts over the wall base and a cast shadow on the grass to the right, with variety from arrangement and props: fences, bushes, flowers, pots, signs, log piles.
 
 - **Grass (v0.x, superseded):** olive `a2a947` with pale `cddf6c` flecks. Keep the olive family.
 - **Terrain (16px, approved 2026-09-25):** grass `547e64` with sparse dark tufts cut from the north star; brown path `966c6c` with pale specks; rivers in `4d65b4` with a pale broken foam line under a dark earth **ledge** about 1.2 tiles tall. **Rivers run straight east–west** for now, ending at map edges or bridges, until bend tiles match the ledge height. Recipes are in the manifest.
@@ -231,3 +232,5 @@ The eeriest areas may approach cold, lonely dread. **Never** jump scares, gore o
 | 0.10 | 2026-09-25 | §5.1: approved 16px terrain (grass, path, river ledge); rivers straight east–west for now |
 | 0.11 | 2026-09-25 | §4.3: 16-bit Awa approved; hair_ramp on every frame |
 | 0.12 | 2026-09-25 | §5.1: buildings assembled from north-star slices (cottage kit approved) |
+| 0.13 | 2026-09-25 | §2: everything environmental is 16px tiles (autotiles, modular kits, fixed stamps) |
+| 0.14 | 2026-09-25 | §5.1: 16px cottage kit approved (separate roof/wall layers); grounding rule (tufted base, cast shadow) |

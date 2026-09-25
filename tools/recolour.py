@@ -10,7 +10,9 @@ Alpha is left untouched. Colours not in the mapping are left untouched.
 --strip-ground: removes a ground patch baked under an object. Per column, from
 the bottom up, pixels of the given colours (plus a dark outline colour sitting
 directly under them) are made transparent until the first other pixel, so the
-same colours higher up (e.g. moss on stones) are kept.
+same colours higher up (e.g. moss on stones) are kept. --ground-rows N limits
+the strip to the bottom N rows of the sprite (for trees whose canopy shares the
+ground colours).
 
 Usage:
     python tools/recolour.py in.png out.png --map 547e64=4d65b4 374e4a=484a77
@@ -42,6 +44,8 @@ def main():
                         help="ground colours to clear from the bottom of each column")
     parser.add_argument("--ground-outline", metavar="RRGGBB",
                         help="outline colour to clear when it sits under ground colours")
+    parser.add_argument("--ground-rows", type=int, metavar="N",
+                        help="only strip the ground within the bottom N rows of the sprite")
     parser.add_argument("--dry-run", action="store_true", help="count pixels without writing")
     args = parser.parse_args()
     if not args.map and not args.strip_ground:
@@ -71,9 +75,11 @@ def main():
         ground = {parse_colour(c) for c in args.strip_ground}
         outline = parse_colour(args.ground_outline) if args.ground_outline else None
         cleared = 0
+        bbox = image.getchannel("A").getbbox()
+        stop = (bbox[3] - args.ground_rows) if (args.ground_rows and bbox) else 0
         for x in range(image.width):
             y = image.height - 1
-            while y >= 0:
+            while y >= stop:
                 r, g, b, a = pixels[x, y]
                 above = pixels[x, y - 1] if y > 0 else (0, 0, 0, 0)
                 is_outline = (outline is not None and (r, g, b) == outline
