@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DiaryEntry" format=3]
+
+[ext_resource type="Script" path="res://scenes/game/diary_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"lantern"
+title = "A lantern"
+text = "Found a lantern in the ruined cottage by the river, sitting on a hearth nobody has lit in years. It fits my hand as if it was made for it. Its light shows marks the daylight hides."
+starts_written = false

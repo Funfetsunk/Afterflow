@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DiaryEntry" format=3]
+
+[ext_resource type="Script" path="res://scenes/game/diary_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"mark"
+title = "The spiral"
+text = "A spiral carved into the stone, with an eye at its centre. You can only see it by lantern light. There's one just like it drawn in the margin of this diary. I don't remember drawing it."
+starts_written = false

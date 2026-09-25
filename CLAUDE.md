@@ -36,29 +36,27 @@ If a request conflicts with these documents, **stop and ask Tom**. Don't silentl
 
 ---
 
-## 3. Current phase: PHASE 1 — FOUNDATION
+## 3. Current phase: PHASE 2 — VERTICAL SLICE
 
-> **2026-09-25: Phase 0 complete** (tag `phase0-complete`). Tom signed off **Art Bible v1.0**: the 16-bit look, the Afterflow v1 palette (`tools/palettes/afterflow-v1.hex`), sizes, grounding rule and enemy signature are locked. Visual targets: the north star (`art/final/north_star/ns_meadow_village_r2_mix.png`) and the approved village mock (`art/mocks/v2_village_full_6x.png`). Never let a recolour, palette pass or shader touch Awa (Art Bible §4.3). The Phase 1 project settings (§7) are applied.
+> **2026-09-25: Phase 1 complete** (tag `phase1-complete`): Awa walks around the test meadow at the correct scale. Phase 0 (tag `phase0-complete`) locked the look in **Art Bible v1.0**. Never let a recolour, palette pass or shader touch Awa (Art Bible §4.3).
 
-Goal (GDD roadmap): Awa movement and animation, camera, meadow tilemap.
+Goal (GDD roadmap): meadow + old woodland + first dungeon + boss, one shrine, lantern, diary basics, combat. **Exit:** a playable 15–20 minute slice that feels like the game.
 
-Allowed in Phase 1:
-- Godot scenes, nodes, GDScript and TileSets, following §7
-- Copying approved `art/final/` assets into `assets/` for Godot to import (Art Bible §11 lists the approved set)
-- New art (animations first), following §5 and the Art Bible; only Tom sets `approved`
+Tom asked for Phase 2 to be built autonomously (2026-09-25, overnight). Design questions the GDD leaves open are decided provisionally and logged in **GDD §17 (Phase 2 decisions, provisional)** for Tom to confirm or change.
 
-Phase 1 plan (in order):
-1. **Awa's animations:** idle and walk in 4 directions, animated from her approved PixelLab character (`chr_awa` opt2, ID in the manifest), remapped, `hair_ramp.py` on every frame, reviewed by Tom.
-2. **Meadow TileSet** (`resources/`): atlas sources from `assets/tilesets/`, a corner-matching terrain set built from the Wang sheets' corner data, fill variants as alternative tiles, per-tile collision on walls, trees and water.
-3. **Player scene** (`scenes/player/`): CharacterBody2D, 8-way analog movement on the input map, AnimatedSprite2D facing 4 directions, tuning values exported to the Inspector.
-4. **Camera:** follows Awa, pixel-snapped, limited to the map.
-5. **Test meadow** (`scenes/world/`): a small meadow painted with the TileSet (a lane, a cottage, trees, the river ledge). Check with `play_scene` + `get_game_screenshot`.
-
-**Status (2026-09-25): all five steps built; waiting for Tom to playtest the test meadow (F5 in Godot) and review Awa's animations (`chr_awa_anim`, manifest).**
+Phase 2 plan (in order):
+1. **Core systems:** `Game` autoload (health, flags, current item, respawn shrine, save/load, autosave on area entry), HUD (leaf sprig health, current item), damage, death and shrine respawn.
+2. **Combat:** walking-stick swing and charged spin, hit-stop, hit flash, knockback, light screen shake; mossling AI with a clear telegraph.
+3. **Talk and read:** dialogue box, interact prompt, the miller's lines as `.tres` data.
+4. **Lantern:** found in the meadow, lights dark rooms, reveals faded writing.
+5. **Diary basics:** the UI hub with entries written in the same voice, unlocked by discoveries.
+6. **Areas:** meadow village, old woodland, the hollow-tree dungeon (room-by-room camera), transitions with fades, autosave.
+7. **Art for the new areas** (woodland floor, dungeon kit, woodland creature, boss) following §5 and the Art Bible, logged in the manifest as `review`.
+8. **Boss** in the dungeon's last room, then a full playthrough test and fixes.
 
 Map pipeline: design a map with the mock tools (`wang_layout.py`, `paint_*.py`; e.g. `tools/mock_layouts/build_p1_meadow.sh`), then `tools/layout_to_tilemap.py` converts it to TileMapLayer data (`Ground` not y-sorted at z −1; `Objects1..n` y-sorted, under a y-sorted scene root), loaded into the scene's layers. Maps are bounded by a `MapEdges` StaticBody2D; the `AreaCamera` takes its limits from the `Ground` layer.
 
-Phase exit: Awa walks around a meadow at the correct scale. Then update this section to Phase 2.
+Phase exit: the slice plays start to finish in 15–20 minutes. Then update this section to Phase 3.
 
 ---
 

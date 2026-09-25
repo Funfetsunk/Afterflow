@@ -20,6 +20,12 @@ config/icon="res://icon.svg"
 MCPScreenshot="*res://addons/godot_mcp/mcp_screenshot_service.gd"
 MCPInputService="*res://addons/godot_mcp/mcp_input_service.gd"
 MCPGameInspector="*res://addons/godot_mcp/mcp_game_inspector_service.gd"
+Game="*res://scenes/game/game.gd"
+World="*res://scenes/game/world.tscn"
+HUD="*res://scenes/ui/hud.tscn"
+Dialogue="*res://scenes/ui/dialogue_box.tscn"
+Diary="*res://scenes/ui/diary.tscn"
+Feedback="*res://scenes/game/feedback.gd"
 
 [display]
 
@@ -33,6 +39,10 @@ window/stretch/scale_mode="integer"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_mcp/plugin.cfg")
+
+[gui]
+
+theme/custom="res://resources/ui/afterflow_theme.tres"
 
 [input]
 

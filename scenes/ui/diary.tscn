@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dqwyj6noqqewl"]
+
+[ext_resource type="Script" uid="uid://d06lu8v2tq1ul" path="res://scenes/ui/diary.gd" id="1_rato7"]
+[ext_resource type="Texture2D" uid="uid://bqqj6i2ev0dlm" path="res://assets/ui/panel_diary.png" id="2_71vrd"]
+
+[node name="Diary" type="CanvasLayer" unique_id=2138487373]
+layer = 30
+script = ExtResource("1_rato7")
+
+[node name="Book" type="NinePatchRect" parent="." unique_id=1904895575]
+offset_left = 24.0
+offset_top = 10.0
+offset_right = 296.0
+offset_bottom = 170.0
+texture = ExtResource("2_71vrd")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Title" type="Label" parent="Book" unique_id=976621713]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 262.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0.46, 0.24, 0.33, 1)
+horizontal_alignment = 1
+
+[node name="Text" type="Label" parent="Book" unique_id=1582465498]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 22.0
+offset_right = 260.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(0.24, 0.21, 0.27, 1)
+theme_override_constants/line_spacing = -3
+autowrap_mode = 2
+
+[node name="Footer" type="Label" parent="Book" unique_id=1644568497]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 142.0
+offset_right = 262.0
+offset_bottom = 156.0
+theme_override_colors/font_color = Color(0.59, 0.42, 0.42, 1)
+horizontal_alignment = 1
+
+[node name="Notice" type="Label" parent="." unique_id=538568713]
+offset_left = 4.0
+offset_top = 164.0
+offset_right = 200.0
+offset_bottom = 178.0
+theme_override_colors/font_color = Color(0.99, 0.8, 0.69, 1)
+theme_override_colors/font_outline_color = Color(0.18, 0.13, 0.18, 1)
+theme_override_constants/outline_size = 4
+text = "The diary has a new page."

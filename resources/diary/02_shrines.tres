@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DiaryEntry" format=3]
+
+[ext_resource type="Script" path="res://scenes/game/diary_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"shrines"
+title = "The tall stones"
+text = "There are tall stones that hum when you touch them, too smooth to be old and too old to be new. Rest at one when you're hurt. I always wake up there, feeling better. I don't know why they help me."
+starts_written = true

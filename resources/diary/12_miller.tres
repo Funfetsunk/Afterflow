@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DiaryEntry" format=3]
+
+[ext_resource type="Script" path="res://scenes/game/diary_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"miller"
+title = "The miller's story"
+text = "The miller says a red-haired girl used to fish off the crossing when his grandmother was small. He laughed and said I have the look of her. I laughed too."
+starts_written = false

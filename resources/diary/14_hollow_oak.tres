@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DiaryEntry" format=3]
+
+[ext_resource type="Script" path="res://scenes/game/diary_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"hollow_oak"
+title = "The hollow oak"
+text = "There is a door in the great oak, and locks inside it, and keys to the locks. Someone built all this a long time ago. It feels like it was left for somebody to find."
+starts_written = false

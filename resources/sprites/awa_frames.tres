@@ -40,6 +40,22 @@
 [ext_resource type="Texture2D" path="res://assets/characters/awa/awa_walk_w_3.png" id="38"]
 [ext_resource type="Texture2D" path="res://assets/characters/awa/awa_walk_w_4.png" id="39"]
 [ext_resource type="Texture2D" path="res://assets/characters/awa/awa_walk_w_5.png" id="40"]
+[ext_resource type="Texture2D" path="res://assets/characters/awa/awa_swing_s_0.png" id="41"]
+[ext_resource type="Texture2D" path="res://assets/characters/awa/awa_swing_s_1.png" id="42"]
+[ext_resource type="Texture2D" path="res://assets/characters/awa/awa_swing_s_2.png" id="43"]
+[ext_resource type="Texture2D" path="res://assets/characters/awa/awa_swing_s_3.png" id="44"]
+[ext_resource type="Texture2D" path="res://assets/characters/awa/awa_swing_e_0.png" id="45"]
+[ext_resource type="Texture2D" path="res://assets/characters/awa/awa_swing_e_1.png" id="46"]
+[ext_resource type="Texture2D" path="res://assets/characters/awa/awa_swing_e_2.png" id="47"]
+[ext_resource type="Texture2D" path="res://assets/characters/awa/awa_swing_e_3.png" id="48"]
+[ext_resource type="Texture2D" path="res://assets/characters/awa/awa_swing_n_0.png" id="49"]
+[ext_resource type="Texture2D" path="res://assets/characters/awa/awa_swing_n_1.png" id="50"]
+[ext_resource type="Texture2D" path="res://assets/characters/awa/awa_swing_n_2.png" id="51"]
+[ext_resource type="Texture2D" path="res://assets/characters/awa/awa_swing_n_3.png" id="52"]
+[ext_resource type="Texture2D" path="res://assets/characters/awa/awa_swing_w_0.png" id="53"]
+[ext_resource type="Texture2D" path="res://assets/characters/awa/awa_swing_w_1.png" id="54"]
+[ext_resource type="Texture2D" path="res://assets/characters/awa/awa_swing_w_2.png" id="55"]
+[ext_resource type="Texture2D" path="res://assets/characters/awa/awa_swing_w_3.png" id="56"]
 
 [resource]
 animations = [{
@@ -82,4 +98,24 @@ animations = [{
 "loop": true,
 "name": &"walk_w",
 "speed": 10.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("41")}, {"duration": 1.0, "texture": ExtResource("42")}, {"duration": 1.0, "texture": ExtResource("43")}, {"duration": 1.0, "texture": ExtResource("44")}],
+"loop": false,
+"name": &"swing_s",
+"speed": 16.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("45")}, {"duration": 1.0, "texture": ExtResource("46")}, {"duration": 1.0, "texture": ExtResource("47")}, {"duration": 1.0, "texture": ExtResource("48")}],
+"loop": false,
+"name": &"swing_e",
+"speed": 16.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("49")}, {"duration": 1.0, "texture": ExtResource("50")}, {"duration": 1.0, "texture": ExtResource("51")}, {"duration": 1.0, "texture": ExtResource("52")}],
+"loop": false,
+"name": &"swing_n",
+"speed": 16.0
+}, {
+"frames": [{"duration": 1.0, "texture": ExtResource("53")}, {"duration": 1.0, "texture": ExtResource("54")}, {"duration": 1.0, "texture": ExtResource("55")}, {"duration": 1.0, "texture": ExtResource("56")}],
+"loop": false,
+"name": &"swing_w",
+"speed": 16.0
 }]

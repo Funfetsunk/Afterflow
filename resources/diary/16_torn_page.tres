@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DiaryEntry" format=3]
+
+[ext_resource type="Script" path="res://scenes/game/diary_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"torn_page"
+title = "A torn page"
+text = "...the river is lower every time. I keep telling myself it's the summer. If I write it down, maybe I will remember to"
+starts_written = false

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cf1lf7bouph5w"]
+
+[ext_resource type="Script" uid="uid://dunike7stssck" path="res://scenes/game/world.gd" id="1_t4al5"]
+
+[node name="World" type="CanvasLayer" unique_id=1781166428]
+layer = 100
+script = ExtResource("1_t4al5")
+
+[node name="Fade" type="ColorRect" parent="." unique_id=1934433052]
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_filter = 2
+color = Color(0.18, 0.13, 0.18, 0)

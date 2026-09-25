@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://btss6scy86evd"]
+
+[ext_resource type="Script" uid="uid://dmqts6oku8prx" path="res://scenes/ui/hud.gd" id="1_bo48s"]
+[ext_resource type="Texture2D" uid="uid://bwaa3gin5w2cg" path="res://assets/ui/item_frame.png" id="2_8qguk"]
+[ext_resource type="Texture2D" uid="uid://cvbjqgs5ewmk4" path="res://assets/ui/key.png" id="3_136eg"]
+
+[node name="HUD" type="CanvasLayer" unique_id=51092505]
+layer = 10
+script = ExtResource("1_bo48s")
+
+[node name="Leaves" type="HBoxContainer" parent="." unique_id=2064078117]
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 80.0
+offset_bottom = 14.0
+theme_override_constants/separation = 0
+
+[node name="ItemFrame" type="TextureRect" parent="." unique_id=153124106]
+offset_left = 294.0
+offset_top = 154.0
+offset_right = 316.0
+offset_bottom = 176.0
+texture = ExtResource("2_8qguk")
+
+[node name="ItemIcon" type="TextureRect" parent="ItemFrame" unique_id=882850760]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 18.0
+offset_bottom = 18.0
+
+[node name="Keys" type="HBoxContainer" parent="." unique_id=1886106149]
+offset_left = 262.0
+offset_top = 162.0
+offset_right = 292.0
+offset_bottom = 176.0
+theme_override_constants/separation = 1
+
+[node name="KeyIcon" type="TextureRect" parent="Keys" unique_id=71990202]
+layout_mode = 2
+texture = ExtResource("3_136eg")
+stretch_mode = 5
+
+[node name="Count" type="Label" parent="Keys" unique_id=1770610540]
+layout_mode = 2
+text = "x0"

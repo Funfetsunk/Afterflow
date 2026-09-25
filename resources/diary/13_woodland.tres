@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DiaryEntry" format=3]
+
+[ext_resource type="Script" path="res://scenes/game/diary_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"woodland"
+title = "The Old Wood"
+text = "The Old Wood is quieter than it should be. The birdsong stops at the treeline, as if the trees are holding their breath. The light comes down in long gold ribbons."
+starts_written = false

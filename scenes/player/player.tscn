@@ -6,6 +6,19 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
 size = Vector2(10, 6)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
+size = Vector2(18, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
+radius = 7.0
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_p47bc"]
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [node name="Player" type="CharacterBody2D" unique_id=2142728879]
 collision_layer = 2
 collision_mask = 129
@@ -21,3 +34,31 @@ offset = Vector2(0, -13)
 [node name="Feet" type="CollisionShape2D" parent="." unique_id=1515235686]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_dovo2")
+
+[node name="StickHitbox" type="Area2D" parent="." unique_id=1889145271]
+collision_layer = 32
+collision_mask = 4
+monitorable = false
+
+[node name="Shape" type="CollisionShape2D" parent="StickHitbox" unique_id=1028840895]
+shape = SubResource("RectangleShape2D_gmlin")
+disabled = true
+
+[node name="Slash" type="Sprite2D" parent="." unique_id=1461538584]
+visible = false
+z_index = 2
+
+[node name="InteractProbe" type="Area2D" parent="." unique_id=479706673]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="Shape" type="CollisionShape2D" parent="InteractProbe" unique_id=766264245]
+shape = SubResource("CircleShape2D_lvxji")
+
+[node name="LanternLight" type="PointLight2D" parent="." unique_id=1093822967]
+position = Vector2(0, -10)
+enabled = false
+color = Color(1, 0.86, 0.6, 1)
+energy = 1.1
+texture = SubResource("GradientTexture2D_p47bc")

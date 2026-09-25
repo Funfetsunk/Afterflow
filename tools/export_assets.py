@@ -12,6 +12,7 @@ index next to it naming every tile's atlas cell:
   assets/tilesets/terrain/meadow_grass_path.png/.json  PixelLab Wang sheets with each
   assets/tilesets/terrain/meadow_grass_water.png/.json tile's corners (for terrain sets)
   assets/tilesets/terrain/meadow_extras.png/.json    grass fill variants, river ledge pairs
+  assets/ui/*.png                                    HUD, pickups, panels, effects (tools/kits/make_ui16.py)
   assets/tilesets/<kit>.png/.json                    cottage16, fence16, ruin16, forest16:
                                                      {"tiles": {name: [col, row]}}
   assets/tilesets/stamps.png/.json                   every stamp as a contiguous block:
@@ -43,7 +44,7 @@ SPRITES = {                                       # out folder/name: art/final p
     "enemies/mossling/mossling": "art/final/enm_meadow01",
 }
 ANIMS = {                                         # out prefix: (art/final prefix, {animation: frames})
-    "characters/awa/awa": ("art/final/awa_anim/chr_awa", {"idle": 4, "walk": 6}),
+    "characters/awa/awa": ("art/final/awa_anim/chr_awa", {"idle": 4, "walk": 6, "swing": 4}),
 }
 WANG = {                                          # out name: (sheet, PixelLab metadata)
     "meadow_grass_path": ("art/final/ts_meadow_grass-path_opt3_ns.png", "art/raw/ts_meadow_grass-path_opt3.json"),
@@ -90,6 +91,13 @@ def export_anims():
             for d in DIRS:
                 for i in range(frames):
                     shutil.copyfile(f"{prefix}_{anim}_{d}_{i}.png", OUT / f"{out}_{anim}_{d}_{i}.png")
+
+
+def export_ui():
+    dest = OUT / "ui"
+    dest.mkdir(parents=True, exist_ok=True)
+    for src in sorted(Path("art/final/ui").glob("*.png")):
+        shutil.copyfile(src, dest / src.name)
 
 
 def export_terrain():
@@ -140,6 +148,7 @@ def main():
     (OUT / "tilesets").mkdir(parents=True, exist_ok=True)
     export_sprites()
     export_anims()
+    export_ui()
     export_terrain()
     export_kits()
     export_stamps()

@@ -2,13 +2,15 @@
 
 tools/export_assets.py writes frames as assets/characters/<name>/<name>_<anim>_<d>_<i>.png
 (d = s, e, n, w). This writes resources/sprites/<name>_frames.tres with one
-looping animation per animation and direction, named <anim>_<d> (idle_s,
+animation per animation and direction, named <anim>_<d> (idle_s,
 walk_e, ...), which is what the player script plays. Frame rates are set here
 and can be tweaked in the editor afterwards (re-running overwrites them).
 
 Usage (from the project root, after tools/export_assets.py):
-    python tools/build_sprite_frames.py awa idle:4:4 walk:6:10
-    python tools/build_sprite_frames.py NAME ANIM:FRAMES:FPS ...
+    python tools/build_sprite_frames.py awa idle:4:4 walk:6:10 swing:4:16:once
+    python tools/build_sprite_frames.py NAME ANIM:FRAMES:FPS[:once] ...
+
+`:once` makes an animation play once instead of looping (attacks).
 """
 
 import argparse
@@ -20,12 +22,13 @@ DIRS = "senw"
 def main():
     parser = argparse.ArgumentParser(description="Exported frames -> SpriteFrames .tres")
     parser.add_argument("name")
-    parser.add_argument("anims", nargs="+", help="ANIM:FRAMES:FPS")
+    parser.add_argument("anims", nargs="+", help="ANIM:FRAMES:FPS[:once]")
     args = parser.parse_args()
 
     ext, anims = [], []
     for spec in args.anims:
-        anim, frames, fps = spec.split(":")
+        anim, frames, fps, *once = spec.split(":")
+        loop = "false" if once == ["once"] else "true"
         for d in DIRS:
             refs = []
             for i in range(int(frames)):
@@ -34,7 +37,7 @@ def main():
                     raise SystemExit(f"Missing frame {path}; run tools/export_assets.py first")
                 ext.append(f'[ext_resource type="Texture2D" path="{path}" id="{len(ext) + 1}"]')
                 refs.append(f'{{"duration": 1.0, "texture": ExtResource("{len(ext)}")}}')
-            anims.append("{\n" + f'"frames": [{", ".join(refs)}],\n"loop": true,\n'
+            anims.append("{\n" + f'"frames": [{", ".join(refs)}],\n"loop": {loop},\n'
                          f'"name": &"{anim}_{d}",\n"speed": {float(fps)}\n' + "}")
 
     out = Path(f"resources/sprites/{args.name}_frames.tres")

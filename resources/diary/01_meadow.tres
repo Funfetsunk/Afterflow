@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DiaryEntry" format=3]
+
+[ext_resource type="Script" path="res://scenes/game/diary_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"meadow"
+title = "The meadow"
+text = "The grass by the river is the softest place to sleep. The miller keeps the lane tidy and never asks where I've come from. Be kind to him. He is always kind back."
+starts_written = true

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DiaryEntry" format=3]
+
+[ext_resource type="Script" path="res://scenes/game/diary_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"warden"
+title = "The warden"
+text = "The oak's guardian had one pale eye, like the little ones, only older and more tired. When it fell, the whole tree sighed. I wish I knew what it was protecting. I think it might have been protecting the tree from me."
+starts_written = false

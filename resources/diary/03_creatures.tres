@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DiaryEntry" format=3]
+
+[ext_resource type="Script" path="res://scenes/game/diary_entry.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"creatures"
+title = "The little ones"
+text = "The moss creatures only come for me. Nobody in the village has ever been chased. A good stick is enough to send them off. They don't mean any harm, I think. They just can't help it."
+starts_written = true
