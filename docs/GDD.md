@@ -1,6 +1,6 @@
 # Afterflow — Game Design Document
 
-> **Status:** v0.1, design locked from the planning session. Phase 0 (look development) not yet started.
+> **Status:** v0.2. Phase 2 (vertical slice) built; provisional decisions it needed are in §17 for Tom to confirm.
 > **Spoiler warning:** this document contains the full story, including the ending. Keep that in mind when sharing it.
 
 ---
@@ -246,3 +246,27 @@ Assigning items to dungeons is open. Story hook: the lantern may later turn out 
 | **2: Vertical slice** | Meadow + old woodland + first dungeon + boss, one shrine, lantern, diary basics, combat | Playable 15–20 min slice that feels like the game |
 | **3: Production** | Remaining biomes, dungeons, items, NPCs, story | Full game playable start to finish |
 | **4: Polish** | Endings, epilogue variants, audio pass, balance, bug fixing | Release candidate |
+
+---
+
+## 17. Phase 2 decisions (provisional, for Tom to confirm)
+
+Made while building the vertical slice overnight (2026-09-25/26), where the document above left a question open. Each is easy to change.
+
+| Question | Provisional answer | Where it lives |
+|---|---|---|
+| Dodge / roll | **None** (pure ALTTP-style movement). Revisit after playtesting the boss. | `scenes/player/player.gd` |
+| Controls | Gamepad (Xbox layout): stick/d-pad move, **A** interact, **X** swing (hold and release to spin), **Y** use item, **B** cancel, **Back** diary, **Start** pause. Keyboard: WASD/arrows, **E**, **J**/Space, **K**, **Q**, **Tab**, **Esc**. | Input map (CLAUDE.md §7) |
+| Health | Awa starts with **5 leaves**; every hit wilts one; a heart-leaf adds one. Creatures sometimes drop a healing leaf. | `Game.start_max_health`, `creature.gd` |
+| Spin attack | Hold the swing for 0.6 s, release: a full circle for 2 damage. | `player.gd` exports |
+| Slice layout | **Meadow village** (wake by the river, miller, shrine, lantern in the ruined cottage) → east along the lane → **the Old Wood** (barklings, the great oak) → **the Hollow Oak** dungeon (5 rooms: entrance, fight room, dark room, hall, warden). | `scenes/world/` |
+| The lantern | Found in the ruined cottage by the river "on a hearth nobody has lit in years" (a quiet hint it was hers). It gates the oak ("pitch dark inside"), lights the dark room, and reveals the spiral-eye marks. | `meadow.tscn`, `area_exit.gd` |
+| First dungeon's item | **None in the slice.** The Hollow Oak awards a **heart-leaf** and a **torn diary page**. Which dungeon gives the slingshot, vine hook, bell and waders stays open. | `hollow_oak.tscn` |
+| Dungeon puzzle | Two small keys, two locked doors, either order: one key for clearing the fight room, one hidden in the dark room (only the lantern finds it). | `hollow_oak.tscn` |
+| Boss | **The Warden** of the Hollow Oak: shivers with its arms raised, then charges; dazed if it hits a wall or pillar, the only time the stick hurts it; every third attack a telegraphed slam; calls two mosslings at half health. 10 health. | `scenes/enemies/warden.gd` |
+| Woodland creature | **Barkling**: a pale bark stump with a mossy cap and the family eye; shivers, then charges in a straight line; dazed by walls. | `creature.gd` (CHARGER) |
+| Recurring symbol | A **spiral with an eye at its centre**, carved where only lantern light shows it; the diary already has one drawn in its margin. | `faded_mark.tscn`, diary page `11_mark` |
+| Names | Provisional: **the Old Wood**, **the Hollow Oak**, **the Warden**; the village and the miller are still unnamed. | Diary, dialogue |
+| Diary voice | Every page (old and new) in Awa's first person, never marked as new; the torn page breaks off mid-sentence. | `resources/diary/` |
+| Saving | Autosave on every area change and at the shrine; respawn at the last shrine touched (the river bank before that). **Each launch starts a new game** in the slice; a Continue option comes with the title screen. | `Game`, `World` |
+| The world during dialogue | Creatures freeze and Awa can't be hurt while a dialogue or the diary is open. | `creature.gd`, `player.gd` |

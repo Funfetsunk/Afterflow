@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://mblywcy0w6dg"]
 
-[ext_resource type="TileSet" path="res://resources/tilesets/meadow.tres" id="1_5tfap"]
+[ext_resource type="TileSet" uid="uid://ul02p8a8lhxd" path="res://resources/tilesets/meadow.tres" id="1_5tfap"]
 [ext_resource type="PackedScene" uid="uid://btek0ue6ythkx" path="res://scenes/player/player.tscn" id="2_6cdm5"]
 [ext_resource type="SpriteFrames" path="res://resources/sprites/awa_frames.tres" id="4_pirrm"]
 [ext_resource type="Script" uid="uid://dltypbtlugnyt" path="res://scenes/world/area_camera.gd" id="5_a1oij"]

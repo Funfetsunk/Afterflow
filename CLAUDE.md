@@ -54,7 +54,15 @@ Phase 2 plan (in order):
 7. **Art for the new areas** (woodland floor, dungeon kit, woodland creature, boss) following §5 and the Art Bible, logged in the manifest as `review`.
 8. **Boss** in the dungeon's last room, then a full playthrough test and fixes.
 
-Map pipeline: design a map with the mock tools (`wang_layout.py`, `paint_*.py`; e.g. `tools/mock_layouts/build_p1_meadow.sh`), then `tools/layout_to_tilemap.py` converts it to TileMapLayer data (`Ground` not y-sorted at z −1; `Objects1..n` y-sorted, under a y-sorted scene root), loaded into the scene's layers. Maps are bounded by a `MapEdges` StaticBody2D; the `AreaCamera` takes its limits from the `Ground` layer.
+**Status (2026-09-26): all eight steps built; waiting for Tom to play the slice (F5) and review GDD §17 and the new art (manifest, `review`).** Main scene: `scenes/world/meadow.tscn`.
+
+How the slice is put together:
+- **Autoloads:** `Game` (state, save), `World` (area changes, fades, respawn), `HUD`, `Dialogue`, `Diary`, `Feedback` (hit-stop, shake, sparks). After adding an autoload, restart the editor (`EditorInterface.restart_editor(false)`, with everything saved) or the editor can't compile scripts that use it and silently drops their properties on save.
+- **Areas** (`scenes/world/`): `meadow.tscn`, `woodland.tscn`, `hollow_oak.tscn` (room camera: `AreaCamera.room_size` 320×176). Each holds its own Player (with its Camera), `Spawns` markers (group `spawn`), exits (`area_exit.gd`), `MapEdges`.
+- **Props** (`scenes/props/`): pickup, shrine, NPC, locked door, faded mark (light-only sprite on light mask 2, lit only by the lantern), plus node scripts for exits, diary triggers, dark zones, room rewards, the boss room and one-off area messages. **Creatures** (`scenes/enemies/`): `creature.gd` (mossling HOPPER, barkling CHARGER) and `warden.gd`.
+- **Data:** dialogue in `resources/dialogue/*.tres` (`DialogueData`), diary pages in `resources/diary/*.tres` (`DiaryEntry`).
+
+Map pipeline: design a map with the mock tools (`wang_layout.py`, `paint_*.py`; `tools/mock_layouts/build_p1_meadow.sh`, `build_woodland.sh`, `build_hollow_oak.py`), then `tools/layout_to_tilemap.py` converts it to TileMapLayer data (`Ground` not y-sorted at z −1; `Objects1..n` y-sorted, under a y-sorted scene root), loaded into the scene's layers. Maps are bounded by a `MapEdges` StaticBody2D; the `AreaCamera` takes its limits from the `Ground` layer. Atlas cells are stable across `export_assets.py` runs, so maps survive new art; if a map ever shows scrambled tiles, re-run the converter and reload its layers.
 
 Phase exit: the slice plays start to finish in 15–20 minutes. Then update this section to Phase 3.
 
@@ -146,7 +154,8 @@ Install the dependency with `python -m pip install -r tools/requirements.txt`. E
 - **`tools/mock_layouts/`**: JSON layouts for `compose_mock.py`. Terrain maps (`map_*.txt`) live here too.
 - **`tools/export_assets.py`**: copies the approved set (Art Bible §11) into `assets/` and packs each tile kit into one atlas PNG with a JSON index of tile cells (stamps as contiguous blocks; Wang sheets with each tile's corners). Re-run it after approving new art and add the new files to its lists; only listed art reaches the game.
 - **`tools/build_tileset.py`**: generates `resources/tilesets/meadow.tres` from the exported atlases: stable source ids, a corner-matching terrain set (grass, path, water, bank) with weighted fill variants, collision (physics layer 0 `world`, 1 `water`) and y-sort origins at each stamp's base. Re-run after `export_assets.py`; hand edits to the TileSet are overwritten.
-- **`tools/build_sprite_frames.py`**: generates a character's `resources/sprites/<name>_frames.tres` (animations `<anim>_<dir>`) from its exported frames.
+- **`tools/build_sprite_frames.py`**: generates a character's `resources/sprites/<name>_frames.tres` (animations `<anim>_<dir>`, `:once` for attacks) from its exported frames.
+- **`tools/kits/make_ui16.py`**, **`make_woodland16.py`**, **`make_dungeon16.py`**: Phase 2 art drawn in code (HUD, pickups, panels, effects; barkling, warden, doors, leaf-litter fills; the dungeon kit and the hollow oak).
 - **`tools/layout_to_tilemap.py`**: converts a mock layout into per-layer `tile_map_data` (plus a full-size preview PNG), so maps designed as mocks are painted into Godot cell for cell.
 - Python 3, Pillow. Keep the tools small, readable and documented.
 
@@ -175,7 +184,7 @@ Install the dependency with `python -m pip install -r tools/requirements.txt`. E
 | `diary` | Back / View | Tab |
 | `pause` | Start / Menu | Escape |
 
-**2D physics layers:** 1 `world`, 2 `player`, 3 `enemies`, 4 `npcs`, 5 `interactables`, 6 `player_attack`, 7 `enemy_attack`, 8 `water`.
+**2D physics layers:** 1 `world`, 2 `player`, 3 `enemies`, 4 `npcs`, 5 `interactables`, 6 `player_attack`, 7 `enemy_attack`, 8 `water`, 9 `boss_barrier` (blocks only the boss).
 
 **Workflow:**
 - Use **Godot MCP Pro editor operations** for scenes, nodes, TileSets and the Inspector. Use GDScript for behaviour. Don't build whole scenes by script.

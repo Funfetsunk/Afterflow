@@ -40,7 +40,8 @@ func change_area(area_path: String, spawn: StringName, autosave: bool = true) ->
 	if autosave:
 		Game.save_game()
 	await _fade_to(0.0)
-	Game.input_locked = false
+	if not Dialogue.active:                        # an area message may already be showing
+		Game.input_locked = false
 	changing = false
 
 

@@ -9,6 +9,7 @@ light comes from the top left.
   items    lantern (icon and pickup), key, heart_leaf, torn_page
   panels   panel_dialogue (9-slice, 24x24, 8px margins), panel_diary (9-slice)
   effects  slash_0..2 (the stick's arc, facing east; rotated in-engine), shockwave (the warden's slam),
+           light_shaft (golden light in the Old Wood, drawn additively),
            spin_0..3, hit_spark, poof_0..2, faded_mark (lantern-revealed writing)
 
 Run from the project root:
@@ -247,6 +248,24 @@ def shockwave():
     return img
 
 
+def light_shaft():
+    """A soft diagonal shaft of golden light for the Old Wood (drawn additively in-engine)."""
+    w, h = 48, 128
+    img = canvas(w, h)
+    px = img.load()
+    r, g, b, _ = P["cream"]
+    for y in range(h):
+        for x in range(w):
+            u = (x - y * 0.25) / 14.0                   # position across the slanted band
+            if 0 <= u <= 1:
+                edge = min(u, 1 - u) * 2               # 0 at the edges, 1 in the middle
+                fade = min(1.0, (h - y) / 40.0) * min(1.0, y / 20.0 + 0.2)
+                a = int(90 * edge * fade)
+                if a > 0:
+                    px[x, y] = (r, g, b, a)
+    return img
+
+
 def faded_mark():
     """A carved spiral with an eye at its heart: the recurring symbol, revealed by lantern light."""
     img = canvas(16, 16)
@@ -277,6 +296,7 @@ def main():
         "hit_spark": hit_spark(),
         "faded_mark": faded_mark(),
         "shockwave": shockwave(),
+        "light_shaft": light_shaft(),
     }
     for i, f in enumerate(arc_frames(12, 4, [(-100, -40), (-70, 20), (-20, 80)], ("white", "pale"))):
         sprites[f"slash_{i}"] = f

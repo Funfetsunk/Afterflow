@@ -72,6 +72,9 @@ resource_local_to_scene = true
 shader = ExtResource("17_o44fa")
 shader_parameter/flash = 0.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_h030x"]
+blend_mode = 1
+
 [node name="Woodland" type="Node2D" unique_id=724994522]
 y_sort_enabled = true
 
@@ -270,3 +273,25 @@ script = ExtResource("24_5rj01")
 message = ExtResource("slice_end_msg")
 requires_flag = &"warden_defeated"
 once_flag = &"slice_end_seen"
+
+[node name="LightShafts" type="Node2D" parent="." unique_id=766452777]
+z_index = 3
+material = SubResource("CanvasItemMaterial_h030x")
+
+[node name="Shaft1" type="Sprite2D" parent="LightShafts" unique_id=806986183]
+use_parent_material = true
+position = Vector2(150, 150)
+
+[node name="Shaft2" type="Sprite2D" parent="LightShafts" unique_id=2137982397]
+use_parent_material = true
+position = Vector2(360, 170)
+scale = Vector2(1.5, 1.5)
+
+[node name="Shaft3" type="Sprite2D" parent="LightShafts" unique_id=857320026]
+use_parent_material = true
+position = Vector2(520, 130)
+
+[node name="Shaft4" type="Sprite2D" parent="LightShafts" unique_id=1766816112]
+use_parent_material = true
+position = Vector2(440, 150)
+scale = Vector2(0.8, 1.2)
