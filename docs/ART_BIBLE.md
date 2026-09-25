@@ -1,6 +1,6 @@
 # Afterflow — Art Bible
 
-> **Status:** v1.0, **awaiting Tom's sign-off** (Phase 0 exit). Once signed off, the rules below are locked for Phase 1; changing one means updating this document first.
+> **Status:** v1.0, **signed off by Tom on 2026-09-25** (Phase 0 exit). The rules below are locked; changing one means updating this document first, with Tom's approval.
 > **Rule:** every asset request follows this document. If an asset needs to break a rule, update this document first.
 
 ---
@@ -272,4 +272,4 @@ Still to do in Phase 1+: walk/idle animations (Awa's hair ramp on every frame), 
 | 0.16 | 2026-09-25 | Shrine approved (ancient-future monolith, pale cyan machine glow) |
 | 0.17 | 2026-09-25 | Enemy signature settled (one large white eye with a pupil); meadow mossling approved |
 | 0.18 | 2026-09-25 | Gable-end cottage and lane crossing approved; full village mock approved against the north star |
-| **1.0** | 2026-09-25 | **Phase 0 consolidation for sign-off:** sizes settled (§2.1), grounding rule (§2.2), method order cut / generate / draw in code (§3.1), NPC rule (§4.5), colour roles for the world's mind and body (§6.2), drain excludes Awa (§8.1), approved set for Phase 1 (§11); superseded v0.x notes removed |
+| **1.0** | 2026-09-25 | **Signed off by Tom.** Phase 0 consolidation: sizes settled (§2.1), grounding rule (§2.2), method order cut / generate / draw in code (§3.1), NPC rule (§4.5), colour roles for the world's mind and body (§6.2), drain excludes Awa (§8.1), approved set for Phase 1 (§11); superseded v0.x notes removed |
