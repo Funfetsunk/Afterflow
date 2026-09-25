@@ -1,0 +1,160 @@
+{
+ "oak_a": {
+  "cols": 3,
+  "rows": 3,
+  "source": "art/final/obj_tree_oak.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/oak_a_r0c0.png",
+    "art/final/tiles/stamps/oak_a_r0c1.png",
+    "art/final/tiles/stamps/oak_a_r0c2.png"
+   ],
+   [
+    "art/final/tiles/stamps/oak_a_r1c0.png",
+    "art/final/tiles/stamps/oak_a_r1c1.png",
+    "art/final/tiles/stamps/oak_a_r1c2.png"
+   ],
+   [
+    "art/final/tiles/stamps/oak_a_r2c0.png",
+    "art/final/tiles/stamps/oak_a_r2c1.png",
+    "art/final/tiles/stamps/oak_a_r2c2.png"
+   ]
+  ]
+ },
+ "oak_b": {
+  "cols": 3,
+  "rows": 3,
+  "source": "art/final/obj_tree_oak_b.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/oak_b_r0c0.png",
+    "art/final/tiles/stamps/oak_b_r0c1.png",
+    "art/final/tiles/stamps/oak_b_r0c2.png"
+   ],
+   [
+    "art/final/tiles/stamps/oak_b_r1c0.png",
+    "art/final/tiles/stamps/oak_b_r1c1.png",
+    "art/final/tiles/stamps/oak_b_r1c2.png"
+   ],
+   [
+    "art/final/tiles/stamps/oak_b_r2c0.png",
+    "art/final/tiles/stamps/oak_b_r2c1.png",
+    "art/final/tiles/stamps/oak_b_r2c2.png"
+   ]
+  ]
+ },
+ "birch_a": {
+  "cols": 2,
+  "rows": 3,
+  "source": "art/final/obj_tree_birch.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/birch_a_r0c0.png",
+    "art/final/tiles/stamps/birch_a_r0c1.png"
+   ],
+   [
+    "art/final/tiles/stamps/birch_a_r1c0.png",
+    "art/final/tiles/stamps/birch_a_r1c1.png"
+   ],
+   [
+    "art/final/tiles/stamps/birch_a_r2c0.png",
+    "art/final/tiles/stamps/birch_a_r2c1.png"
+   ]
+  ]
+ },
+ "bush_a": {
+  "cols": 2,
+  "rows": 2,
+  "source": "art/final/obj_bush_ns1.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/bush_a_r0c0.png",
+    "art/final/tiles/stamps/bush_a_r0c1.png"
+   ],
+   [
+    "art/final/tiles/stamps/bush_a_r1c0.png",
+    "art/final/tiles/stamps/bush_a_r1c1.png"
+   ]
+  ]
+ },
+ "bush_b": {
+  "cols": 2,
+  "rows": 2,
+  "source": "art/final/obj_bush_ns2.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/bush_b_r0c0.png",
+    "art/final/tiles/stamps/bush_b_r0c1.png"
+   ],
+   [
+    "art/final/tiles/stamps/bush_b_r1c0.png",
+    "art/final/tiles/stamps/bush_b_r1c1.png"
+   ]
+  ]
+ },
+ "standing_stone": {
+  "cols": 2,
+  "rows": 2,
+  "source": "art/final/obj_standing_stone_ns.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/standing_stone_r0c0.png",
+    "art/final/tiles/stamps/standing_stone_r0c1.png"
+   ],
+   [
+    "art/final/tiles/stamps/standing_stone_r1c0.png",
+    "art/final/tiles/stamps/standing_stone_r1c1.png"
+   ]
+  ]
+ },
+ "flowers_a": {
+  "cols": 1,
+  "rows": 1,
+  "source": "art/final/obj_flowers_ns1.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/flowers_a_r0c0.png"
+   ]
+  ]
+ },
+ "flowers_b": {
+  "cols": 1,
+  "rows": 1,
+  "source": "art/final/obj_flowers_ns2.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/flowers_b_r0c0.png"
+   ]
+  ]
+ },
+ "flowers_c": {
+  "cols": 1,
+  "rows": 1,
+  "source": "art/final/obj_flowers_ns3.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/flowers_c_r0c0.png"
+   ]
+  ]
+ },
+ "flowers_d": {
+  "cols": 1,
+  "rows": 1,
+  "source": "art/final/obj_flowers_ns4.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/flowers_d_r0c0.png"
+   ]
+  ]
+ },
+ "flowers_e": {
+  "cols": 1,
+  "rows": 1,
+  "source": "art/final/obj_flowers_ns5.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/flowers_e_r0c0.png"
+   ]
+  ]
+ }
+}

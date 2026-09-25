@@ -1,0 +1,7 @@
+{
+ "tile": 16,
+ "tiles": {
+  "fence_m": "art/final/tiles/fence16/fence_m.png",
+  "fence_end": "art/final/tiles/fence16/fence_end.png"
+ }
+}

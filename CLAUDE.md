@@ -79,6 +79,8 @@ afterflow/
 │   ├── fill_variants.py    # flip/rotate a fill tile into 8 variants
 │   ├── hair_ramp.py        # clean 3-tone hair ramp (Awa, Art Bible §4.3)
 │   ├── paint_cottage16.py  # paint a 16px-kit cottage into a mock layout
+│   ├── make_stamp.py       # prop sprite -> fixed 16px tile stamp
+│   ├── paint_tiles.py      # paint stamps and fence runs into a mock layout
 │   ├── build_cottage.py    # (superseded) slice-based cottages
 │   ├── cut_prop.py         # cut a prop out of a scene (flood-fills the background)
 │   ├── kits/               # slice kits (e.g. cottage_ns.json)
@@ -121,6 +123,7 @@ Install the dependency with `python -m pip install -r tools/requirements.txt`. E
 - **`tools/compose_mock.py`**: composes approved `art/final/` assets into an exact **320×180** image, exports it at both 1× and 6× (nearest-neighbour; `--legacy` uses the v0.x 480×270 / 32px setup, for layouts restored from git history), and has an optional **`--drain`** flag that simulates the drain (a shift towards cold blue-grey with desaturation).
 - **`tools/recolour.py`**: swaps exact colours in `art/final/` sprites, for fixing one element PixelLab keeps getting wrong. Record every mapping in the manifest.
 - **`tools/wang_layout.py`**: turns a PixelLab Wang tileset (sheet + metadata JSON) and a text terrain map into a `compose_mock.py` layout. It can scatter fill variants at random, to preview Godot's alternative tiles.
+- **`tools/make_stamp.py`** / **`tools/paint_tiles.py`**: turn a prop into a fixed 16px tile stamp (registry `tools/kits/stamps.json`) and paint stamps or fence runs (`tools/kits/fence16.json`) into a mock layout as grid cells.
 - **`tools/paint_cottage16.py`**: paints a cottage from the 16px kit (`tools/kits/cottage16.json`, built by `tools/kits/make_cottage16.py`) into a mock layout as grid cells: roof nine-slice of any depth, 2-row wall with l/m/r, windows and door, chimney stamps.
 - **`tools/build_cottage.py`** (superseded by the 16px kit): assembles a cottage of any length from vertical slices cut from the north star (`tools/kits/cottage_ns.json`): pick the order of end, wall, window, door and chimney slices.
 - **`tools/cut_prop.py`**: cuts a prop (bush, fence, stone, whole building) out of a scene onto transparency by flood-filling the background inwards from the crop edge; `--largest` drops detached scraps.
