@@ -13,8 +13,10 @@ Usage:
 Arguments after the output are slice names, left to right. Start with end_l
 and finish with end_r. --chimney X places the kit's chimney piece on the
 ridge with its left edge X pixels from the cottage's left edge (repeatable;
-omit for no chimney). --recolour applies exact colour swaps to the result,
-using palette colours only.
+omit for no chimney). --roof FROM=TO recolours only the kit's slate rows
+(roof_rows), so walls and windows are never touched: e.g. --roof 625565=9e4539
+3e3546=6e2727 for red clay tiles. --recolour applies exact colour swaps to the
+whole result. Palette colours only.
 """
 
 import argparse
@@ -39,6 +41,8 @@ def main():
     parser.add_argument("slices", nargs="+", help="slice names, left to right")
     parser.add_argument("--chimney", type=int, action="append", default=[], metavar="X",
                         help="place a chimney with its left edge X px from the left")
+    parser.add_argument("--roof", nargs="+", default=[], metavar="FROM=TO",
+                        help="colour swaps limited to the slate rows")
     parser.add_argument("--recolour", nargs="+", default=[], metavar="FROM=TO")
     args = parser.parse_args()
 
@@ -63,6 +67,21 @@ def main():
             if not 0 <= cx <= width - chimney.width:
                 sys.exit(f"--chimney {cx} is off the roof (0..{width - chimney.width})")
             cottage.alpha_composite(chimney, (cx, kit["chimney"]["y"]))
+
+    if args.roof:
+        if "roof_rows" not in kit:
+            sys.exit("This kit has no roof_rows")
+        roof = {}
+        for pair in args.roof:
+            source, target = pair.split("=", 1)
+            roof[parse_colour(source)] = parse_colour(target)
+        pixels = cottage.load()
+        top, bottom = kit["roof_rows"]
+        for y in range(top, bottom + 1):
+            for x in range(cottage.width):
+                r, g, b, a = pixels[x, y]
+                if a and (r, g, b) in roof:
+                    pixels[x, y] = roof[(r, g, b)] + (a,)
 
     swaps = {}
     for pair in args.recolour:

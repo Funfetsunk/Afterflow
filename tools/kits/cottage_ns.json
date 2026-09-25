@@ -16,5 +16,9 @@
   "image": "art/final/obj_cottage_chimney_piece.png",
   "y": 4,
   "original_x": 57
- }
+ },
+ "roof_rows": [
+  31,
+  61
+ ]
 }
