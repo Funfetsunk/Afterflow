@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "godot-mcp-pro": {
+      "command": "node",
+      "args": ["C:/Users/evans/Documents/Dev/godot-mcp-pro-v1.17.1/server/build/index.js"]
+    },
+    "pixellab": {
+      "type": "http",
+      "url": "https://api.pixellab.ai/mcp",
+      "headers": {
+        "Authorization": "Bearer ${PIXELLAB_API_TOKEN}"
+      }
+    }
+  }
+}

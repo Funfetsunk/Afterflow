@@ -1,0 +1,16 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Mood references: never committed, never sent to PixelLab
+art/reference/
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Godot MCP Pro is a paid plugin: install it locally, never commit it
+addons/godot_mcp/
