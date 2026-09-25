@@ -1,0 +1,2795 @@
+{
+ "background": "#2e222f",
+ "items": [
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    0,
+    0
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    1,
+    0
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns1.png",
+   "cell": [
+    2,
+    0
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns2.png",
+   "cell": [
+    3,
+    0
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    4,
+    0
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    5,
+    0
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns3.png",
+   "cell": [
+    6,
+    0
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    7,
+    0
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    8,
+    0
+   ],
+   "crop": [
+    16,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    9,
+    0
+   ],
+   "crop": [
+    0,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    10,
+    0
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns6.png",
+   "cell": [
+    11,
+    0
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    12,
+    0
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    13,
+    0
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    14,
+    0
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    15,
+    0
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns7.png",
+   "cell": [
+    16,
+    0
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    17,
+    0
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    18,
+    0
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    19,
+    0
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns5.png",
+   "cell": [
+    0,
+    1
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    1,
+    1
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns2.png",
+   "cell": [
+    2,
+    1
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    3,
+    1
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns0.png",
+   "cell": [
+    4,
+    1
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns2.png",
+   "cell": [
+    5,
+    1
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns5.png",
+   "cell": [
+    6,
+    1
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    7,
+    1
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    8,
+    1
+   ],
+   "crop": [
+    16,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    9,
+    1
+   ],
+   "crop": [
+    48,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    10,
+    1
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns7.png",
+   "cell": [
+    11,
+    1
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    12,
+    1
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    13,
+    1
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    14,
+    1
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    15,
+    1
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    16,
+    1
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns7.png",
+   "cell": [
+    17,
+    1
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns6.png",
+   "cell": [
+    18,
+    1
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    19,
+    1
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    0,
+    2
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    1,
+    2
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    2,
+    2
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    3,
+    2
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    4,
+    2
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    5,
+    2
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns7.png",
+   "cell": [
+    6,
+    2
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    7,
+    2
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    8,
+    2
+   ],
+   "crop": [
+    16,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    9,
+    2
+   ],
+   "crop": [
+    48,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    10,
+    2
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    11,
+    2
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    12,
+    2
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    13,
+    2
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    14,
+    2
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns5.png",
+   "cell": [
+    15,
+    2
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    16,
+    2
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    17,
+    2
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    18,
+    2
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    19,
+    2
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    0,
+    3
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    1,
+    3
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns6.png",
+   "cell": [
+    2,
+    3
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns3.png",
+   "cell": [
+    3,
+    3
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    4,
+    3
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns1.png",
+   "cell": [
+    5,
+    3
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    6,
+    3
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns0.png",
+   "cell": [
+    7,
+    3
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    8,
+    3
+   ],
+   "crop": [
+    16,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    9,
+    3
+   ],
+   "crop": [
+    32,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    10,
+    3
+   ],
+   "crop": [
+    0,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    11,
+    3
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns1.png",
+   "cell": [
+    12,
+    3
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns0.png",
+   "cell": [
+    13,
+    3
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns3.png",
+   "cell": [
+    14,
+    3
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    15,
+    3
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    16,
+    3
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    17,
+    3
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns4.png",
+   "cell": [
+    18,
+    3
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns3.png",
+   "cell": [
+    19,
+    3
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    0,
+    4
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns0.png",
+   "cell": [
+    1,
+    4
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns5.png",
+   "cell": [
+    2,
+    4
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns0.png",
+   "cell": [
+    3,
+    4
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns1.png",
+   "cell": [
+    4,
+    4
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns0.png",
+   "cell": [
+    5,
+    4
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns2.png",
+   "cell": [
+    6,
+    4
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    7,
+    4
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    8,
+    4
+   ],
+   "crop": [
+    0,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    9,
+    4
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    10,
+    4
+   ],
+   "crop": [
+    32,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    11,
+    4
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    12,
+    4
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    13,
+    4
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    14,
+    4
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    15,
+    4
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    16,
+    4
+   ],
+   "crop": [
+    0,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns2.png",
+   "cell": [
+    17,
+    4
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    18,
+    4
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns0.png",
+   "cell": [
+    19,
+    4
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    0,
+    5
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns0.png",
+   "cell": [
+    1,
+    5
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns1.png",
+   "cell": [
+    2,
+    5
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns7.png",
+   "cell": [
+    3,
+    5
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns7.png",
+   "cell": [
+    4,
+    5
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    5,
+    5
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    6,
+    5
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns4.png",
+   "cell": [
+    7,
+    5
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    8,
+    5
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    9,
+    5
+   ],
+   "crop": [
+    16,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    10,
+    5
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    11,
+    5
+   ],
+   "crop": [
+    16,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    12,
+    5
+   ],
+   "crop": [
+    16,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    13,
+    5
+   ],
+   "crop": [
+    16,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    14,
+    5
+   ],
+   "crop": [
+    16,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    15,
+    5
+   ],
+   "crop": [
+    16,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    16,
+    5
+   ],
+   "crop": [
+    48,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    17,
+    5
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    18,
+    5
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    19,
+    5
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns5.png",
+   "cell": [
+    0,
+    6
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    1,
+    6
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns2.png",
+   "cell": [
+    2,
+    6
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    3,
+    6
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    4,
+    6
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    5,
+    6
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns5.png",
+   "cell": [
+    6,
+    6
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns6.png",
+   "cell": [
+    7,
+    6
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    8,
+    6
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    9,
+    6
+   ],
+   "crop": [
+    16,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    10,
+    6
+   ],
+   "crop": [
+    48,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    11,
+    6
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    12,
+    6
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    13,
+    6
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns2.png",
+   "cell": [
+    14,
+    6
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns1.png",
+   "cell": [
+    15,
+    6
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    16,
+    6
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns0.png",
+   "cell": [
+    17,
+    6
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    18,
+    6
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns7.png",
+   "cell": [
+    19,
+    6
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns1.png",
+   "cell": [
+    0,
+    7
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    1,
+    7
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    2,
+    7
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    3,
+    7
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    4,
+    7
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns6.png",
+   "cell": [
+    5,
+    7
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns0.png",
+   "cell": [
+    6,
+    7
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns6.png",
+   "cell": [
+    7,
+    7
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns1.png",
+   "cell": [
+    8,
+    7
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    9,
+    7
+   ],
+   "crop": [
+    0,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    10,
+    7
+   ],
+   "crop": [
+    48,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    11,
+    7
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns1.png",
+   "cell": [
+    12,
+    7
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns2.png",
+   "cell": [
+    13,
+    7
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    14,
+    7
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns0.png",
+   "cell": [
+    15,
+    7
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    16,
+    7
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    17,
+    7
+   ],
+   "crop": [
+    0,
+    48,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns6.png",
+   "cell": [
+    18,
+    7
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-fill_ns3.png",
+   "cell": [
+    19,
+    7
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    0,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    1,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    2,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    3,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    4,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    5,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    6,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    7,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    8,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    9,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    10,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    11,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    12,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    13,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    14,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    15,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    16,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    17,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    18,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    19,
+    8
+   ],
+   "crop": [
+    48,
+    0,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    0,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    1,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    2,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    3,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    4,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    5,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    6,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    7,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    8,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    9,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    10,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    11,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    12,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    13,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    14,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    15,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    16,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    17,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    18,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    19,
+    9
+   ],
+   "crop": [
+    48,
+    16,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    0,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    1,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    2,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    3,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    4,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    5,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    6,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    7,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    8,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    9,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    10,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    11,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    12,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    13,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    14,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    15,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    16,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    17,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    18,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    19,
+    10
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    0,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    1,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    2,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    3,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    4,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    5,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    6,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    7,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    8,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    9,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    10,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    11,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    12,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    13,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    14,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    15,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    16,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    17,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    18,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-water_opt2_ns.png",
+   "cell": [
+    19,
+    11
+   ],
+   "crop": [
+    32,
+    32,
+    16,
+    16
+   ]
+  }
+ ]
+}

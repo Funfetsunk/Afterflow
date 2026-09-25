@@ -23,6 +23,16 @@ Then: python tools/compose_mock.py out.json
 terrain (e.g. '~' = water, next to '#' = path, both against grass '.'). A cell
 may mix '.' with one lower terrain only; '#' and '~' must not touch.
 --extra-variants PNG... scatters alternatives on full cells of the extra terrain.
+
+Cliff tilesets (transition_size 1.0, 25 tiles) carry 'transition' corners for the
+ledge face, which sits in the row of cells below the terrain boundary. Mark those
+vertices '=' in the map (they belong to the --extra tileset, or the main one if
+there is no --extra).
+
+--ledge-pairs PREFIX uses PREFIX_top<k>.png / PREFIX_bot<k>.png (cut from the north
+star) on straight ledge runs: a random pair k per column, top half on the cell with
+corners (upper, upper, transition, transition), bottom half on the cell below it.
+Corners and ends still come from the tileset.
 """
 
 import argparse
@@ -47,6 +57,8 @@ def main():
                         help="second tileset for another lower terrain")
     parser.add_argument("--extra-variants", nargs="+", default=[], metavar="PNG",
                         help="alternative full tiles for the extra terrain")
+    parser.add_argument("--ledge-pairs", metavar="PREFIX",
+                        help="matched top/bottom ledge tiles for straight ledge runs")
     parser.add_argument("--variant-chance", type=float, default=0.35,
                         help="chance a full cell uses a variant (default 0.35)")
     parser.add_argument("--seed", type=int, default=1)
@@ -74,19 +86,39 @@ def main():
 
     rng = random.Random(args.seed)
     items = []
+    pairs = 0
+    if args.ledge_pairs:
+        while Path(f"{args.ledge_pairs}_top{pairs}.png").is_file():
+            pairs += 1
+        if not pairs:
+            sys.exit(f"No ledge pairs found at {args.ledge_pairs}_top0.png")
+    pending_bottom = {}  # column -> pair index chosen for the ledge top above it
+    ledge_top = ("upper", "upper", "transition", "transition")
+    ledge_bottom = ("transition", "transition", "lower", "lower")
     for r in range(len(rows) - 1):
         for c in range(len(rows[0]) - 1):
             chars = (rows[r][c], rows[r][c + 1], rows[r + 1][c], rows[r + 1][c + 1])
-            lowers = {ch for ch in chars if ch != "."}
+            lowers = {ch for ch in chars if ch not in ".="}
             if len(lowers) > 1:
                 sys.exit(f"Cell {c},{r} mixes two lower terrains {sorted(lowers)}; keep grass between them")
-            lower = lowers.pop() if lowers else "#"
+            ledge_owner = args.extra[0] if args.extra else "#"
+            lower = lowers.pop() if lowers else (ledge_owner if "=" in chars else "#")
+            if "=" in chars and lower != ledge_owner:
+                sys.exit(f"Cell {c},{r}: a ledge '=' touches {lower!r}, which has no cliff tiles")
             if lower not in tilesets:
                 sys.exit(f"Unknown terrain character {lower!r}")
             sheet, lookup, lower_variants = tilesets[lower]
-            key = tuple("upper" if ch == "." else "lower" for ch in chars)
+            key = tuple("upper" if ch == "." else "transition" if ch == "=" else "lower" for ch in chars)
             if key not in lookup:
                 sys.exit(f"Tileset has no tile for corners {key}")
+            if pairs and key == ledge_top:
+                k = rng.randrange(pairs)
+                pending_bottom[c] = k
+                items.append({"image": f"{args.ledge_pairs}_top{k}.png", "cell": [c, r]})
+                continue
+            if pairs and key == ledge_bottom and c in pending_bottom:
+                items.append({"image": f"{args.ledge_pairs}_bot{pending_bottom.pop(c)}.png", "cell": [c, r]})
+                continue
             variants = {("upper",) * 4: args.fill_variants, ("lower",) * 4: lower_variants}.get(key)
             if variants and rng.random() < args.variant_chance:
                 items.append({"image": rng.choice(variants), "cell": [c, r]})

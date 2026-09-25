@@ -1,6 +1,6 @@
 # Afterflow — Asset Manifest archive: Phase 0 v1 (superseded)
 
-> Everything here was superseded by the 16-bit direction reset on 2026-09-25 (Art Bible §0). The files were deleted from `art/` on 2026-09-25 and survive in git history (commit `3dc26cf` and earlier). Kept for the lessons learned and the generation record.
+> Everything here was superseded by the 16-bit direction reset on 2026-09-25 (Art Bible §0). The files were deleted from `art/` on 2026-09-25 and survive in git history (commit `3dc26cf` and earlier). Kept for the lessons learned and the generation record. The matching PixelLab-side assets (20 characters, 12 tilesets, 2 building kits, 40 objects; exactly the IDs listed here) were deleted from Tom's PixelLab account on 2026-09-25 at his request.
 
 ## 3. Shared parameters
 
