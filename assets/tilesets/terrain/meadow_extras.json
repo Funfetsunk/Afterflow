@@ -1,0 +1,93 @@
+{
+ "tile": 16,
+ "tiles": {
+  "grass_fill_0": [
+   0,
+   0
+  ],
+  "grass_fill_1": [
+   1,
+   0
+  ],
+  "grass_fill_2": [
+   2,
+   0
+  ],
+  "grass_fill_3": [
+   3,
+   0
+  ],
+  "grass_fill_4": [
+   4,
+   0
+  ],
+  "grass_fill_5": [
+   5,
+   0
+  ],
+  "grass_fill_6": [
+   6,
+   0
+  ],
+  "grass_fill_7": [
+   7,
+   0
+  ],
+  "ledge_top_0": [
+   0,
+   1
+  ],
+  "ledge_top_1": [
+   1,
+   1
+  ],
+  "ledge_top_2": [
+   2,
+   1
+  ],
+  "ledge_top_3": [
+   3,
+   1
+  ],
+  "ledge_top_4": [
+   4,
+   1
+  ],
+  "ledge_top_5": [
+   5,
+   1
+  ],
+  "ledge_top_6": [
+   6,
+   1
+  ],
+  "ledge_bot_0": [
+   7,
+   1
+  ],
+  "ledge_bot_1": [
+   0,
+   2
+  ],
+  "ledge_bot_2": [
+   1,
+   2
+  ],
+  "ledge_bot_3": [
+   2,
+   2
+  ],
+  "ledge_bot_4": [
+   3,
+   2
+  ],
+  "ledge_bot_5": [
+   4,
+   2
+  ],
+  "ledge_bot_6": [
+   5,
+   2
+  ]
+ }
+}

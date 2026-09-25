@@ -1,0 +1,341 @@
+{
+ "tile": 16,
+ "tiles": {
+  "ruin_end_l_a_bot": [
+   0,
+   0
+  ],
+  "ruin_end_l_a_shadow_bot": [
+   1,
+   0
+  ],
+  "ruin_end_l_a_shadow_top": [
+   2,
+   0
+  ],
+  "ruin_end_l_a_top": [
+   3,
+   0
+  ],
+  "ruin_end_l_b_bot": [
+   4,
+   0
+  ],
+  "ruin_end_l_b_shadow_bot": [
+   5,
+   0
+  ],
+  "ruin_end_l_b_shadow_top": [
+   6,
+   0
+  ],
+  "ruin_end_l_b_top": [
+   7,
+   0
+  ],
+  "ruin_end_l_c_bot": [
+   0,
+   1
+  ],
+  "ruin_end_l_c_shadow_bot": [
+   1,
+   1
+  ],
+  "ruin_end_l_c_shadow_top": [
+   2,
+   1
+  ],
+  "ruin_end_l_c_top": [
+   3,
+   1
+  ],
+  "ruin_end_r_a_bot": [
+   4,
+   1
+  ],
+  "ruin_end_r_a_shadow_bot": [
+   5,
+   1
+  ],
+  "ruin_end_r_a_shadow_top": [
+   6,
+   1
+  ],
+  "ruin_end_r_a_top": [
+   7,
+   1
+  ],
+  "ruin_end_r_b_bot": [
+   0,
+   2
+  ],
+  "ruin_end_r_b_shadow_bot": [
+   1,
+   2
+  ],
+  "ruin_end_r_b_shadow_top": [
+   2,
+   2
+  ],
+  "ruin_end_r_b_top": [
+   3,
+   2
+  ],
+  "ruin_end_r_c_bot": [
+   4,
+   2
+  ],
+  "ruin_end_r_c_shadow_bot": [
+   5,
+   2
+  ],
+  "ruin_end_r_c_shadow_top": [
+   6,
+   2
+  ],
+  "ruin_end_r_c_top": [
+   7,
+   2
+  ],
+  "ruin_full_a_bot": [
+   0,
+   3
+  ],
+  "ruin_full_a_shadow_bot": [
+   1,
+   3
+  ],
+  "ruin_full_a_shadow_top": [
+   2,
+   3
+  ],
+  "ruin_full_a_top": [
+   3,
+   3
+  ],
+  "ruin_full_b_bot": [
+   4,
+   3
+  ],
+  "ruin_full_b_shadow_bot": [
+   5,
+   3
+  ],
+  "ruin_full_b_shadow_top": [
+   6,
+   3
+  ],
+  "ruin_full_b_top": [
+   7,
+   3
+  ],
+  "ruin_full_c_bot": [
+   0,
+   4
+  ],
+  "ruin_full_c_shadow_bot": [
+   1,
+   4
+  ],
+  "ruin_full_c_shadow_top": [
+   2,
+   4
+  ],
+  "ruin_full_c_top": [
+   3,
+   4
+  ],
+  "ruin_high_a_bot": [
+   4,
+   4
+  ],
+  "ruin_high_a_shadow_bot": [
+   5,
+   4
+  ],
+  "ruin_high_a_shadow_top": [
+   6,
+   4
+  ],
+  "ruin_high_a_top": [
+   7,
+   4
+  ],
+  "ruin_high_b_bot": [
+   0,
+   5
+  ],
+  "ruin_high_b_shadow_bot": [
+   1,
+   5
+  ],
+  "ruin_high_b_shadow_top": [
+   2,
+   5
+  ],
+  "ruin_high_b_top": [
+   3,
+   5
+  ],
+  "ruin_high_c_bot": [
+   4,
+   5
+  ],
+  "ruin_high_c_shadow_bot": [
+   5,
+   5
+  ],
+  "ruin_high_c_shadow_top": [
+   6,
+   5
+  ],
+  "ruin_high_c_top": [
+   7,
+   5
+  ],
+  "ruin_low_a_bot": [
+   0,
+   6
+  ],
+  "ruin_low_a_shadow_bot": [
+   1,
+   6
+  ],
+  "ruin_low_a_shadow_top": [
+   2,
+   6
+  ],
+  "ruin_low_a_top": [
+   3,
+   6
+  ],
+  "ruin_low_b_bot": [
+   4,
+   6
+  ],
+  "ruin_low_b_shadow_bot": [
+   5,
+   6
+  ],
+  "ruin_low_b_shadow_top": [
+   6,
+   6
+  ],
+  "ruin_low_b_top": [
+   7,
+   6
+  ],
+  "ruin_low_c_bot": [
+   0,
+   7
+  ],
+  "ruin_low_c_shadow_bot": [
+   1,
+   7
+  ],
+  "ruin_low_c_shadow_top": [
+   2,
+   7
+  ],
+  "ruin_low_c_top": [
+   3,
+   7
+  ],
+  "ruin_mid_a_bot": [
+   4,
+   7
+  ],
+  "ruin_mid_a_shadow_bot": [
+   5,
+   7
+  ],
+  "ruin_mid_a_shadow_top": [
+   6,
+   7
+  ],
+  "ruin_mid_a_top": [
+   7,
+   7
+  ],
+  "ruin_mid_b_bot": [
+   0,
+   8
+  ],
+  "ruin_mid_b_shadow_bot": [
+   1,
+   8
+  ],
+  "ruin_mid_b_shadow_top": [
+   2,
+   8
+  ],
+  "ruin_mid_b_top": [
+   3,
+   8
+  ],
+  "ruin_mid_c_bot": [
+   4,
+   8
+  ],
+  "ruin_mid_c_shadow_bot": [
+   5,
+   8
+  ],
+  "ruin_mid_c_shadow_top": [
+   6,
+   8
+  ],
+  "ruin_mid_c_top": [
+   7,
+   8
+  ],
+  "ruin_stub_a_bot": [
+   0,
+   9
+  ],
+  "ruin_stub_a_shadow_bot": [
+   1,
+   9
+  ],
+  "ruin_stub_a_shadow_top": [
+   2,
+   9
+  ],
+  "ruin_stub_a_top": [
+   3,
+   9
+  ],
+  "ruin_stub_b_bot": [
+   4,
+   9
+  ],
+  "ruin_stub_b_shadow_bot": [
+   5,
+   9
+  ],
+  "ruin_stub_b_shadow_top": [
+   6,
+   9
+  ],
+  "ruin_stub_b_top": [
+   7,
+   9
+  ],
+  "ruin_stub_c_bot": [
+   0,
+   10
+  ],
+  "ruin_stub_c_shadow_bot": [
+   1,
+   10
+  ],
+  "ruin_stub_c_shadow_top": [
+   2,
+   10
+  ],
+  "ruin_stub_c_top": [
+   3,
+   10
+  ]
+ }
+}

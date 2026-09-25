@@ -1,0 +1,205 @@
+{
+ "tile": 16,
+ "stamps": {
+  "gable_d2": {
+   "origin": [
+    0,
+    0
+   ],
+   "size": [
+    5,
+    7
+   ]
+  },
+  "gable_d1": {
+   "origin": [
+    5,
+    0
+   ],
+   "size": [
+    5,
+    6
+   ]
+  },
+  "gable_d0": {
+   "origin": [
+    10,
+    0
+   ],
+   "size": [
+    5,
+    5
+   ]
+  },
+  "ford": {
+   "origin": [
+    0,
+    7
+   ],
+   "size": [
+    3,
+    4
+   ]
+  },
+  "birch_a": {
+   "origin": [
+    3,
+    7
+   ],
+   "size": [
+    2,
+    3
+   ]
+  },
+  "oak_a": {
+   "origin": [
+    5,
+    7
+   ],
+   "size": [
+    3,
+    3
+   ]
+  },
+  "oak_b": {
+   "origin": [
+    8,
+    7
+   ],
+   "size": [
+    3,
+    3
+   ]
+  },
+  "shrine_monolith": {
+   "origin": [
+    11,
+    7
+   ],
+   "size": [
+    2,
+    3
+   ]
+  },
+  "bush_a": {
+   "origin": [
+    13,
+    7
+   ],
+   "size": [
+    2,
+    2
+   ]
+  },
+  "bush_b": {
+   "origin": [
+    0,
+    11
+   ],
+   "size": [
+    2,
+    2
+   ]
+  },
+  "standing_stone": {
+   "origin": [
+    2,
+    11
+   ],
+   "size": [
+    2,
+    2
+   ]
+  },
+  "flowers_a": {
+   "origin": [
+    4,
+    11
+   ],
+   "size": [
+    1,
+    1
+   ]
+  },
+  "flowers_b": {
+   "origin": [
+    5,
+    11
+   ],
+   "size": [
+    1,
+    1
+   ]
+  },
+  "flowers_c": {
+   "origin": [
+    6,
+    11
+   ],
+   "size": [
+    1,
+    1
+   ]
+  },
+  "flowers_d": {
+   "origin": [
+    7,
+    11
+   ],
+   "size": [
+    1,
+    1
+   ]
+  },
+  "flowers_e": {
+   "origin": [
+    8,
+    11
+   ],
+   "size": [
+    1,
+    1
+   ]
+  },
+  "rubble_a": {
+   "origin": [
+    9,
+    11
+   ],
+   "size": [
+    1,
+    1
+   ]
+  },
+  "rubble_b": {
+   "origin": [
+    10,
+    11
+   ],
+   "size": [
+    1,
+    1
+   ]
+  },
+  "rubble_c": {
+   "origin": [
+    11,
+    11
+   ],
+   "size": [
+    1,
+    1
+   ]
+  },
+  "rubble_pile": {
+   "origin": [
+    12,
+    11
+   ],
+   "size": [
+    2,
+    1
+   ]
+  }
+ }
+}
