@@ -216,5 +216,179 @@
     "art/final/tiles/stamps/shrine_monolith_r2c1.png"
    ]
   ]
+ },
+ "ford": {
+  "cols": 3,
+  "rows": 4,
+  "source": "art/final/obj_ford16.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/ford_r0c0.png",
+    "art/final/tiles/stamps/ford_r0c1.png",
+    "art/final/tiles/stamps/ford_r0c2.png"
+   ],
+   [
+    "art/final/tiles/stamps/ford_r1c0.png",
+    "art/final/tiles/stamps/ford_r1c1.png",
+    "art/final/tiles/stamps/ford_r1c2.png"
+   ],
+   [
+    "art/final/tiles/stamps/ford_r2c0.png",
+    "art/final/tiles/stamps/ford_r2c1.png",
+    "art/final/tiles/stamps/ford_r2c2.png"
+   ],
+   [
+    "art/final/tiles/stamps/ford_r3c0.png",
+    "art/final/tiles/stamps/ford_r3c1.png",
+    "art/final/tiles/stamps/ford_r3c2.png"
+   ]
+  ]
+ },
+ "gable_d0": {
+  "cols": 5,
+  "rows": 5,
+  "source": "art/final/obj_gable16_d0.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/gable_d0_r0c0.png",
+    "art/final/tiles/stamps/gable_d0_r0c1.png",
+    "art/final/tiles/stamps/gable_d0_r0c2.png",
+    "art/final/tiles/stamps/gable_d0_r0c3.png",
+    "art/final/tiles/stamps/gable_d0_r0c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/gable_d0_r1c0.png",
+    "art/final/tiles/stamps/gable_d0_r1c1.png",
+    "art/final/tiles/stamps/gable_d0_r1c2.png",
+    "art/final/tiles/stamps/gable_d0_r1c3.png",
+    "art/final/tiles/stamps/gable_d0_r1c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/gable_d0_r2c0.png",
+    "art/final/tiles/stamps/gable_d0_r2c1.png",
+    "art/final/tiles/stamps/gable_d0_r2c2.png",
+    "art/final/tiles/stamps/gable_d0_r2c3.png",
+    "art/final/tiles/stamps/gable_d0_r2c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/gable_d0_r3c0.png",
+    "art/final/tiles/stamps/gable_d0_r3c1.png",
+    "art/final/tiles/stamps/gable_d0_r3c2.png",
+    "art/final/tiles/stamps/gable_d0_r3c3.png",
+    "art/final/tiles/stamps/gable_d0_r3c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/gable_d0_r4c0.png",
+    "art/final/tiles/stamps/gable_d0_r4c1.png",
+    "art/final/tiles/stamps/gable_d0_r4c2.png",
+    "art/final/tiles/stamps/gable_d0_r4c3.png",
+    "art/final/tiles/stamps/gable_d0_r4c4.png"
+   ]
+  ]
+ },
+ "gable_d1": {
+  "cols": 5,
+  "rows": 6,
+  "source": "art/final/obj_gable16_d1.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/gable_d1_r0c0.png",
+    "art/final/tiles/stamps/gable_d1_r0c1.png",
+    "art/final/tiles/stamps/gable_d1_r0c2.png",
+    "art/final/tiles/stamps/gable_d1_r0c3.png",
+    "art/final/tiles/stamps/gable_d1_r0c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/gable_d1_r1c0.png",
+    "art/final/tiles/stamps/gable_d1_r1c1.png",
+    "art/final/tiles/stamps/gable_d1_r1c2.png",
+    "art/final/tiles/stamps/gable_d1_r1c3.png",
+    "art/final/tiles/stamps/gable_d1_r1c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/gable_d1_r2c0.png",
+    "art/final/tiles/stamps/gable_d1_r2c1.png",
+    "art/final/tiles/stamps/gable_d1_r2c2.png",
+    "art/final/tiles/stamps/gable_d1_r2c3.png",
+    "art/final/tiles/stamps/gable_d1_r2c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/gable_d1_r3c0.png",
+    "art/final/tiles/stamps/gable_d1_r3c1.png",
+    "art/final/tiles/stamps/gable_d1_r3c2.png",
+    "art/final/tiles/stamps/gable_d1_r3c3.png",
+    "art/final/tiles/stamps/gable_d1_r3c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/gable_d1_r4c0.png",
+    "art/final/tiles/stamps/gable_d1_r4c1.png",
+    "art/final/tiles/stamps/gable_d1_r4c2.png",
+    "art/final/tiles/stamps/gable_d1_r4c3.png",
+    "art/final/tiles/stamps/gable_d1_r4c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/gable_d1_r5c0.png",
+    "art/final/tiles/stamps/gable_d1_r5c1.png",
+    "art/final/tiles/stamps/gable_d1_r5c2.png",
+    "art/final/tiles/stamps/gable_d1_r5c3.png",
+    "art/final/tiles/stamps/gable_d1_r5c4.png"
+   ]
+  ]
+ },
+ "gable_d2": {
+  "cols": 5,
+  "rows": 7,
+  "source": "art/final/obj_gable16_d2.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/gable_d2_r0c0.png",
+    "art/final/tiles/stamps/gable_d2_r0c1.png",
+    "art/final/tiles/stamps/gable_d2_r0c2.png",
+    "art/final/tiles/stamps/gable_d2_r0c3.png",
+    "art/final/tiles/stamps/gable_d2_r0c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/gable_d2_r1c0.png",
+    "art/final/tiles/stamps/gable_d2_r1c1.png",
+    "art/final/tiles/stamps/gable_d2_r1c2.png",
+    "art/final/tiles/stamps/gable_d2_r1c3.png",
+    "art/final/tiles/stamps/gable_d2_r1c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/gable_d2_r2c0.png",
+    "art/final/tiles/stamps/gable_d2_r2c1.png",
+    "art/final/tiles/stamps/gable_d2_r2c2.png",
+    "art/final/tiles/stamps/gable_d2_r2c3.png",
+    "art/final/tiles/stamps/gable_d2_r2c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/gable_d2_r3c0.png",
+    "art/final/tiles/stamps/gable_d2_r3c1.png",
+    "art/final/tiles/stamps/gable_d2_r3c2.png",
+    "art/final/tiles/stamps/gable_d2_r3c3.png",
+    "art/final/tiles/stamps/gable_d2_r3c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/gable_d2_r4c0.png",
+    "art/final/tiles/stamps/gable_d2_r4c1.png",
+    "art/final/tiles/stamps/gable_d2_r4c2.png",
+    "art/final/tiles/stamps/gable_d2_r4c3.png",
+    "art/final/tiles/stamps/gable_d2_r4c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/gable_d2_r5c0.png",
+    "art/final/tiles/stamps/gable_d2_r5c1.png",
+    "art/final/tiles/stamps/gable_d2_r5c2.png",
+    "art/final/tiles/stamps/gable_d2_r5c3.png",
+    "art/final/tiles/stamps/gable_d2_r5c4.png"
+   ],
+   [
+    "art/final/tiles/stamps/gable_d2_r6c0.png",
+    "art/final/tiles/stamps/gable_d2_r6c1.png",
+    "art/final/tiles/stamps/gable_d2_r6c2.png",
+    "art/final/tiles/stamps/gable_d2_r6c3.png",
+    "art/final/tiles/stamps/gable_d2_r6c4.png"
+   ]
+  ]
  }
 }

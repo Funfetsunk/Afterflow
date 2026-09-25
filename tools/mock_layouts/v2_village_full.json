@@ -1705,7 +1705,7 @@
     7
    ],
    "crop": [
-    16,
+    32,
     32,
     16,
     16
@@ -1718,8 +1718,8 @@
     7
    ],
    "crop": [
+    48,
     16,
-    32,
     16,
     16
    ]
@@ -1947,10 +1947,16 @@
    ]
   },
   {
-   "image": "art/final/ts_meadow_grass-fill_ns0.png",
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
    "cell": [
     9,
     8
+   ],
+   "crop": [
+    0,
+    32,
+    16,
+    16
    ]
   },
   {
@@ -1960,14 +1966,14 @@
     8
    ],
    "crop": [
-    0,
+    48,
     48,
     16,
     16
    ]
   },
   {
-   "image": "art/final/ts_meadow_grass-fill_ns1.png",
+   "image": "art/final/ts_meadow_grass-fill_ns0.png",
    "cell": [
     11,
     8
@@ -1987,7 +1993,7 @@
    ]
   },
   {
-   "image": "art/final/ts_meadow_grass-fill_ns5.png",
+   "image": "art/final/ts_meadow_grass-fill_ns1.png",
    "cell": [
     13,
     8
@@ -2007,9 +2013,16 @@
    ]
   },
   {
-   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "image": "art/final/ts_meadow_grass-fill_ns5.png",
    "cell": [
     15,
+    8
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "cell": [
+    16,
     8
    ],
    "crop": [
@@ -2017,13 +2030,6 @@
     48,
     16,
     16
-   ]
-  },
-  {
-   "image": "art/final/ts_meadow_grass-fill_ns5.png",
-   "cell": [
-    16,
-    8
    ]
   },
   {
@@ -2040,16 +2046,10 @@
    ]
   },
   {
-   "image": "art/final/ts_meadow_grass-path_opt3_ns.png",
+   "image": "art/final/ts_meadow_grass-fill_ns5.png",
    "cell": [
     18,
     8
-   ],
-   "crop": [
-    0,
-    48,
-    16,
-    16
    ]
   },
   {
@@ -2066,7 +2066,7 @@
    ]
   },
   {
-   "image": "art/final/ts_meadow_ledge_ns_top6.png",
+   "image": "art/final/ts_meadow_ledge_ns_top4.png",
    "cell": [
     0,
     9
@@ -2080,7 +2080,7 @@
    ]
   },
   {
-   "image": "art/final/ts_meadow_ledge_ns_top1.png",
+   "image": "art/final/ts_meadow_ledge_ns_top6.png",
    "cell": [
     2,
     9
@@ -2094,119 +2094,119 @@
    ]
   },
   {
-   "image": "art/final/ts_meadow_ledge_ns_top1.png",
+   "image": "art/final/ts_meadow_ledge_ns_top6.png",
    "cell": [
     4,
     9
    ]
   },
   {
-   "image": "art/final/ts_meadow_ledge_ns_top6.png",
+   "image": "art/final/ts_meadow_ledge_ns_top1.png",
    "cell": [
     5,
+    9
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_ledge_ns_top6.png",
+   "cell": [
+    6,
+    9
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_ledge_ns_top1.png",
+   "cell": [
+    7,
+    9
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_ledge_ns_top6.png",
+   "cell": [
+    8,
     9
    ]
   },
   {
    "image": "art/final/ts_meadow_ledge_ns_top3.png",
    "cell": [
-    6,
+    9,
     9
    ]
   },
   {
    "image": "art/final/ts_meadow_ledge_ns_top5.png",
    "cell": [
-    7,
+    10,
     9
    ]
   },
   {
    "image": "art/final/ts_meadow_ledge_ns_top6.png",
    "cell": [
-    8,
+    11,
     9
    ]
   },
   {
    "image": "art/final/ts_meadow_ledge_ns_top1.png",
    "cell": [
-    9,
+    12,
     9
    ]
   },
   {
    "image": "art/final/ts_meadow_ledge_ns_top1.png",
    "cell": [
-    10,
+    13,
     9
    ]
   },
   {
    "image": "art/final/ts_meadow_ledge_ns_top4.png",
    "cell": [
-    11,
+    14,
     9
    ]
   },
   {
    "image": "art/final/ts_meadow_ledge_ns_top3.png",
    "cell": [
-    12,
+    15,
     9
    ]
   },
   {
    "image": "art/final/ts_meadow_ledge_ns_top2.png",
    "cell": [
-    13,
+    16,
     9
    ]
   },
   {
    "image": "art/final/ts_meadow_ledge_ns_top5.png",
    "cell": [
-    14,
-    9
-   ]
-  },
-  {
-   "image": "art/final/ts_meadow_ledge_ns_top0.png",
-   "cell": [
-    15,
-    9
-   ]
-  },
-  {
-   "image": "art/final/ts_meadow_ledge_ns_top0.png",
-   "cell": [
-    16,
-    9
-   ]
-  },
-  {
-   "image": "art/final/ts_meadow_ledge_ns_top6.png",
-   "cell": [
     17,
     9
    ]
   },
   {
-   "image": "art/final/ts_meadow_ledge_ns_top2.png",
+   "image": "art/final/ts_meadow_ledge_ns_top0.png",
    "cell": [
     18,
     9
    ]
   },
   {
-   "image": "art/final/ts_meadow_ledge_ns_top3.png",
+   "image": "art/final/ts_meadow_ledge_ns_top0.png",
    "cell": [
     19,
     9
    ]
   },
   {
-   "image": "art/final/ts_meadow_ledge_ns_bot6.png",
+   "image": "art/final/ts_meadow_ledge_ns_bot4.png",
    "cell": [
     0,
     10
@@ -2220,7 +2220,7 @@
    ]
   },
   {
-   "image": "art/final/ts_meadow_ledge_ns_bot1.png",
+   "image": "art/final/ts_meadow_ledge_ns_bot6.png",
    "cell": [
     2,
     10
@@ -2234,28 +2234,28 @@
    ]
   },
   {
-   "image": "art/final/ts_meadow_ledge_ns_bot1.png",
+   "image": "art/final/ts_meadow_ledge_ns_bot6.png",
    "cell": [
     4,
     10
    ]
   },
   {
-   "image": "art/final/ts_meadow_ledge_ns_bot6.png",
+   "image": "art/final/ts_meadow_ledge_ns_bot1.png",
    "cell": [
     5,
     10
    ]
   },
   {
-   "image": "art/final/ts_meadow_ledge_ns_bot3.png",
+   "image": "art/final/ts_meadow_ledge_ns_bot6.png",
    "cell": [
     6,
     10
    ]
   },
   {
-   "image": "art/final/ts_meadow_ledge_ns_bot5.png",
+   "image": "art/final/ts_meadow_ledge_ns_bot1.png",
    "cell": [
     7,
     10
@@ -2269,77 +2269,77 @@
    ]
   },
   {
-   "image": "art/final/ts_meadow_ledge_ns_bot1.png",
+   "image": "art/final/ts_meadow_ledge_ns_bot3.png",
    "cell": [
     9,
     10
    ]
   },
   {
-   "image": "art/final/ts_meadow_ledge_ns_bot1.png",
+   "image": "art/final/ts_meadow_ledge_ns_bot5.png",
    "cell": [
     10,
+    10
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_ledge_ns_bot6.png",
+   "cell": [
+    11,
+    10
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_ledge_ns_bot1.png",
+   "cell": [
+    12,
+    10
+   ]
+  },
+  {
+   "image": "art/final/ts_meadow_ledge_ns_bot1.png",
+   "cell": [
+    13,
     10
    ]
   },
   {
    "image": "art/final/ts_meadow_ledge_ns_bot4.png",
    "cell": [
-    11,
+    14,
     10
    ]
   },
   {
    "image": "art/final/ts_meadow_ledge_ns_bot3.png",
    "cell": [
-    12,
+    15,
     10
    ]
   },
   {
    "image": "art/final/ts_meadow_ledge_ns_bot2.png",
    "cell": [
-    13,
+    16,
     10
    ]
   },
   {
    "image": "art/final/ts_meadow_ledge_ns_bot5.png",
    "cell": [
-    14,
-    10
-   ]
-  },
-  {
-   "image": "art/final/ts_meadow_ledge_ns_bot0.png",
-   "cell": [
-    15,
-    10
-   ]
-  },
-  {
-   "image": "art/final/ts_meadow_ledge_ns_bot0.png",
-   "cell": [
-    16,
-    10
-   ]
-  },
-  {
-   "image": "art/final/ts_meadow_ledge_ns_bot6.png",
-   "cell": [
     17,
     10
    ]
   },
   {
-   "image": "art/final/ts_meadow_ledge_ns_bot2.png",
+   "image": "art/final/ts_meadow_ledge_ns_bot0.png",
    "cell": [
     18,
     10
    ]
   },
   {
-   "image": "art/final/ts_meadow_ledge_ns_bot3.png",
+   "image": "art/final/ts_meadow_ledge_ns_bot0.png",
    "cell": [
     19,
     10
@@ -3104,185 +3104,213 @@
    ]
   },
   {
-   "image": "art/final/tiles/cottage16/roof_top_l.png",
+   "image": "art/final/tiles/stamps/gable_d1_r0c0.png",
    "cell": [
     1,
-    1
+    0
    ]
   },
   {
-   "image": "art/final/tiles/cottage16/roof_top_m.png",
+   "image": "art/final/tiles/stamps/gable_d1_r0c1.png",
    "cell": [
     2,
-    1
+    0
    ]
   },
   {
-   "image": "art/final/tiles/cottage16/roof_top_m.png",
-   "cell": [
-    3,
-    1
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/roof_top_r.png",
-   "cell": [
-    4,
-    1
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/roof_mid_l.png",
-   "cell": [
-    1,
-    2
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/roof_mid_m.png",
-   "cell": [
-    2,
-    2
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/roof_mid_m.png",
-   "cell": [
-    3,
-    2
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/roof_mid_r.png",
-   "cell": [
-    4,
-    2
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/roof_bot_l.png",
-   "cell": [
-    1,
-    3
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/roof_bot_m.png",
-   "cell": [
-    2,
-    3
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/roof_bot_m.png",
-   "cell": [
-    3,
-    3
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/roof_bot_r.png",
-   "cell": [
-    4,
-    3
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/wall_l_top.png",
-   "cell": [
-    1,
-    4
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/wall_l_bot.png",
-   "cell": [
-    1,
-    5
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/window_big_top.png",
-   "cell": [
-    2,
-    4
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/window_big_bot.png",
-   "cell": [
-    2,
-    5
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/door_top.png",
-   "cell": [
-    3,
-    4
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/door_bot.png",
-   "cell": [
-    3,
-    5
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/wall_r_top.png",
-   "cell": [
-    4,
-    4
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/wall_r_bot.png",
-   "cell": [
-    4,
-    5
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/shadow_roof_mid.png",
-   "cell": [
-    5,
-    2
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/shadow_roof_bot_full.png",
-   "cell": [
-    5,
-    3
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/shadow_wall_top.png",
-   "cell": [
-    5,
-    4
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/shadow_wall_bot.png",
-   "cell": [
-    5,
-    5
-   ]
-  },
-  {
-   "image": "art/final/tiles/cottage16/chimney_1.png",
+   "image": "art/final/tiles/stamps/gable_d1_r0c2.png",
    "cell": [
     3,
     0
    ]
   },
   {
-   "image": "art/final/tiles/cottage16/chimney_2.png",
+   "image": "art/final/tiles/stamps/gable_d1_r0c3.png",
+   "cell": [
+    4,
+    0
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r0c4.png",
+   "cell": [
+    5,
+    0
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r1c0.png",
+   "cell": [
+    1,
+    1
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r1c1.png",
+   "cell": [
+    2,
+    1
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r1c2.png",
    "cell": [
     3,
     1
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r1c3.png",
+   "cell": [
+    4,
+    1
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r1c4.png",
+   "cell": [
+    5,
+    1
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r2c0.png",
+   "cell": [
+    1,
+    2
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r2c1.png",
+   "cell": [
+    2,
+    2
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r2c2.png",
+   "cell": [
+    3,
+    2
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r2c3.png",
+   "cell": [
+    4,
+    2
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r2c4.png",
+   "cell": [
+    5,
+    2
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r3c0.png",
+   "cell": [
+    1,
+    3
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r3c1.png",
+   "cell": [
+    2,
+    3
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r3c2.png",
+   "cell": [
+    3,
+    3
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r3c3.png",
+   "cell": [
+    4,
+    3
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r3c4.png",
+   "cell": [
+    5,
+    3
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r4c0.png",
+   "cell": [
+    1,
+    4
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r4c1.png",
+   "cell": [
+    2,
+    4
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r4c2.png",
+   "cell": [
+    3,
+    4
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r4c3.png",
+   "cell": [
+    4,
+    4
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r4c4.png",
+   "cell": [
+    5,
+    4
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r5c0.png",
+   "cell": [
+    1,
+    5
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r5c1.png",
+   "cell": [
+    2,
+    5
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r5c2.png",
+   "cell": [
+    3,
+    5
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r5c3.png",
+   "cell": [
+    4,
+    5
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/gable_d1_r5c4.png",
+   "cell": [
+    5,
+    5
    ]
   },
   {
@@ -3615,6 +3643,90 @@
    ]
   },
   {
+   "image": "art/final/tiles/stamps/ford_r0c0.png",
+   "cell": [
+    9,
+    8
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/ford_r0c1.png",
+   "cell": [
+    10,
+    8
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/ford_r0c2.png",
+   "cell": [
+    11,
+    8
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/ford_r1c0.png",
+   "cell": [
+    9,
+    9
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/ford_r1c1.png",
+   "cell": [
+    10,
+    9
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/ford_r1c2.png",
+   "cell": [
+    11,
+    9
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/ford_r2c0.png",
+   "cell": [
+    9,
+    10
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/ford_r2c1.png",
+   "cell": [
+    10,
+    10
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/ford_r2c2.png",
+   "cell": [
+    11,
+    10
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/ford_r3c0.png",
+   "cell": [
+    9,
+    11
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/ford_r3c1.png",
+   "cell": [
+    10,
+    11
+   ]
+  },
+  {
+   "image": "art/final/tiles/stamps/ford_r3c2.png",
+   "cell": [
+    11,
+    11
+   ]
+  },
+  {
    "image": "art/final/tiles/fence16/fence_m.png",
    "cell": [
     9,
@@ -3722,7 +3834,7 @@
   {
    "image": "art/final/tiles/stamps/flowers_c_r0c0.png",
    "cell": [
-    11,
+    12,
     8
    ]
   },
@@ -3772,8 +3884,8 @@
   {
    "image": "art/final/enm_meadow01_s.png",
    "at": [
-    150,
-    124
+    118,
+    122
    ]
   }
  ]

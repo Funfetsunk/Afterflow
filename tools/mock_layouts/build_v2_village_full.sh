@@ -2,7 +2,7 @@
 # Rebuild the full village mock (Phase 0 exit mock) from approved assets only.
 # Composition follows the north star (art/mocks/review_north_star_r2_mix_6x.png):
 # a row of oaks cut off by the top edge, deep-roofed cottages, 1-tile lanes,
-# grass band above the river ledge. Run from the project root.
+# grass band above the river ledge, gable-end cottage, lane crossing the ledge. Run from the project root.
 set -e
 L=tools/mock_layouts/v2_village_full.json
 rm -f $L
@@ -17,11 +17,13 @@ python tools/wang_layout.py art/raw/ts_meadow_grass-path_opt3.json art/final/ts_
 for t in "oak_a -1 1" "oak_b 4 1" "oak_b 8 1" "oak_a 11 1" "oak_b 14 1" "oak_a 18 1"; do
   python tools/paint_tiles.py $L stamp $t
 done
-python tools/paint_cottage16.py $L --at 1 1 --walls l window_big door r --roof 3 --chimney 2
+python tools/paint_tiles.py $L stamp gable_d1 1 5
 python tools/paint_cottage16.py $L --at 11 1 --walls l window_big m window_small door window_small r --roof 3 --chimney 3
 python tools/paint_tiles.py $L stamp shrine_monolith 9 4
+# the lane runs on down through the river ledge (north-star crossing)
+python tools/paint_tiles.py $L stamp ford 9 11
 python tools/paint_tiles.py $L fence 9 5 2
-for s in "standing_stone 1 8" "bush_a 4 8" "bush_b 13 8" "flowers_a 6 8" "flowers_c 11 8" "flowers_b 15 8" "flowers_e 19 8" "flowers_d 0 5"; do
+for s in "standing_stone 1 8" "bush_a 4 8" "bush_b 13 8" "flowers_a 6 8" "flowers_c 12 8" "flowers_b 15 8" "flowers_e 19 8" "flowers_d 0 5"; do
   python tools/paint_tiles.py $L stamp $s
 done
 python - <<'PY'
@@ -39,7 +41,7 @@ d["items"] += [
     {"image": "art/final/chr_awa_s.png", "at": [98, 58], "nodrain": True},
     {"image": "art/final/npc_villager01_w.png", "at": [230, 80]},
     {"image": "art/final/enm_meadow01_w.png", "at": [276, 124]},
-    {"image": "art/final/enm_meadow01_s.png", "at": [150, 124]},
+    {"image": "art/final/enm_meadow01_s.png", "at": [118, 122]},
 ]
 json.dump(d, open(p, "w"), indent=1)
 PY

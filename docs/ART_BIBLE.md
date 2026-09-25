@@ -1,6 +1,6 @@
 # Afterflow — Art Bible
 
-> **Status:** v0.17, provisional. **Direction reset on 2026-09-25** (see §0). Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
+> **Status:** v0.18, provisional. **Direction reset on 2026-09-25** (see §0). Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
 > **Rule:** every asset request follows this document. If an asset needs to break a rule, update this document first.
 
 ---
@@ -128,7 +128,7 @@ cosy English countryside, 16-bit SNES-era top-down adventure pixel art, bold dar
 
 ### 5.1 Meadow village (Biome 1)
 
-A small English hamlet, deliberately **smaller in scale** than a real village. Stone cottages, timber framing, slate roofs, split-rail fences, barrels, log piles, birch and oak trees, and worn dirt paths through warm olive and yellow-green grass. It should feel lived-in, cosy and golden-afternoon. **Buildings are painted from the 16px cottage kit** (`ts_cottage16`: roof nine-slice layer + 2-row wall layer with windows and door, chimney stamps, cast-shadow column; `tools/paint_cottage16.py`), so every house can have its own footprint. Houses must stay **grounded**: grass tufts over the wall base and a cast shadow on the grass to the right, with variety from arrangement and props: fences, bushes, flowers, pots, signs, log piles.
+A small English hamlet, deliberately **smaller in scale** than a real village. Stone cottages, timber framing, slate roofs, split-rail fences, barrels, log piles, birch and oak trees, and worn dirt paths through warm olive and yellow-green grass. It should feel lived-in, cosy and golden-afternoon. **Buildings are painted from the 16px cottage kit** (`ts_cottage16`: roof nine-slice layer + 2-row wall layer with windows and door, chimney stamps, cast-shadow column; `tools/paint_cottage16.py`), so every house can have its own footprint. The **gable-end cottage** (`ts_gable16`, stamps `gable_d0..d2`, 3 roof depths) adds the north star's second house type, and the **lane crossing** (`ts_ford16`, stamp `ford`) runs a lane on through the river ledge. The approved village mock (`art/mocks/v2_village_full_6x.png`, built by `tools/mock_layouts/build_v2_village_full.sh`) matches the north star's composition. Houses must stay **grounded**: grass tufts over the wall base and a cast shadow on the grass to the right, with variety from arrangement and props: fences, bushes, flowers, pots, signs, log piles.
 
 - **Grass (v0.x, superseded):** olive `a2a947` with pale `cddf6c` flecks. Keep the olive family.
 - **Terrain (16px, approved 2026-09-25):** grass `547e64` with sparse dark tufts cut from the north star; brown path `966c6c` with pale specks; rivers in `4d65b4` with a pale broken foam line under a dark earth **ledge** about 1.2 tiles tall. **Rivers run straight east–west** for now, ending at map edges or bridges, until bend tiles match the ledge height. Recipes are in the manifest.
@@ -243,3 +243,4 @@ The eeriest areas may approach cold, lonely dread. **Never** jump scares, gore o
 | 0.15 | 2026-09-25 | §5.3: ruin kit approved (weathered courses, rubble) |
 | 0.16 | 2026-09-25 | §5.3a: shrine approved (ancient-future monolith, pale cyan machine glow) |
 | 0.17 | 2026-09-25 | §7: enemy signature settled (one large white eye with a pupil); meadow mossling approved |
+| 0.18 | 2026-09-25 | §5.1: gable-end cottage stamps and lane-through-ledge crossing approved; full village mock approved against the north star |

@@ -8,6 +8,7 @@ on a grid line), splits it, and records it in tools/kits/stamps.json.
 Usage:
     python tools/make_stamp.py art/final/obj_bush_ns1.png bush_a
     python tools/make_stamp.py art/final/obj_tree_oak.png oak_a --out art/final/tiles/stamps
+    python tools/make_stamp.py art/final/obj_gable16_d1.png gable_d1 --left
 
 Writes <out>/<name>_r<row>c<col>.png and adds {"cols", "rows", "tiles"} under
 <name> in tools/kits/stamps.json. Paint with tools/paint_tiles.py stamp.
@@ -29,6 +30,8 @@ def main():
     parser.add_argument("sprite", type=Path)
     parser.add_argument("name")
     parser.add_argument("--out", type=Path, default=Path("art/final/tiles/stamps"))
+    parser.add_argument("--left", action="store_true",
+                        help="anchor bottom-left instead of bottom-centre (for sprites already drawn on the grid)")
     args = parser.parse_args()
 
     sprite = Image.open(args.sprite).convert("RGBA")
@@ -36,7 +39,8 @@ def main():
     cols = math.ceil(sprite.width / TILE)
     rows = math.ceil(sprite.height / TILE)
     canvas = Image.new("RGBA", (cols * TILE, rows * TILE), (0, 0, 0, 0))
-    canvas.alpha_composite(sprite, ((canvas.width - sprite.width) // 2, canvas.height - sprite.height))
+    x = 0 if args.left else (canvas.width - sprite.width) // 2
+    canvas.alpha_composite(sprite, (x, canvas.height - sprite.height))
 
     args.out.mkdir(parents=True, exist_ok=True)
     tiles = []
