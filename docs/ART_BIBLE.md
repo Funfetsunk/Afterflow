@@ -1,6 +1,6 @@
 # Afterflow — Art Bible
 
-> **Status:** v0.14, provisional. **Direction reset on 2026-09-25** (see §0). Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
+> **Status:** v0.15, provisional. **Direction reset on 2026-09-25** (see §0). Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
 > **Rule:** every asset request follows this document. If an asset needs to break a rule, update this document first.
 
 ---
@@ -141,6 +141,7 @@ Tall straight trunks, hazy **golden shafts of light**, dark leaf-litter floor, h
 
 Roofless stone cottages, moss-covered walls and trunks, ivy, ferns, leaf litter. People left and nature quietly moved in. It's **alive and green**, never grey.
 
+- **Ruin kit (approved 2026-09-25):** `ts_ruin16`, the cottages' own stone broken down: stone-sized broken tops with a pale cap and outline, moss and ivy, weathered darker lower courses, rubble stamps at the foot. East–west runs, painted with `tools/paint_tiles.py ... ruin`.
 - **Ruins are built from crumbled wall pieces only** (uneven tops, stepped broken ends, ivy), softened with ferns, bushes and scattered stones. **No straight, angular or modular walls** (the building-kit look was rejected). Ruins are baked or placed as objects over the meadow, with grass showing through inside. (v0.x rule; re-check once the 16-bit style is locked.)
 
 ### 5.4 Other biomes
@@ -234,3 +235,4 @@ The eeriest areas may approach cold, lonely dread. **Never** jump scares, gore o
 | 0.12 | 2026-09-25 | §5.1: buildings assembled from north-star slices (cottage kit approved) |
 | 0.13 | 2026-09-25 | §2: everything environmental is 16px tiles (autotiles, modular kits, fixed stamps) |
 | 0.14 | 2026-09-25 | §5.1: 16px cottage kit approved (separate roof/wall layers); grounding rule (tufted base, cast shadow) |
+| 0.15 | 2026-09-25 | §5.3: ruin kit approved (weathered courses, rubble) |

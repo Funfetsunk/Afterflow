@@ -156,5 +156,46 @@
     "art/final/tiles/stamps/flowers_e_r0c0.png"
    ]
   ]
+ },
+ "rubble_a": {
+  "cols": 1,
+  "rows": 1,
+  "source": "art/final/obj_rubble16_a.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/rubble_a_r0c0.png"
+   ]
+  ]
+ },
+ "rubble_b": {
+  "cols": 1,
+  "rows": 1,
+  "source": "art/final/obj_rubble16_b.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/rubble_b_r0c0.png"
+   ]
+  ]
+ },
+ "rubble_c": {
+  "cols": 1,
+  "rows": 1,
+  "source": "art/final/obj_rubble16_c.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/rubble_c_r0c0.png"
+   ]
+  ]
+ },
+ "rubble_pile": {
+  "cols": 2,
+  "rows": 1,
+  "source": "art/final/obj_rubble16_pile.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/rubble_pile_r0c0.png",
+    "art/final/tiles/stamps/rubble_pile_r0c1.png"
+   ]
+  ]
  }
 }
