@@ -1,6 +1,6 @@
 # Afterflow — Art Bible
 
-> **Status:** v0.4, provisional. Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
+> **Status:** v0.5, provisional. Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
 > **Rule:** every asset request follows this document. If an asset needs to break a rule, update this document first.
 
 ---
@@ -62,6 +62,7 @@ Tool defaults don't match the locked parameters, so **always pass every paramete
 | Ground tilesets | `create_topdown_tileset`, `mode: "standard"` | `view: "high top-down"`, `tile_size: 32` (the default is 16), `outline: "selective outline"`, `shading: "basic shading"`, `detail: "medium detail"` | 1–4 generations, usually 3–4 |
 | Map objects | `create_map_object` | `view: "low top-down"`, `outline: "selective outline"`, `shading: "basic shading"`, `detail: "medium detail"`, width/height in multiples of 32 | Check the cost line on first use |
 
+- **Ground fill exception:** large fill terrain (grass etc.) uses `detail: "low detail"` with an irregular, non-directional texture, so it doesn't read as a repeating grid. Break up repetition further with flipped/rotated fill variants (`tools/fill_variants.py`), used as weighted alternative tiles in Godot.
 - Only **standard** mode honours all the locked parameters. `v3` and `pro` always produce 8 directions and ignore shading, and `pro` costs 20–40 generations. Don't use them without Tom's approval.
 - Don't use `create_1_direction_object` for map objects: it has no outline, shading or detail settings, and it costs 20–40 generations.
 
@@ -224,3 +225,4 @@ The eeriest areas may approach cold, lonely dread. **Never** jump scares, gore o
 | 0.2 | 2026-09-25 | Tilesets use `high top-down`; added §3.0 tool choice per asset class; verified the parameter enums against the PixelLab MCP |
 | 0.3 | 2026-09-25 | §2.1: `size` is the figure height, not the canvas; Awa `size` 40. §4.4: satchel wording. Round 2 proportion test |
 | 0.4 | 2026-09-25 | §4.3: Variant A wins (opt5). §4.1: scarf colour fixed with `tools/recolour.py` |
+| 0.5 | 2026-09-25 | §3.0: ground fill exception (low detail, fill variants) |

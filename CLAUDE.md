@@ -73,6 +73,8 @@ afterflow/
 │   ├── palette_remap.py
 │   ├── compose_mock.py
 │   ├── recolour.py         # exact colour swaps (e.g. Awa's scarf)
+│   ├── wang_layout.py      # Wang tileset + terrain map -> mock layout
+│   ├── fill_variants.py    # flip/rotate a fill tile into 8 variants
 │   └── requirements.txt    # Pillow
 └── assets/                 # Phase 1+: approved finals copied here for Godot to import
 ```
@@ -111,7 +113,9 @@ Install the dependency with `python -m pip install -r tools/requirements.txt`. E
 - **`tools/palette_remap.py`**: maps every pixel to the nearest palette colour, preserves transparency, and takes a palette file argument, so switching palettes is a single re-run over `art/raw/`.
 - **`tools/compose_mock.py`**: composes approved `art/final/` assets into an exact **480×270** image, exports it at both 1× and 4× (nearest-neighbour), and has an optional **`--drain`** flag that simulates the drain (a shift towards cold blue-grey with desaturation).
 - **`tools/recolour.py`**: swaps exact colours in `art/final/` sprites, for fixing one element PixelLab keeps getting wrong. Record every mapping in the manifest.
-- **`tools/mock_layouts/`**: JSON layouts for `compose_mock.py`.
+- **`tools/wang_layout.py`**: turns a PixelLab Wang tileset (sheet + metadata JSON) and a text terrain map into a `compose_mock.py` layout. It can scatter fill variants at random, to preview Godot's alternative tiles.
+- **`tools/fill_variants.py`**: flips and rotates one seamless, non-directional fill tile into 8 variants.
+- **`tools/mock_layouts/`**: JSON layouts for `compose_mock.py`. Terrain maps (`map_*.txt`) live here too.
 - Python 3, Pillow. Keep the tools small, readable and documented.
 
 ---
