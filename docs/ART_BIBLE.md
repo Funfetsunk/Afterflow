@@ -1,6 +1,6 @@
 # Afterflow — Art Bible
 
-> **Status:** v0.16, provisional. **Direction reset on 2026-09-25** (see §0). Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
+> **Status:** v0.17, provisional. **Direction reset on 2026-09-25** (see §0). Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
 > **Rule:** every asset request follows this document. If an asset needs to break a rule, update this document first.
 
 ---
@@ -170,14 +170,14 @@ Lakes and wetlands, highland ruins, and coast and cliffs will be defined after P
 | **Alive / cosy** | Deep muted meadow greens (`547e64`, `374e4a`), soft brown paths (`966c6c`), warm pale stone (`ab947a`), plum-grey slate (`625565`, `3e3546`), blue water (`4d65b4`, `8fd3ff`) |
 | **Drained** | Cold blue-grey and teal, desaturated, still |
 | **Awa** | Ginger hair plus a blue scarf. Always the most readable thing on screen. |
-| **The world's creatures** | A shared pale glow or white "eye" signature |
+| **The world's creatures** | One large white eye with a dark pupil (§7) |
 
 ---
 
 ## 7. Enemies (visual)
 
 - Made from **each biome's own materials**: moss and petals, bark, stone, water.
-- **Shared signature** across all enemies, such as a soft pale glow or a single white eye. 🔬 Settled on the first enemy.
+- **Shared signature (settled 2026-09-25):** every creature has **one large white eye** (`ffffff`, `c7dcd0` rim) with a small dark pupil, and it is always the brightest thing on the creature, drained or not. Set by `enm_meadow01`, the mossling (olive moss ball, sprout, one petal), drawn by `tools/kits/make_creature16.py`. Creature bodies must contrast with the ground they stand on.
 - Meadow enemies are almost cute. Towards the source they get larger, colder and stranger.
 - Never gory. Never horror.
 
@@ -242,3 +242,4 @@ The eeriest areas may approach cold, lonely dread. **Never** jump scares, gore o
 | 0.14 | 2026-09-25 | §5.1: 16px cottage kit approved (separate roof/wall layers); grounding rule (tufted base, cast shadow) |
 | 0.15 | 2026-09-25 | §5.3: ruin kit approved (weathered courses, rubble) |
 | 0.16 | 2026-09-25 | §5.3a: shrine approved (ancient-future monolith, pale cyan machine glow) |
+| 0.17 | 2026-09-25 | §7: enemy signature settled (one large white eye with a pupil); meadow mossling approved |
