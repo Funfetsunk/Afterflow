@@ -54,6 +54,10 @@ Phase 1 plan (in order):
 4. **Camera:** follows Awa, pixel-snapped, limited to the map.
 5. **Test meadow** (`scenes/world/`): a small meadow painted with the TileSet (a lane, a cottage, trees, the river ledge). Check with `play_scene` + `get_game_screenshot`.
 
+**Status (2026-09-25): all five steps built; waiting for Tom to playtest the test meadow (F5 in Godot) and review Awa's animations (`chr_awa_anim`, manifest).**
+
+Map pipeline: design a map with the mock tools (`wang_layout.py`, `paint_*.py`; e.g. `tools/mock_layouts/build_p1_meadow.sh`), then `tools/layout_to_tilemap.py` converts it to TileMapLayer data (`Ground` not y-sorted at z −1; `Objects1..n` y-sorted, under a y-sorted scene root), loaded into the scene's layers. Maps are bounded by a `MapEdges` StaticBody2D; the `AreaCamera` takes its limits from the `Ground` layer.
+
 Phase exit: Awa walks around a meadow at the correct scale. Then update this section to Phase 2.
 
 ---
@@ -143,6 +147,9 @@ Install the dependency with `python -m pip install -r tools/requirements.txt`. E
 - **`tools/fill_variants.py`**: flips and rotates one seamless, non-directional fill tile into 8 variants.
 - **`tools/mock_layouts/`**: JSON layouts for `compose_mock.py`. Terrain maps (`map_*.txt`) live here too.
 - **`tools/export_assets.py`**: copies the approved set (Art Bible §11) into `assets/` and packs each tile kit into one atlas PNG with a JSON index of tile cells (stamps as contiguous blocks; Wang sheets with each tile's corners). Re-run it after approving new art and add the new files to its lists; only listed art reaches the game.
+- **`tools/build_tileset.py`**: generates `resources/tilesets/meadow.tres` from the exported atlases: stable source ids, a corner-matching terrain set (grass, path, water, bank) with weighted fill variants, collision (physics layer 0 `world`, 1 `water`) and y-sort origins at each stamp's base. Re-run after `export_assets.py`; hand edits to the TileSet are overwritten.
+- **`tools/build_sprite_frames.py`**: generates a character's `resources/sprites/<name>_frames.tres` (animations `<anim>_<dir>`) from its exported frames.
+- **`tools/layout_to_tilemap.py`**: converts a mock layout into per-layer `tile_map_data` (plus a full-size preview PNG), so maps designed as mocks are painted into Godot cell for cell.
 - Python 3, Pillow. Keep the tools small, readable and documented.
 
 ---

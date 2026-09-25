@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://btek0ue6ythkx"]
+
+[ext_resource type="Script" uid="uid://comh8felsqdrg" path="res://scenes/player/player.gd" id="1_8afob"]
+[ext_resource type="SpriteFrames" path="res://resources/sprites/awa_frames.tres" id="2_dovo2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
+size = Vector2(10, 6)
+
+[node name="Player" type="CharacterBody2D" unique_id=2142728879]
+collision_layer = 2
+collision_mask = 129
+motion_mode = 1
+script = ExtResource("1_8afob")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2056404818]
+sprite_frames = ExtResource("2_dovo2")
+animation = &"idle_s"
+autoplay = "idle_s"
+offset = Vector2(0, -13)
+
+[node name="Feet" type="CollisionShape2D" parent="." unique_id=1515235686]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_dovo2")

@@ -6,6 +6,7 @@ one atlas PNG, which is what a Godot TileSet atlas source wants, plus a JSON
 index next to it naming every tile's atlas cell:
 
   assets/characters/awa/awa_{s,e,n,w}.png            40x40 frames
+  assets/characters/awa/awa_{idle,walk}_{d}_{i}.png  animation frames (hair-ramped)
   assets/characters/miller/miller_{s,e,n,w}.png
   assets/enemies/mossling/mossling_{s,e,n,w}.png     24x24 frames
   assets/tilesets/terrain/meadow_grass_path.png/.json  PixelLab Wang sheets with each
@@ -40,6 +41,9 @@ SPRITES = {                                       # out folder/name: art/final p
     "characters/awa/awa": "art/final/chr_awa",
     "characters/miller/miller": "art/final/npc_villager01",
     "enemies/mossling/mossling": "art/final/enm_meadow01",
+}
+ANIMS = {                                         # out prefix: (art/final prefix, {animation: frames})
+    "characters/awa/awa": ("art/final/awa_anim/chr_awa", {"idle": 4, "walk": 6}),
 }
 WANG = {                                          # out name: (sheet, PixelLab metadata)
     "meadow_grass_path": ("art/final/ts_meadow_grass-path_opt3_ns.png", "art/raw/ts_meadow_grass-path_opt3.json"),
@@ -78,6 +82,14 @@ def export_sprites():
         dest.parent.mkdir(parents=True, exist_ok=True)
         for d in DIRS:
             shutil.copyfile(f"{prefix}_{d}.png", f"{dest}_{d}.png")
+
+
+def export_anims():
+    for out, (prefix, anims) in ANIMS.items():
+        for anim, frames in anims.items():
+            for d in DIRS:
+                for i in range(frames):
+                    shutil.copyfile(f"{prefix}_{anim}_{d}_{i}.png", OUT / f"{out}_{anim}_{d}_{i}.png")
 
 
 def export_terrain():
@@ -127,6 +139,7 @@ def export_stamps():
 def main():
     (OUT / "tilesets").mkdir(parents=True, exist_ok=True)
     export_sprites()
+    export_anims()
     export_terrain()
     export_kits()
     export_stamps()
