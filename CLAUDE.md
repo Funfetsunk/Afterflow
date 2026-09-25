@@ -78,6 +78,8 @@ afterflow/
 │   ├── wang_layout.py      # Wang tileset + terrain map -> mock layout
 │   ├── fill_variants.py    # flip/rotate a fill tile into 8 variants
 │   ├── hair_ramp.py        # clean 3-tone hair ramp (Awa, Art Bible §4.3)
+│   ├── build_cottage.py    # assemble cottages from north-star slices
+│   ├── kits/               # slice kits (e.g. cottage_ns.json)
 │   └── requirements.txt    # Pillow
 └── assets/                 # Phase 1+: approved finals copied here for Godot to import
 ```
@@ -117,6 +119,7 @@ Install the dependency with `python -m pip install -r tools/requirements.txt`. E
 - **`tools/compose_mock.py`**: composes approved `art/final/` assets into an exact **320×180** image, exports it at both 1× and 6× (nearest-neighbour; `--legacy` uses the v0.x 480×270 / 32px setup, for layouts restored from git history), and has an optional **`--drain`** flag that simulates the drain (a shift towards cold blue-grey with desaturation).
 - **`tools/recolour.py`**: swaps exact colours in `art/final/` sprites, for fixing one element PixelLab keeps getting wrong. Record every mapping in the manifest.
 - **`tools/wang_layout.py`**: turns a PixelLab Wang tileset (sheet + metadata JSON) and a text terrain map into a `compose_mock.py` layout. It can scatter fill variants at random, to preview Godot's alternative tiles.
+- **`tools/build_cottage.py`**: assembles a cottage of any length from vertical slices cut from the north star (`tools/kits/cottage_ns.json`): pick the order of end, wall, window, door and chimney slices.
 - **`tools/hair_ramp.py`**: repaints a character's hair as a clean light/base/dark ramp lit from the top left, touching only the hair connected to the top of the sprite. Run it on every Awa frame.
 - **`tools/fill_variants.py`**: flips and rotates one seamless, non-directional fill tile into 8 variants.
 - **`tools/mock_layouts/`**: JSON layouts for `compose_mock.py`. Terrain maps (`map_*.txt`) live here too.

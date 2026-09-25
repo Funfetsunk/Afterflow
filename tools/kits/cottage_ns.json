@@ -1,0 +1,20 @@
+{
+ "source": "art/final/north_star/ns_meadow_village_r2_mix.png",
+ "height": 86,
+ "slices": {
+  "end_l": "art/final/obj_cottage_slice_end_l.png",
+  "wall_a": "art/final/obj_cottage_slice_wall_a.png",
+  "window_big": "art/final/obj_cottage_slice_window_big.png",
+  "wall_b": "art/final/obj_cottage_slice_wall_b.png",
+  "post": "art/final/obj_cottage_slice_post.png",
+  "window_small_b": "art/final/obj_cottage_slice_window_small_b.png",
+  "door": "art/final/obj_cottage_slice_door.png",
+  "window_small": "art/final/obj_cottage_slice_window_small.png",
+  "end_r": "art/final/obj_cottage_slice_end_r.png"
+ },
+ "chimney": {
+  "image": "art/final/obj_cottage_chimney_piece.png",
+  "y": 4,
+  "original_x": 57
+ }
+}

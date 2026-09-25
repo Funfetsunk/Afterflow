@@ -1,6 +1,6 @@
 # Afterflow — Art Bible
 
-> **Status:** v0.11, provisional. **Direction reset on 2026-09-25** (see §0). Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
+> **Status:** v0.12, provisional. **Direction reset on 2026-09-25** (see §0). Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
 > **Rule:** every asset request follows this document. If an asset needs to break a rule, update this document first.
 
 ---
@@ -127,7 +127,7 @@ cosy English countryside, 16-bit SNES-era top-down adventure pixel art, bold dar
 
 ### 5.1 Meadow village (Biome 1)
 
-A small English hamlet, deliberately **smaller in scale** than a real village. Stone cottages, timber framing, slate roofs, split-rail fences, barrels, log piles, birch and oak trees, and worn dirt paths through warm olive and yellow-green grass. It should feel lived-in, cosy and golden-afternoon. **Buildings are painted from 16px tiles** (walls, roofs, doors, windows, chimneys), so every house can have its own footprint, with variety from arrangement and props: fences, bushes, flowers, pots, signs, log piles.
+A small English hamlet, deliberately **smaller in scale** than a real village. Stone cottages, timber framing, slate roofs, split-rail fences, barrels, log piles, birch and oak trees, and worn dirt paths through warm olive and yellow-green grass. It should feel lived-in, cosy and golden-afternoon. **Buildings are assembled from slices cut from the north star** (`tools/build_cottage.py`: end, wall, window, door slices plus a chimney piece), so every house can have its own length and layout, with variety from arrangement and props: fences, bushes, flowers, pots, signs, log piles.
 
 - **Grass (v0.x, superseded):** olive `a2a947` with pale `cddf6c` flecks. Keep the olive family.
 - **Terrain (16px, approved 2026-09-25):** grass `547e64` with sparse dark tufts cut from the north star; brown path `966c6c` with pale specks; rivers in `4d65b4` with a pale broken foam line under a dark earth **ledge** about 1.2 tiles tall. **Rivers run straight east–west** for now, ending at map edges or bridges, until bend tiles match the ledge height. Recipes are in the manifest.
@@ -230,3 +230,4 @@ The eeriest areas may approach cold, lonely dread. **Never** jump scares, gore o
 | 0.9 | 2026-09-25 | **North star locked** (§0); §3 parameters locked from it; §6.1 Afterflow v1 palette (30 colours from Resurrect 64); §6.2 alive colours; §4.3 Awa colour-integrity rule |
 | 0.10 | 2026-09-25 | §5.1: approved 16px terrain (grass, path, river ledge); rivers straight east–west for now |
 | 0.11 | 2026-09-25 | §4.3: 16-bit Awa approved; hair_ramp on every frame |
+| 0.12 | 2026-09-25 | §5.1: buildings assembled from north-star slices (cottage kit approved) |
