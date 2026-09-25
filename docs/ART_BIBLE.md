@@ -1,6 +1,6 @@
 # Afterflow — Art Bible
 
-> **Status:** v0.10, provisional. **Direction reset on 2026-09-25** (see §0). Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
+> **Status:** v0.11, provisional. **Direction reset on 2026-09-25** (see §0). Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
 > **Rule:** every asset request follows this document. If an asset needs to break a rule, update this document first.
 
 ---
@@ -108,7 +108,7 @@ Record every final prompt in ASSET_MANIFEST.md. Never put a game or franchise na
 
 ### 4.3 Proportions 🔬
 
-- v0.x winner (Variant A, ~5 heads at 40px) is **superseded** by the rebuild. At ~24–28px she needs 16-bit proportions: a slightly larger head and simple readable features, still clearly a real girl, **not chibi**. Settled from the north star.
+- **Approved 2026-09-25:** `chr_awa` opt2 (`create_character` standard, `size: 28`, `default` preset, locked §3 parameters): a 24–27px figure. Hair is repainted with `tools/hair_ramp.py` (ramp `e6904e`/`cd683d`/`9e4539`) on **every** frame.
 - Hair, scarf and stick must read at a glance at this size: the ginger hair and blue scarf are her silhouette.
 - ⚠️ **Colour integrity (Tom, 2026-09-25):** her hair must be a **clean ginger ramp** with no stray off-tone pixels. Every recolour or palette pass must **leave Awa untouched** (or exclude her pixels), and every new Awa frame is checked for hair and skin discolouration before review.
 
@@ -229,3 +229,4 @@ The eeriest areas may approach cold, lonely dread. **Never** jump scares, gore o
 | 0.8 | 2026-09-25 | **Direction reset:** 16-bit SNES-era top-down style (§0); 320×180 with 16px tiles; one camera, dark outlines, top-left light; new style suffix; north-star-first workflow and style lock; buildings painted from tiles; rebuild everything including Awa |
 | 0.9 | 2026-09-25 | **North star locked** (§0); §3 parameters locked from it; §6.1 Afterflow v1 palette (30 colours from Resurrect 64); §6.2 alive colours; §4.3 Awa colour-integrity rule |
 | 0.10 | 2026-09-25 | §5.1: approved 16px terrain (grass, path, river ledge); rivers straight east–west for now |
+| 0.11 | 2026-09-25 | §4.3: 16-bit Awa approved; hair_ramp on every frame |
