@@ -2,11 +2,11 @@
 
 The terrain map is a text file of vertex rows: '#' = lower terrain,
 '.' = upper terrain. A map with C columns and R rows gives (C-1) x (R-1)
-tiles; 16 x 10 vertices covers the 480x270 screen (15 x 9 tiles, the last
-row partly off screen). Each tile is chosen by its four corners and cut
+tiles; 21 x 13 vertices covers the 320x180 screen (20 x 12 tiles of 16px, the last
+row partly off screen); pass --legacy to compose_mock.py for v0.x 32px maps. Each tile is chosen by its four corners and cut
 from the sheet with the bounding_box from the tileset's metadata JSON.
 
-Optional --fill-variants / --lower-variants: extra 32x32 PNGs used at random
+Optional --fill-variants / --lower-variants: extra tile-sized PNGs used at random
 in place of the full-upper / full-lower tile (e.g. grass or water variations),
 to preview how a Godot TileSet with weighted alternative tiles breaks up
 repetition. --variant-chance applies to both. --seed makes it repeatable.
@@ -31,7 +31,6 @@ import random
 import sys
 from pathlib import Path
 
-TILE = 32
 
 
 def main():

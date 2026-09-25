@@ -15,14 +15,15 @@ Usage:
     python tools/fill_variants.py art/final/sheet.png 0 96 art/final/ts_meadow_grass-fill
     -> ts_meadow_grass-fill_00.png (original) ... _07.png
 
-Arguments: source image, then the tile's top-left x y (32x32 tile), then the
+Arguments: source image, then the tile's top-left x y (16x16 by default; --tile to change), then the
 output path prefix.
 
 --thin: also write calmer copies of the original with some strokes of one
 colour removed (e.g. water ripples), for tiles whose marks sit in visible rows.
 Each value is the fraction of strokes kept; removed strokes are painted with
 the tile's most common colour. A stroke is a group of touching pixels.
-    python tools/fill_variants.py sheet.png 64 32 art/final/ts_water-fill         --thin 0.6 0.4 0.25 0 --stroke-colour 8ff8e2 --seed 7
+    python tools/fill_variants.py sheet.png 64 32 art/final/ts_water-fill \
+        --thin 0.6 0.4 0.25 0 --stroke-colour 8ff8e2 --seed 7
     -> also ts_water-fill_thin0.png ... _thin3.png
 """
 
@@ -33,7 +34,7 @@ from pathlib import Path
 
 from PIL import Image
 
-TILE = 32
+TILE = 16  # overridden by --tile
 TRANSFORMS = [
     [],
     [Image.Transpose.FLIP_LEFT_RIGHT],
@@ -61,7 +62,8 @@ def strokes_of(tile, colour):
                 for dx in (-1, 0, 1):
                     for dy in (-1, 0, 1):
                         nx, ny = cx + dx, cy + dy
-                        if 0 <= nx < TILE and 0 <= ny < TILE and (nx, ny) not in seen                                 and pixels[nx, ny][:3] == colour:
+                        if 0 <= nx < TILE and 0 <= ny < TILE and (nx, ny) not in seen \
+                                and pixels[nx, ny][:3] == colour:
                             seen.add((nx, ny))
                             stroke.append((nx, ny))
             strokes.append(stroke)
@@ -78,8 +80,11 @@ def main():
                         help="write calmer copies keeping this fraction of strokes")
     parser.add_argument("--stroke-colour", help="RRGGBB of the strokes to thin")
     parser.add_argument("--seed", type=int, default=7)
+    parser.add_argument("--tile", type=int, default=16, help="tile size in pixels (v0.x assets: 32)")
     args = parser.parse_args()
 
+    global TILE
+    TILE = args.tile
     tile = Image.open(args.source).convert("RGBA").crop((args.x, args.y, args.x + TILE, args.y + TILE))
     for index, steps in enumerate(TRANSFORMS):
         variant = tile

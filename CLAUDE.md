@@ -38,6 +38,8 @@ If a request conflicts with these documents, **stop and ask Tom**. Don't silentl
 
 ## 3. Current phase: PHASE 0 — LOOK DEVELOPMENT
 
+> **2026-09-25: direction reset.** The target is now a 16-bit SNES-era top-down look at 320×180 with 16px tiles (Art Bible §0). All v0.x assets are superseded and everything, Awa included, is rebuilt. The north star is **locked** (`art/final/north_star/ns_meadow_village_r2_mix.png`), and so is the Afterflow v1 palette (`tools/palettes/afterflow-v1.hex`): remap every asset to it, and never let a recolour touch Awa (Art Bible §4.3).
+
 > ⛔ **HARD RULE: no game code, scenes or gameplay scripts until Tom approves Art Bible v1.0.**
 
 Allowed in Phase 0:
@@ -67,7 +69,7 @@ afterflow/
 │   ├── reference/          # mood references, gitignored, NEVER sent to PixelLab
 │   ├── raw/                # untouched PixelLab downloads
 │   ├── final/              # palette-remapped assets
-│   └── mocks/              # 480×270 mock screenshots
+│   └── mocks/              # 320×180 mock screenshots (v0.x mocks: 480×270)
 ├── tools/
 │   ├── palettes/resurrect-64.hex
 │   ├── palette_remap.py
@@ -90,10 +92,10 @@ afterflow/
 
 1. **Check the manifest.** Add the asset as `planned` if it isn't already listed.
 2. **Build the prompt** from the Art Bible §3.1 template: subject + details + the standard style suffix, **verbatim**.
-3. **Use the locked parameters:** `low top-down` (tilesets: `high top-down`), `selective outline`, `basic shading`, `medium detail`, 4 directions, the canvas size from Art Bible §2.1, 32px tiles. Use the tool and mode for each asset class from Art Bible §3.0, and pass every parameter explicitly, because the tool defaults differ.
+3. **Use the parameters from Art Bible §3** (16-bit direction, 16px tiles, sizes from §2.1) and pass every parameter explicitly, because the tool defaults differ. Follow the north-star / style-lock workflow in Art Bible §3.2: once the north star is approved, use it as the style reference wherever a tool accepts one.
 4. **Generate 3–4 variants.** Jobs are asynchronous (about 2–5 minutes), so poll with the matching `get_*` tool and don't resubmit duplicates.
 5. **Download to `art/raw/`** using the manifest naming convention.
-6. **Run the palette remap:** `python tools/palette_remap.py art/raw/<file> art/final/<file>`.
+6. **Run the palette remap:** `python tools/palette_remap.py art/raw/<file> art/final/<file> --palette tools/palettes/afterflow-v1.hex`.
 7. **Update the manifest:** IDs, exact prompt, variant count, credits used, status `review`.
 8. **Show Tom** the remapped variants, ideally inside a mock (`tools/compose_mock.py`). Only Tom sets `approved`.
 
@@ -111,7 +113,7 @@ Rules:
 Install the dependency with `python -m pip install -r tools/requirements.txt`. Each tool's usage is in its docstring.
 
 - **`tools/palette_remap.py`**: maps every pixel to the nearest palette colour, preserves transparency, and takes a palette file argument, so switching palettes is a single re-run over `art/raw/`.
-- **`tools/compose_mock.py`**: composes approved `art/final/` assets into an exact **480×270** image, exports it at both 1× and 4× (nearest-neighbour), and has an optional **`--drain`** flag that simulates the drain (a shift towards cold blue-grey with desaturation).
+- **`tools/compose_mock.py`**: composes approved `art/final/` assets into an exact **320×180** image, exports it at both 1× and 6× (nearest-neighbour; `--legacy` rebuilds the v0.x 480×270 mocks), and has an optional **`--drain`** flag that simulates the drain (a shift towards cold blue-grey with desaturation).
 - **`tools/recolour.py`**: swaps exact colours in `art/final/` sprites, for fixing one element PixelLab keeps getting wrong. Record every mapping in the manifest.
 - **`tools/wang_layout.py`**: turns a PixelLab Wang tileset (sheet + metadata JSON) and a text terrain map into a `compose_mock.py` layout. It can scatter fill variants at random, to preview Godot's alternative tiles.
 - **`tools/fill_variants.py`**: flips and rotates one seamless, non-directional fill tile into 8 variants.
@@ -125,7 +127,7 @@ Install the dependency with `python -m pip install -r tools/requirements.txt`. E
 **Renderer:** `rendering/renderer/rendering_method = forward_plus` (already applied in Phase 0, with Tom's approval). Forward+ was chosen for its 2D lighting headroom, HDR 2D and glow on a Windows desktop target. The `.mobile` and `.web` overrides stay on `gl_compatibility`.
 
 **Project settings to apply at the start of Phase 1** (via `set_project_setting`, **never** by editing `project.godot` directly):
-- `display/window/size/viewport_width = 480`, `viewport_height = 270`
+- `display/window/size/viewport_width = 320`, `viewport_height = 180`
 - Window override `1920×1080`; stretch mode `viewport`, aspect `keep`, scale mode `integer`
 - `rendering/textures/canvas_textures/default_texture_filter = Nearest`
 - `rendering/2d/snap/snap_2d_transforms_to_pixel = true`

@@ -1,14 +1,14 @@
-"""Compose a 480x270 mock screenshot from art/final/ assets.
+"""Compose a 320x180 mock screenshot from art/final/ assets.
 
 The scene is described by a JSON layout file. Items are drawn in list
 order, so later items sit on top of earlier ones. Coordinates are in
-game pixels (top-left origin). "cell" is a shortcut for 32px tile
-positions: [col, row] means x = col * 32, y = row * 32.
+game pixels (top-left origin). "cell" is a shortcut for 16px tile
+positions: [col, row] means x = col * 16, y = row * 16.
 
     {
       "background": "#2e222f",
       "items": [
-        {"image": "art/final/tile_grass.png", "fill": [0, 0, 480, 270]},
+        {"image": "art/final/tile_grass.png", "fill": [0, 0, 320, 180]},
         {"image": "art/final/tile_path.png", "cell": [3, 4]},
         {"image": "art/final/chr_awa_b_idle_s.png", "at": [200, 120]},
         {"image": "art/final/sheet.png", "at": [260, 120], "crop": [0, 0, 48, 48], "flip": true}
@@ -18,7 +18,7 @@ positions: [col, row] means x = col * 32, y = row * 32.
 Item keys:
     image   path to a PNG, relative to the project root; must be in art/final/
     at      [x, y] top-left position in pixels
-    cell    [col, row] top-left position in 32px tiles (instead of "at")
+    cell    [col, row] top-left position in 16px tiles (instead of "at")
     fill    [x, y, w, h] repeat the image to cover this rectangle
     crop    [x, y, w, h] use only this part of the image (e.g. one frame of a sheet)
     flip    true to mirror horizontally
@@ -31,7 +31,7 @@ Usage:
     python tools/compose_mock.py layout.json --drain          # full drain
     python tools/compose_mock.py layout.json --drain 0.5      # half strength
 
-Writes <name>.png at 1x (480x270) and <name>_4x.png at 1920x1080 using
+Writes <name>.png at 1x (320x180) and <name>_6x.png at 1920x1080 using
 nearest-neighbour scaling. Without -o, the output is
 art/mocks/mock_<layout name>.png, with "_drained" added when --drain is on.
 
@@ -50,9 +50,10 @@ from PIL import Image, ImageColor, ImageOps
 ROOT = Path(__file__).resolve().parent.parent
 FINAL_DIR = ROOT / "art" / "final"
 MOCKS_DIR = ROOT / "art" / "mocks"
-WIDTH, HEIGHT = 480, 270
-TILE = 32
-SCALE = 4
+# 16-bit direction (Art Bible v0.8). --legacy switches to the v0.x 480x270 / 32px / x4 setup.
+WIDTH, HEIGHT = 320, 180
+TILE = 16
+SCALE = 6
 
 # Drain tuning: how far colours move towards grey, and the cold tint
 # applied to that grey. Both are scaled by the --drain strength.
@@ -135,12 +136,16 @@ def drain(image, strength):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Compose a 480x270 mock from art/final/ assets.")
+    parser = argparse.ArgumentParser(description="Compose a 320x180 mock from art/final/ assets.")
+    parser.add_argument("--legacy", action="store_true", help="v0.x mocks: 480x270, 32px cells, x4 output")
     parser.add_argument("layout", type=Path, help="JSON layout file")
     parser.add_argument("-o", "--output", type=Path, help="1x output path (default: art/mocks/mock_<layout name>.png)")
     parser.add_argument("--drain", type=float, nargs="?", const=1.0, default=None, metavar="STRENGTH",
                         help="simulate the drain, strength 0..1 (default 1 when the flag is given)")
     args = parser.parse_args()
+    if args.legacy:
+        global WIDTH, HEIGHT, TILE, SCALE
+        WIDTH, HEIGHT, TILE, SCALE = 480, 270, 32, 4
 
     if args.drain is not None and not 0 <= args.drain <= 1:
         sys.exit("--drain strength must be between 0 and 1")
@@ -162,7 +167,7 @@ def main():
         suffix = "_drained" if args.drain is not None else ""
         output = MOCKS_DIR / f"mock_{args.layout.stem}{suffix}.png"
     output.parent.mkdir(parents=True, exist_ok=True)
-    output_4x = output.with_name(f"{output.stem}_4x{output.suffix}")
+    output_4x = output.with_name(f"{output.stem}_{SCALE}x{output.suffix}")
 
     mock.save(output)
     mock.resize((WIDTH * SCALE, HEIGHT * SCALE), Image.NEAREST).save(output_4x)

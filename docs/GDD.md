@@ -200,7 +200,7 @@ Assigning items to dungeons is open. Story hook: the lantern may later turn out 
 
 ## 13. Camera, screen and HUD
 
-- **Internal resolution 480×270**, integer-scaled (4× to 1080p).
+- **Internal resolution 320×180**, integer-scaled (6× to 1080p), with 16px tiles (changed from 480×270 on 2026-09-25 for the 16-bit look, see Art Bible §0).
 - **Camera:** scrolls smoothly and follows the player outdoors, clamped to area bounds. **Room-by-room** with slide transitions in dungeons. Dungeon rooms are designed around one screen (15 × ~8.4 tiles at 32px).
 - **HUD (minimal):**
   - **Health:** leaves on a sprig, top-left. Leaves wilt as she takes hits, a quiet echo of the drain.

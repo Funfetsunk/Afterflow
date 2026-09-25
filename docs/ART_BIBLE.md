@@ -1,13 +1,24 @@
 # Afterflow — Art Bible
 
-> **Status:** v0.7, provisional. Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
+> **Status:** v0.9, provisional. **Direction reset on 2026-09-25** (see §0). Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
 > **Rule:** every asset request follows this document. If an asset needs to break a rule, update this document first.
+
+---
+
+## 0. Direction reset (v0.8)
+
+Tom reviewed the first village mock (v0.7 assets): everything was going to look the same and **it didn't hang together**. The target is now the look and feel of **16-bit SNES-era top-down action-adventures** (Tom's touchstone: *A Link to the Past*). Everything is rebuilt in this style, **Awa included**.
+
+- The v0.1–v0.7 assets are **superseded**, not deleted. They stay in `art/` and the manifest for reference.
+- **Never** name Zelda (or any other game) in prompts, **never** pass Nintendo or other games' art to PixelLab, and never copy existing tiles or characters. We are after the *style* of the era, not its assets. Awa stays her own character (§4.2).
+- **North star locked by Tom on 2026-09-25:** `art/final/north_star/ns_meadow_village_r2_mix.png` (opt4's layout in opt6's colours; recipe in the manifest). It is the style reference for everything that follows.
+- Kept from v0.7: Awa's design, the colour language (§6.2: olive meadow, teal water, pale-glow creatures, cold drain), the drain concept, the tone, the tools and the workflow.
 
 ---
 
 ## 1. Look in one sentence
 
-A small English countryside, soft storybook pixel art, **warm and golden where the world is alive** and **cold blue-grey and still where it has been drained**, with gentle overgrowth over the ruins of past lives.
+A small English countryside in **bold, readable 16-bit top-down pixel art**, **warm and golden where the world is alive** and **cold blue-grey and still where it has been drained**, with gentle overgrowth over the ruins of past lives.
 
 ---
 
@@ -15,60 +26,48 @@ A small English countryside, soft storybook pixel art, **warm and golden where t
 
 | Setting | Value |
 |---|---|
-| Internal resolution | **480×270** (integer scale ×4 to 1920×1080) |
-| Tile size | **32×32** |
-| Screen in tiles | 15 × ~8.4 |
-| Perspective | **Low top-down** (3/4) for characters and map objects, **high top-down** for ground tilesets (PixelLab's closest option to square top-down). Never mix angles within an asset class. |
+| Internal resolution | **320×180** (integer scale ×6 to 1920×1080) |
+| Tile size | **16×16** |
+| Screen in tiles | 20 × 11.25 |
+| Camera | **One camera for everything:** ground straight top-down; walls, fronts and characters face the viewer; roofs seen from above. **No angled or isometric objects.** |
+| Outlines | **Dark outlines on everything** (characters, objects, buildings, terrain edges), in the palette's darkest colour `2e222f` |
+| Shading | Simple 2–3 tones per material, **light from the top left**, on every asset |
 | Character sprite directions | **4** (south, west, east, north) |
 | Movement | 8-way analog (sprites don't need diagonals) |
 | Pixel density | Uniform. No scaled-up or scaled-down sprites in-game. |
 
-### 2.1 Canvas sizes
+### 2.1 Sizes 🔬
 
-🔬 In `create_character` standard mode, **`size` sets roughly the figure height, not the canvas**. The canvas grows around the figure: `size: 64` returned a 92×92 canvas with a 64–73px figure. So choose `size` from the target figure height. Crop or re-pivot the padded canvas in Godot.
-
-| Asset class | `size` (≈ figure height) |
+| Asset class | Target on screen |
 |---|---|
-| Awa, NPCs, standard enemies | **40** (target ~38px) |
-| Small enemies / critters | **30** (target ~29px) |
-| Large enemies | **60** (target ~58px) |
-| Bosses | **60–80** |
-| Map objects | Canvas in multiples of the 32px grid |
+| Awa, NPCs | **~24–28px** tall (about 1.5–1.75 tiles) |
+| Standard enemies | ~16–24px |
+| Large enemies / bosses | 32–64px |
+| Buildings | Painted from 16px tiles, typically 4–6 tiles wide |
+| Props (bushes, rocks, pots, signs) | 16×16, some 32×32 |
+
+In `create_character` standard mode `size` sets roughly the **figure height**, not the canvas (measured in v0.3).
 
 ---
 
-## 3. PixelLab parameters (locked)
+## 3. PixelLab parameters (locked 2026-09-25)
 
-These apply to every character, creature and object unless this document says otherwise.
+Taken from the north star, which was made with `create_image_pixflux`, `high top-down`, `single color black outline`, `basic shading`, `low detail`, seed 4.
 
 | Parameter | Value |
 |---|---|
-| Camera / view | `low top-down` (tilesets: `high top-down`) |
-| Outline | `selective outline` |
+| Camera / view | `high top-down` (tilesets too) |
+| Outline | `single color black outline` where offered, otherwise `single color outline` |
 | Shading | `basic shading` |
-| Detail | `medium detail` |
+| Detail | `low detail` |
 | Directions | `4` |
-| Tileset tile size | `32` |
+| Tileset tile size | `16` |
 
-All enum strings were verified against the PixelLab MCP tool schemas on 2026-09-25.
-
-### 3.0 Which tool for which asset (locked)
-
-Tool defaults don't match the locked parameters, so **always pass every parameter explicitly**.
-
-| Asset class | Tool | Settings | Typical cost |
-|---|---|---|---|
-| Characters, NPCs, enemies | `create_character`, **`mode: "standard"`** | `view: "low top-down"`, `outline: "selective outline"`, `shading: "basic shading"`, `detail: "medium detail"`, `n_directions: 4`, `size` from §2.1 | 1 generation |
-| Ground tilesets | `create_topdown_tileset`, `mode: "standard"` | `view: "high top-down"`, `tile_size: 32` (the default is 16), `outline: "selective outline"`, `shading: "basic shading"`, `detail: "medium detail"` | 1–4 generations, usually 3–4 |
-| Map objects | `create_map_object` | `view: "low top-down"`, `outline: "selective outline"`, `shading: "basic shading"`, `detail: "medium detail"`, width/height in multiples of 32 | Check the cost line on first use |
-
-- **Ground fill exception:** large fill terrain (grass etc.) uses `detail: "low detail"` with an irregular, non-directional texture, so it doesn't read as a repeating grid. Break up repetition further with flipped/rotated fill variants (`tools/fill_variants.py`), used as weighted alternative tiles in Godot.
-- Only **standard** mode honours all the locked parameters. `v3` and `pro` always produce 8 directions and ignore shading, and `pro` costs 20–40 generations. Don't use them without Tom's approval.
-- Don't use `create_1_direction_object` for map objects: it has no outline, shading or detail settings, and it costs 20–40 generations.
+- Only **standard** mode of `create_character` honours all the parameters. `v3` and `pro` need Tom's approval (8 directions, 20–40 generations for `pro`).
+- **Always pass every parameter explicitly**; tool defaults differ.
+- Lessons from v0.x still apply: `create_1_direction_object` has no style settings; PixelLab building kits don't produce usable roofs at our camera (§5); prompts for L-shaped or north–south walls come back as neat geometry.
 
 ### 3.1 Prompt template
-
-Every prompt is built from three parts, always in this order:
 
 ```
 [SUBJECT] + [SUBJECT DETAILS] + [STYLE SUFFIX]
@@ -76,22 +75,18 @@ Every prompt is built from three parts, always in this order:
 
 **Style suffix (use verbatim):**
 ```
-cosy English countryside, soft storybook pixel art, muted warm natural colours, gentle light
+cosy English countryside, 16-bit SNES-era top-down adventure pixel art, bold dark outlines, limited palette, light from the top left
 ```
 
-For drained-area variants of objects that can't be handled by the shader (rare), swap the suffix for:
-```
-cosy English countryside, soft storybook pixel art, faded cold blue-grey colours, still and lifeless
-```
+Record every final prompt in ASSET_MANIFEST.md. Never put a game or franchise name in a prompt.
 
-Record every final prompt in ASSET_MANIFEST.md.
+### 3.2 Workflow: north star first, then style lock
 
-### 3.2 Consistency workflow
-
-1. Generate **3–4 variants** per asset and pick the best.
-2. Where a PixelLab tool accepts a style or reference image, use an **approved in-game asset** (from `art/final/`), never an outside reference image.
-3. Remap every download to the palette (§6) before judging it.
-4. Judge assets **in a mock screenshot** at 480×270, not in isolation.
+1. **North-star screen.** Generate complete single-screen scenes (320×180) of the meadow village until Tom approves one as "that's Afterflow". Scenes are cheap (`create_image_pixflux` / `create_image_pixen`, 1 generation each).
+2. **Style lock.** The approved north star becomes the **style reference** for every later asset, wherever a PixelLab tool accepts a style image. Where a tool doesn't, match its prompt and parameters to the north star, and judge the result inside a mock next to it.
+3. **Build from tiles.** Terrain, cliffs, fences and **buildings** are 16px tiles painted into the map; variety comes from arrangement and small repeated props, not from unique one-off art.
+4. Generate **3–4 variants** per asset, remap to the palette (§6), and judge them **in a 320×180 mock**, never in isolation.
+5. Style references must be **approved `art/final/` assets or the approved north star**, never outside images.
 
 ---
 
@@ -113,18 +108,17 @@ Record every final prompt in ASSET_MANIFEST.md.
 
 ### 4.3 Proportions 🔬
 
-- **Variant A:** natural proportions (about 6 heads). The risk is that her head is only 6–7px.
-- **Variant B:** semi-natural (about 4 heads). Still clearly a real girl, not chibi.
-- Both get generated in Phase 0 and judged in the mock. **Winner: Variant A** (`chr_awa_a` opt5: `stylized` preset, `size: 40`), chosen by Tom on 2026-09-25.
-- Round 1 (`size: 64`, custom proportions): figures came out ~2 tiles tall, and A and B looked the same. Round 2 uses `size: 40` with the `stylized` preset for A and `cartoon` for B.
+- v0.x winner (Variant A, ~5 heads at 40px) is **superseded** by the rebuild. At ~24–28px she needs 16-bit proportions: a slightly larger head and simple readable features, still clearly a real girl, **not chibi**. Settled from the north star.
+- Hair, scarf and stick must read at a glance at this size: the ginger hair and blue scarf are her silhouette.
+- ⚠️ **Colour integrity (Tom, 2026-09-25):** her hair must be a **clean ginger ramp** with no stray off-tone pixels. Every recolour or palette pass must **leave Awa untouched** (or exclude her pixels), and every new Awa frame is checked for hair and skin discolouration before review.
 
-### 4.4 Base prompt (Phase 0)
+### 4.4 Base prompt
 
 ```
 12 year old girl explorer, long straight ginger hair loosely tied, knee-length oatmeal and rust tunic,
 faded blue scarf, small leather satchel on a strap across body, leggings, sturdy brown boots,
-holding a plain wooden walking stick, curious expression, [natural proportions | slightly stylised ~4 heads tall],
-cosy English countryside, soft storybook pixel art, muted warm natural colours, gentle light
+holding a plain wooden walking stick, curious expression,
+cosy English countryside, 16-bit SNES-era top-down adventure pixel art, bold dark outlines, limited palette, light from the top left
 ```
 
 ---
@@ -133,10 +127,10 @@ cosy English countryside, soft storybook pixel art, muted warm natural colours, 
 
 ### 5.1 Meadow village (Biome 1)
 
-A small English hamlet, deliberately **smaller in scale** than a real village. Stone cottages, timber framing, slate roofs, split-rail fences, barrels, log piles, birch and oak trees, and worn dirt paths through warm olive and yellow-green grass. It should feel lived-in, soft and golden-afternoon.
+A small English hamlet, deliberately **smaller in scale** than a real village. Stone cottages, timber framing, slate roofs, split-rail fences, barrels, log piles, birch and oak trees, and worn dirt paths through warm olive and yellow-green grass. It should feel lived-in, cosy and golden-afternoon. **Buildings are painted from 16px tiles** (walls, roofs, doors, windows, chimneys), so every house can have its own footprint, with variety from arrangement and props: fences, bushes, flowers, pots, signs, log piles.
 
-- **Grass:** olive `a2a947` with pale `cddf6c` flecks, scattered with fill variants (see the manifest).
-- **Rivers:** teal water `0b8a8f` with pale ripples. The tile ripples are horizontal, so **rivers run mostly east–west** with gentle bends. Flow and motion come from a Godot scroll shader, which stops when an area is drained (§8.1). Soften stepped diagonal banks with reeds, stones or bridges.
+- **Grass (v0.x, superseded):** olive `a2a947` with pale `cddf6c` flecks. Keep the olive family.
+- **Rivers (v0.x, superseded; keep the colour):** teal water `0b8a8f` with pale ripples. The tile ripples are horizontal, so **rivers run mostly east–west** with gentle bends. Flow and motion come from a Godot scroll shader, which stops when an area is drained (§8.1). Soften stepped diagonal banks with reeds, stones or bridges.
 
 ### 5.2 Old woodland (Biome 2)
 
@@ -146,7 +140,7 @@ Tall straight trunks, hazy **golden shafts of light**, dark leaf-litter floor, h
 
 Roofless stone cottages, moss-covered walls and trunks, ivy, ferns, leaf litter. People left and nature quietly moved in. It's **alive and green**, never grey.
 
-- **Ruins are built from crumbled wall pieces only** (uneven tops, stepped broken ends, ivy), softened with ferns, bushes and scattered stones. **No straight, angular or modular walls** (the building-kit look was rejected). Ruins are baked or placed as objects over the meadow, with grass showing through inside.
+- **Ruins are built from crumbled wall pieces only** (uneven tops, stepped broken ends, ivy), softened with ferns, bushes and scattered stones. **No straight, angular or modular walls** (the building-kit look was rejected). Ruins are baked or placed as objects over the meadow, with grass showing through inside. (v0.x rule; re-check once the 16-bit style is locked.)
 
 ### 5.4 Other biomes
 
@@ -158,16 +152,15 @@ Lakes and wetlands, highland ruins, and coast and cliffs will be defined after P
 
 ### 6.1 Palette 🔬
 
-- **Test palette:** Resurrect 64 (Lospec). The file lives at `tools/palettes/resurrect-64.hex`.
-- **Fallback:** a custom 40–48-colour palette built from the approved Phase 0 assets, split deliberately into a **warm half** (golden, olive, ochre, rust, ginger) and a **cold half** (blue, teal, grey fog).
-- Compare them side by side in Phase 0. **Winner:** _TBD_.
-- **Every asset** is remapped to the winning palette. No exceptions.
+- **Afterflow v1 palette (locked 2026-09-25):** the north star's 28 colours plus two skin tones (`fca790`, `fdcbb0`), 30 colours in all, every one a Resurrect 64 colour. File: `tools/palettes/afterflow-v1.hex`.
+- **Every asset** is remapped to it: `python tools/palette_remap.py <in> <out> --palette tools/palettes/afterflow-v1.hex`. New colours are added only with Tom's approval, and only from Resurrect 64.
+- Resurrect 64 (`tools/palettes/resurrect-64.hex`) stays as the superset; the custom warm/cold palette comparison is no longer needed.
 
 ### 6.2 Colour language
 
 | Meaning | Colour |
 |---|---|
-| **Alive / cosy** | Warm golden light, olive and yellow-green, ochre, warm wood |
+| **Alive / cosy** | Deep muted meadow greens (`547e64`, `374e4a`), soft brown paths (`966c6c`), warm pale stone (`ab947a`), plum-grey slate (`625565`, `3e3546`), blue water (`4d65b4`, `8fd3ff`) |
 | **Drained** | Cold blue-grey and teal, desaturated, still |
 | **Awa** | Ginger hair plus a blue scarf. Always the most readable thing on screen. |
 | **The world's creatures** | A shared pale glow or white "eye" signature |
@@ -233,3 +226,5 @@ The eeriest areas may approach cold, lonely dread. **Never** jump scares, gore o
 | 0.5 | 2026-09-25 | §3.0: ground fill exception (low detail, fill variants) |
 | 0.6 | 2026-09-25 | §5.1: approved meadow grass and river colours; rivers run east–west |
 | 0.7 | 2026-09-25 | §5.3: ruins from crumbled pieces only, no angular walls |
+| 0.8 | 2026-09-25 | **Direction reset:** 16-bit SNES-era top-down style (§0); 320×180 with 16px tiles; one camera, dark outlines, top-left light; new style suffix; north-star-first workflow and style lock; buildings painted from tiles; rebuild everything including Awa |
+| 0.9 | 2026-09-25 | **North star locked** (§0); §3 parameters locked from it; §6.1 Afterflow v1 palette (30 colours from Resurrect 64); §6.2 alive colours; §4.3 Awa colour-integrity rule |
