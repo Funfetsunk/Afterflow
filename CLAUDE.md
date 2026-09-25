@@ -36,21 +36,18 @@ If a request conflicts with these documents, **stop and ask Tom**. Don't silentl
 
 ---
 
-## 3. Current phase: PHASE 0 — LOOK DEVELOPMENT
+## 3. Current phase: PHASE 1 — FOUNDATION
 
-> **2026-09-25: direction reset.** The target is now a 16-bit SNES-era top-down look at 320×180 with 16px tiles (Art Bible §0). All v0.x assets are superseded and everything, Awa included, is rebuilt. The north star is **locked** (`art/final/north_star/ns_meadow_village_r2_mix.png`), and so is the Afterflow v1 palette (`tools/palettes/afterflow-v1.hex`): remap every asset to it, and never let a recolour touch Awa (Art Bible §4.3).
+> **2026-09-25: Phase 0 complete** (tag `phase0-complete`). Tom signed off **Art Bible v1.0**: the 16-bit look, the Afterflow v1 palette (`tools/palettes/afterflow-v1.hex`), sizes, grounding rule and enemy signature are locked. Visual targets: the north star (`art/final/north_star/ns_meadow_village_r2_mix.png`) and the approved village mock (`art/mocks/v2_village_full_6x.png`). Never let a recolour, palette pass or shader touch Awa (Art Bible §4.3). The Phase 1 project settings (§7) are applied.
 
-> ⛔ **HARD RULE: no game code, scenes or gameplay scripts until Tom approves Art Bible v1.0.**
+Goal (GDD roadmap): Awa movement and animation, camera, meadow tilemap.
 
-Allowed in Phase 0:
-- PixelLab generation of the sample set (ASSET_MANIFEST §4)
-- Python tools in `tools/` (palette remap, mock composer)
-- Updating the documents
+Allowed in Phase 1:
+- Godot scenes, nodes, GDScript and TileSets, following §7
+- Copying approved `art/final/` assets into `assets/` for Godot to import (Art Bible §11 lists the approved set)
+- New art (animations first), following §5 and the Art Bible; only Tom sets `approved`
 
-Not allowed in Phase 0:
-- Godot scenes, nodes, GDScript gameplay, tilemaps, project-setting experiments
-
-Phase exit: Tom approves the mocks, and the Art Bible reaches v1.0 with proportions, palette and enemy signature settled. Then update this section to Phase 1.
+Phase exit: Awa walks around a meadow at the correct scale. Then update this section to Phase 2.
 
 ---
 
@@ -116,7 +113,7 @@ Rules:
 
 ---
 
-## 6. Tools (Phase 0, built)
+## 6. Tools (built in Phase 0)
 
 Install the dependency with `python -m pip install -r tools/requirements.txt`. Each tool's usage is in its docstring.
 
@@ -140,7 +137,7 @@ Install the dependency with `python -m pip install -r tools/requirements.txt`. E
 
 **Renderer:** `rendering/renderer/rendering_method = forward_plus` (already applied in Phase 0, with Tom's approval). Forward+ was chosen for its 2D lighting headroom, HDR 2D and glow on a Windows desktop target. The `.mobile` and `.web` overrides stay on `gl_compatibility`.
 
-**Project settings to apply at the start of Phase 1** (via `set_project_setting`, **never** by editing `project.godot` directly):
+**Project settings (applied 2026-09-25 at the start of Phase 1** via `set_project_setting`; change them the same way, **never** by editing `project.godot` directly**):**
 - `display/window/size/viewport_width = 320`, `viewport_height = 180`
 - Window override `1920×1080`; stretch mode `viewport`, aspect `keep`, scale mode `integer`
 - `rendering/textures/canvas_textures/default_texture_filter = Nearest`
