@@ -197,5 +197,24 @@
     "art/final/tiles/stamps/rubble_pile_r0c1.png"
    ]
   ]
+ },
+ "shrine_monolith": {
+  "cols": 2,
+  "rows": 3,
+  "source": "art/final/shrine/obj_shrine16_monolith.png",
+  "tiles": [
+   [
+    "art/final/tiles/stamps/shrine_monolith_r0c0.png",
+    "art/final/tiles/stamps/shrine_monolith_r0c1.png"
+   ],
+   [
+    "art/final/tiles/stamps/shrine_monolith_r1c0.png",
+    "art/final/tiles/stamps/shrine_monolith_r1c1.png"
+   ],
+   [
+    "art/final/tiles/stamps/shrine_monolith_r2c0.png",
+    "art/final/tiles/stamps/shrine_monolith_r2c1.png"
+   ]
+  ]
  }
 }

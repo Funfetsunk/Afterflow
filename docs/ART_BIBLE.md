@@ -1,6 +1,6 @@
 # Afterflow — Art Bible
 
-> **Status:** v0.15, provisional. **Direction reset on 2026-09-25** (see §0). Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
+> **Status:** v0.16, provisional. **Direction reset on 2026-09-25** (see §0). Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
 > **Rule:** every asset request follows this document. If an asset needs to break a rule, update this document first.
 
 ---
@@ -144,6 +144,11 @@ Roofless stone cottages, moss-covered walls and trunks, ivy, ferns, leaf litter.
 - **Ruin kit (approved 2026-09-25):** `ts_ruin16`, the cottages' own stone broken down: stone-sized broken tops with a pale cap and outline, moss and ivy, weathered darker lower courses, rubble stamps at the foot. East–west runs, painted with `tools/paint_tiles.py ... ruin`.
 - **Ruins are built from crumbled wall pieces only** (uneven tops, stepped broken ends, ivy), softened with ferns, bushes and scattered stones. **No straight, angular or modular walls** (the building-kit look was rejected). Ruins are baked or placed as objects over the meadow, with grass showing through inside. (v0.x rule; re-check once the 16-bit style is locked.)
 
+### 5.3a Shrines
+
+- **Shrine (approved 2026-09-25):** `shrine_monolith`, a 2×3 tile stamp drawn by `tools/kits/make_shrine16.py`. Shrines are the world's mind keeping Awa alive (GDD), so they look **ancient-future**: too clean and too advanced for the countryside, with moss taking them back. A dark slate obelisk (`7f708a`/`625565`/`3e3546`) with a bevelled top, a glowing seam and round core, on a two-tier pale plinth (`c7dcd0`/`9babb2`/`7f708a`) with a glowing groove.
+- **Machine glow is pale cyan** (`ffffff`/`8fd3ff`/`4d9be6`), apart from the creatures' pale glow. In Godot a 2D light adds the real glow.
+
 ### 5.4 Other biomes
 
 Lakes and wetlands, highland ruins, and coast and cliffs will be defined after Phase 0, using the same rules.
@@ -236,3 +241,4 @@ The eeriest areas may approach cold, lonely dread. **Never** jump scares, gore o
 | 0.13 | 2026-09-25 | §2: everything environmental is 16px tiles (autotiles, modular kits, fixed stamps) |
 | 0.14 | 2026-09-25 | §5.1: 16px cottage kit approved (separate roof/wall layers); grounding rule (tufted base, cast shadow) |
 | 0.15 | 2026-09-25 | §5.3: ruin kit approved (weathered courses, rubble) |
+| 0.16 | 2026-09-25 | §5.3a: shrine approved (ancient-future monolith, pale cyan machine glow) |
