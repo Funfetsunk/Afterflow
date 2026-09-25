@@ -1,6 +1,6 @@
 # Afterflow — Art Bible
 
-> **Status:** v0.5, provisional. Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
+> **Status:** v0.6, provisional. Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
 > **Rule:** every asset request follows this document. If an asset needs to break a rule, update this document first.
 
 ---
@@ -135,6 +135,9 @@ cosy English countryside, soft storybook pixel art, muted warm natural colours, 
 
 A small English hamlet, deliberately **smaller in scale** than a real village. Stone cottages, timber framing, slate roofs, split-rail fences, barrels, log piles, birch and oak trees, and worn dirt paths through warm olive and yellow-green grass. It should feel lived-in, soft and golden-afternoon.
 
+- **Grass:** olive `a2a947` with pale `cddf6c` flecks, scattered with fill variants (see the manifest).
+- **Rivers:** teal water `0b8a8f` with pale ripples. The tile ripples are horizontal, so **rivers run mostly east–west** with gentle bends. Flow and motion come from a Godot scroll shader, which stops when an area is drained (§8.1). Soften stepped diagonal banks with reeds, stones or bridges.
+
 ### 5.2 Old woodland (Biome 2)
 
 Tall straight trunks, hazy **golden shafts of light**, dark leaf-litter floor, heavily shadowed edges. Cathedral-like: beautiful, but you feel small.
@@ -226,3 +229,4 @@ The eeriest areas may approach cold, lonely dread. **Never** jump scares, gore o
 | 0.3 | 2026-09-25 | §2.1: `size` is the figure height, not the canvas; Awa `size` 40. §4.4: satchel wording. Round 2 proportion test |
 | 0.4 | 2026-09-25 | §4.3: Variant A wins (opt5). §4.1: scarf colour fixed with `tools/recolour.py` |
 | 0.5 | 2026-09-25 | §3.0: ground fill exception (low detail, fill variants) |
+| 0.6 | 2026-09-25 | §5.1: approved meadow grass and river colours; rivers run east–west |

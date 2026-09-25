@@ -48,7 +48,7 @@ MCP generations draw from the subscription allowance (2,000 per cycle on Tier 1,
 
 | Cycle | Plan | Generations used (Afterflow) | Notes |
 |---|---|---|---|
-| 2026-09-21 → 2026-10-21 | Tier 1 (Pixel Apprentice) | 40 | 859 of 2,000 were already used this cycle before Afterflow started; 1,140 left on 2026-09-25; 1,100 left after grass-path round 3 |
+| 2026-09-21 → 2026-10-21 | Tier 1 (Pixel Apprentice) | 48 | 859 of 2,000 were already used this cycle before Afterflow started; 1,140 left on 2026-09-25; 1,092 left after grass-water round 1 |
 
 ---
 
@@ -78,7 +78,7 @@ Unless a row says otherwise, every asset uses the Art Bible §3 defaults: `low t
 | `ts_meadow_grass-path` | Meadow grass ↔ dirt path | 32 | worn dirt path (lower) / grass (upper) | opt1 `0118a881-47c2-4676-897e-7c5fd39a432b`<br>opt2 `e36260f4-2900-42b3-bf93-02d61adb2545`<br>opt3 `66603775-e1b1-4a15-b4b0-043de9803292` | 3 | — | 12 | rejected | Standard mode, `high top-down`, transition 0.25. Each cost 4 generations. Review mocks: `art/mocks/mock_tiles_grass-path_opt1..3`. The metadata JSON sits next to each raw sheet. Grass base tile IDs (for chaining): opt1 `7a626433-9713-40a4-9c9e-772ef67bde3e`, opt2 `00916dff-3832-460b-a5a9-1771c03cd544`, opt3 `e0a97c7b-bd09-494b-85e3-8a6a24374b3c`. `seed` is rejected by the server despite being in the schema |
 | `ts_meadow_grass-path` (round 2) | Meadow grass ↔ dirt path | 32 | dirt footpath (lower) / opt1 grass, chained (upper) | opt4 `299b845c-84df-4e6c-a0e9-f8c54435fd65`<br>opt5 `b37306a7-7e82-4ecb-9644-2c9297f1b22d`<br>opt6 `f2e1880a-cf87-4234-806a-bdc0d44602b1` | 3 | — | 6 | rejected | opt5's path tile was carried into round 3 through chaining. 2 generations each, cheaper when chained. Review mocks: `art/mocks/mock_tiles_grass-path_opt4..6`. Round 1 paths looked sunken, like cliffs. Round 2: `transition_size 0`, `upper_base_tile_id` = opt1 grass `7a626433-9713-40a4-9c9e-772ef67bde3e`, flat-path wording |
 | `ts_meadow_grass-path` (round 3) | Meadow grass ↔ dirt path | 32 | opt5 path, chained (lower) / new low-detail grass (upper) | opt7 `798acd37-3538-4719-a1b4-54065bcf2a59`<br>opt8 `2f05aa5c-f23e-492b-a04d-24f2c4a3fb19`<br>opt9 `dbd4ec8a-d465-4a10-92ca-9e4c67e5171f` | 3 | **opt7** | 6 | approved | **Approved by Tom, 2026-09-25** (opt7 grass recoloured to olive, plus fill variants; the path is opt5's). Tom: opt5 path good, but the grass repeated too visibly. `lower_base_tile_id` = opt5 path `be051fd0-b806-48fa-80cc-73372fb70513`; `detail: low detail` (exception to Art Bible §3 for ground fill). opt7 grass is 2-colour irregular speckle, recoloured lime→olive: `recolour.py ... --map 91db69=a2a947 d5e04b=cddf6c` → `art/final/ts_meadow_grass-path_opt7_olive.png`. Fill variants: `fill_variants.py art/final/ts_meadow_grass-path_opt7_olive.png 0 96 art/final/ts_meadow_grass-fill` → `_00`–`_07`. opt8 teal sprigs in a grid, opt9 orange dash grid: rejected |
-| `ts_meadow_grass-water` | Meadow grass ↔ river water | 32 | grass / river water | — | — | — | — | planned | River spine |
+| `ts_meadow_grass-water` | Meadow grass ↔ river water | 32 | river water (lower) / approved grass, chained (upper) | opt1 `82f02a27-85f2-4714-99e8-0abd796d497b`<br>opt2 `50b6d4ff-771a-4e65-8277-4da8b3fc66be`<br>opt3 `c2b57419-e2ff-4f0f-a4d7-980446293837` | 3 | **opt2** | 8 | approved | **Approved by Tom, 2026-09-25**: opt2, water recoloured to teal, calm ripple variants. Recipe: `recolour.py art/final/ts_meadow_grass-water_opt2.png ..._opt2_olive.png --map 91db69=a2a947 d5e04b=cddf6c`, then `recolour.py ..._opt2_olive.png ..._opt2_teal.png --map 9babb2=0b8a8f`, then `fill_variants.py art/final/ts_meadow_grass-water_opt2_teal.png 64 32 art/final/ts_meadow_water-fill --thin 0.6 0.4 0.25 0 --stroke-colour 8ff8e2 --seed 7` (keep only `_00`–`_03`: rotations would turn the ripples; `_thin0`–`_thin3` are calmer copies). Ripples are horizontal, so rivers should run mostly east–west; flow direction and motion come from a Godot scroll shader, which stops when drained. River spine. Review mocks: `art/mocks/mock_tiles_grass-water_opt1..3` (grass recoloured to olive, fill variants scattered). `upper_base_tile_id` = approved grass `7b2ed5ec-0dcd-40b7-acd3-7edeb03c23f4`, `detail: low detail`. opt1–2: muddy bank, transition 0.25; opt3: flush edge, transition 0. The grass needs the olive recolour |
 | `ts_woodland_floor` | Old woodland (second pass) | 32 | leaf litter / forest undergrowth | — | — | — | — | planned | Darker-biome test |
 
 ### 4.3 Map objects
@@ -156,6 +156,16 @@ transition_size: 0
 detail: low detail
 ```
 
+### `ts_meadow_grass-water`
+```
+lower_description: calm shallow river water, soft gentle ripples, muted blue-green, low detail, cosy English countryside, soft storybook pixel art, muted warm natural colours, gentle light
+upper_description: soft meadow grass, low detail, subtle uneven texture, gently varied olive and yellow-green tones, no regular pattern, cosy English countryside, soft storybook pixel art, muted warm natural colours, gentle light
+upper_base_tile_id: 7b2ed5ec-0dcd-40b7-acd3-7edeb03c23f4
+opt1-2: transition_size 0.25, transition_description: low soft muddy riverbank with a few reeds, gently sloping, not a cliff
+opt3: transition_size 0
+detail: low detail
+```
+
 <!-- Add one block per asset. -->
 
 ---
@@ -170,3 +180,5 @@ detail: low detail
 | `ts_meadow_grass-path` opt1–3 | Paths looked sunken, like cliffs; the path textures read as carpet, planks or cobbles | 2026-09-25 |
 | `ts_meadow_grass-path` opt4–6 | Flat paths were fine (opt5's was kept), but the grass repeated too visibly | 2026-09-25 |
 | `ts_meadow_grass-path` opt8–9 | Grass marks lined up in a visible grid | 2026-09-25 |
+| `ts_meadow_grass-water` opt1 | Striped sage water, too close to the grass colour | 2026-09-25 |
+| `ts_meadow_grass-water` opt3 | Flush edge, water barely separates from the grass | 2026-09-25 |

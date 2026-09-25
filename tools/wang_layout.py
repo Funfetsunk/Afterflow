@@ -6,9 +6,10 @@ tiles; 16 x 10 vertices covers the 480x270 screen (15 x 9 tiles, the last
 row partly off screen). Each tile is chosen by its four corners and cut
 from the sheet with the bounding_box from the tileset's metadata JSON.
 
-Optional --fill-variants: extra 32x32 PNGs used at random in place of the
-full-upper tile (e.g. grass variations), to preview how a Godot TileSet with
-weighted alternative tiles breaks up repetition. --seed makes it repeatable.
+Optional --fill-variants / --lower-variants: extra 32x32 PNGs used at random
+in place of the full-upper / full-lower tile (e.g. grass or water variations),
+to preview how a Godot TileSet with weighted alternative tiles breaks up
+repetition. --variant-chance applies to both. --seed makes it repeatable.
 
 Usage:
     python tools/wang_layout.py art/raw/ts_x.json art/final/ts_x.png map.txt out.json
@@ -36,8 +37,10 @@ def main():
     parser.add_argument("output", type=Path, help="layout JSON to write")
     parser.add_argument("--fill-variants", nargs="+", default=[], metavar="PNG",
                         help="alternative full-upper tiles to scatter at random")
+    parser.add_argument("--lower-variants", nargs="+", default=[], metavar="PNG",
+                        help="alternative full-lower tiles to scatter at random")
     parser.add_argument("--variant-chance", type=float, default=0.35,
-                        help="chance a full-upper cell uses a variant (default 0.35)")
+                        help="chance a full cell uses a variant (default 0.35)")
     parser.add_argument("--seed", type=int, default=1)
     parser.add_argument("--sprite", nargs=3, action="append", default=[], metavar=("PNG", "X", "Y"),
                         help="sprite to draw on top at pixel position X Y (repeatable)")
@@ -65,8 +68,9 @@ def main():
                    terrain(rows[r + 1][c]), terrain(rows[r + 1][c + 1]))
             if key not in lookup:
                 sys.exit(f"Tileset has no tile for corners {key}")
-            if key == ("upper",) * 4 and args.fill_variants and rng.random() < args.variant_chance:
-                items.append({"image": rng.choice(args.fill_variants), "cell": [c, r]})
+            variants = {("upper",) * 4: args.fill_variants, ("lower",) * 4: args.lower_variants}.get(key)
+            if variants and rng.random() < args.variant_chance:
+                items.append({"image": rng.choice(variants), "cell": [c, r]})
             else:
                 items.append({"image": args.sheet, "cell": [c, r], "crop": lookup[key]})
 
