@@ -1,6 +1,6 @@
 # Afterflow — Art Bible
 
-> **Status:** v0.6, provisional. Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
+> **Status:** v0.7, provisional. Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
 > **Rule:** every asset request follows this document. If an asset needs to break a rule, update this document first.
 
 ---
@@ -146,6 +146,8 @@ Tall straight trunks, hazy **golden shafts of light**, dark leaf-litter floor, h
 
 Roofless stone cottages, moss-covered walls and trunks, ivy, ferns, leaf litter. People left and nature quietly moved in. It's **alive and green**, never grey.
 
+- **Ruins are built from crumbled wall pieces only** (uneven tops, stepped broken ends, ivy), softened with ferns, bushes and scattered stones. **No straight, angular or modular walls** (the building-kit look was rejected). Ruins are baked or placed as objects over the meadow, with grass showing through inside.
+
 ### 5.4 Other biomes
 
 Lakes and wetlands, highland ruins, and coast and cliffs will be defined after Phase 0, using the same rules.
@@ -230,3 +232,4 @@ The eeriest areas may approach cold, lonely dread. **Never** jump scares, gore o
 | 0.4 | 2026-09-25 | §4.3: Variant A wins (opt5). §4.1: scarf colour fixed with `tools/recolour.py` |
 | 0.5 | 2026-09-25 | §3.0: ground fill exception (low detail, fill variants) |
 | 0.6 | 2026-09-25 | §5.1: approved meadow grass and river colours; rivers run east–west |
+| 0.7 | 2026-09-25 | §5.3: ruins from crumbled pieces only, no angular walls |

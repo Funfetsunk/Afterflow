@@ -22,6 +22,8 @@ Item keys:
     fill    [x, y, w, h] repeat the image to cover this rectangle
     crop    [x, y, w, h] use only this part of the image (e.g. one frame of a sheet)
     flip    true to mirror horizontally
+    nodrain true to keep this item out of the --drain colour shift (Awa: the
+            drain shader affects the world, not her)
 
 Usage:
     python tools/compose_mock.py tools/mock_layouts/meadow_village.json
@@ -78,11 +80,13 @@ def load_item_image(item, number):
     return image
 
 
-def compose(layout):
+def compose(layout, skip_nodrain=False, only_nodrain=False):
     background = ImageColor.getrgb(layout.get("background", "#000000"))
-    canvas = Image.new("RGBA", (WIDTH, HEIGHT), background + (255,))
+    canvas = Image.new("RGBA", (WIDTH, HEIGHT), (0, 0, 0, 0) if only_nodrain else background + (255,))
 
     for number, item in enumerate(layout.get("items", []), start=1):
+        if (skip_nodrain and item.get("nodrain")) or (only_nodrain and not item.get("nodrain")):
+            continue
         image = load_item_image(item, number)
         w, h = image.size
 
@@ -110,7 +114,7 @@ def compose(layout):
         layer.paste(image, (x, y))
         canvas = Image.alpha_composite(canvas, layer)
 
-    return canvas.convert("RGB")
+    return canvas if only_nodrain else canvas.convert("RGB")
 
 
 def drain(image, strength):
@@ -146,9 +150,12 @@ def main():
     except (OSError, json.JSONDecodeError) as error:
         sys.exit(f"Can't read layout {args.layout}: {error}")
 
-    mock = compose(layout)
-    if args.drain is not None:
-        mock = drain(mock, args.drain)
+    if args.drain is None:
+        mock = compose(layout)
+    else:
+        mock = drain(compose(layout, skip_nodrain=True), args.drain).convert("RGBA")
+        mock.alpha_composite(compose(layout, only_nodrain=True))
+        mock = mock.convert("RGB")
 
     output = args.output
     if output is None:

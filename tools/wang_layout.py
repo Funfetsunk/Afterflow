@@ -18,6 +18,11 @@ Usage:
         --sprite art/final/chr_awa_a_s.png 196 150
 
 Then: python tools/compose_mock.py out.json
+
+--extra CHAR META SHEET adds a second tileset that shares the same upper
+terrain (e.g. '~' = water, next to '#' = path, both against grass '.'). A cell
+may mix '.' with one lower terrain only; '#' and '~' must not touch.
+--extra-variants PNG... scatters alternatives on full cells of the extra terrain.
 """
 
 import argparse
@@ -39,6 +44,10 @@ def main():
                         help="alternative full-upper tiles to scatter at random")
     parser.add_argument("--lower-variants", nargs="+", default=[], metavar="PNG",
                         help="alternative full-lower tiles to scatter at random")
+    parser.add_argument("--extra", nargs=3, metavar=("CHAR", "META", "SHEET"),
+                        help="second tileset for another lower terrain")
+    parser.add_argument("--extra-variants", nargs="+", default=[], metavar="PNG",
+                        help="alternative full tiles for the extra terrain")
     parser.add_argument("--variant-chance", type=float, default=0.35,
                         help="chance a full cell uses a variant (default 0.35)")
     parser.add_argument("--seed", type=int, default=1)
@@ -50,29 +59,40 @@ def main():
     if len({len(row) for row in rows}) != 1:
         sys.exit("Terrain map rows must all be the same length")
 
-    metadata = json.loads(args.metadata.read_text())
-    lookup = {}
-    for tile in metadata["tileset_data"]["tiles"]:
-        corners, box = tile["corners"], tile["bounding_box"]
-        key = (corners["NW"], corners["NE"], corners["SW"], corners["SE"])
-        lookup[key] = [box["x"], box["y"], box["width"], box["height"]]
+    def load_lookup(path):
+        lookup = {}
+        for tile in json.loads(Path(path).read_text())["tileset_data"]["tiles"]:
+            corners, box = tile["corners"], tile["bounding_box"]
+            key = (corners["NW"], corners["NE"], corners["SW"], corners["SE"])
+            lookup[key] = [box["x"], box["y"], box["width"], box["height"]]
+        return lookup
 
-    def terrain(char):
-        return "lower" if char == "#" else "upper"
+    # lower-terrain char -> (sheet, corner lookup, full-lower variants)
+    tilesets = {"#": (args.sheet, load_lookup(args.metadata), args.lower_variants)}
+    if args.extra:
+        char, meta, sheet = args.extra
+        tilesets[char] = (sheet, load_lookup(meta), args.extra_variants)
 
     rng = random.Random(args.seed)
     items = []
     for r in range(len(rows) - 1):
         for c in range(len(rows[0]) - 1):
-            key = (terrain(rows[r][c]), terrain(rows[r][c + 1]),
-                   terrain(rows[r + 1][c]), terrain(rows[r + 1][c + 1]))
+            chars = (rows[r][c], rows[r][c + 1], rows[r + 1][c], rows[r + 1][c + 1])
+            lowers = {ch for ch in chars if ch != "."}
+            if len(lowers) > 1:
+                sys.exit(f"Cell {c},{r} mixes two lower terrains {sorted(lowers)}; keep grass between them")
+            lower = lowers.pop() if lowers else "#"
+            if lower not in tilesets:
+                sys.exit(f"Unknown terrain character {lower!r}")
+            sheet, lookup, lower_variants = tilesets[lower]
+            key = tuple("upper" if ch == "." else "lower" for ch in chars)
             if key not in lookup:
                 sys.exit(f"Tileset has no tile for corners {key}")
-            variants = {("upper",) * 4: args.fill_variants, ("lower",) * 4: args.lower_variants}.get(key)
+            variants = {("upper",) * 4: args.fill_variants, ("lower",) * 4: lower_variants}.get(key)
             if variants and rng.random() < args.variant_chance:
                 items.append({"image": rng.choice(variants), "cell": [c, r]})
             else:
-                items.append({"image": args.sheet, "cell": [c, r], "crop": lookup[key]})
+                items.append({"image": sheet, "cell": [c, r], "crop": lookup[key]})
 
     for image, x, y in args.sprite:
         items.append({"image": image, "at": [int(x), int(y)]})
