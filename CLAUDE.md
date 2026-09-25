@@ -72,6 +72,7 @@ afterflow/
 │   ├── palettes/resurrect-64.hex
 │   ├── palette_remap.py
 │   ├── compose_mock.py
+│   ├── recolour.py         # exact colour swaps (e.g. Awa's scarf)
 │   └── requirements.txt    # Pillow
 └── assets/                 # Phase 1+: approved finals copied here for Godot to import
 ```
@@ -107,9 +108,10 @@ Rules:
 
 Install the dependency with `python -m pip install -r tools/requirements.txt`. Each tool's usage is in its docstring.
 
-
 - **`tools/palette_remap.py`**: maps every pixel to the nearest palette colour, preserves transparency, and takes a palette file argument, so switching palettes is a single re-run over `art/raw/`.
 - **`tools/compose_mock.py`**: composes approved `art/final/` assets into an exact **480×270** image, exports it at both 1× and 4× (nearest-neighbour), and has an optional **`--drain`** flag that simulates the drain (a shift towards cold blue-grey with desaturation).
+- **`tools/recolour.py`**: swaps exact colours in `art/final/` sprites, for fixing one element PixelLab keeps getting wrong. Record every mapping in the manifest.
+- **`tools/mock_layouts/`**: JSON layouts for `compose_mock.py`.
 - Python 3, Pillow. Keep the tools small, readable and documented.
 
 ---

@@ -1,6 +1,6 @@
 # Afterflow — Art Bible
 
-> **Status:** v0.2, provisional. Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
+> **Status:** v0.4, provisional. Becomes **v1.0** when Phase 0 is approved. Items marked 🔬 are decided by the Phase 0 tests.
 > **Rule:** every asset request follows this document. If an asset needs to break a rule, update this document first.
 
 ---
@@ -25,15 +25,15 @@ A small English countryside, soft storybook pixel art, **warm and golden where t
 
 ### 2.1 Canvas sizes
 
-PixelLab characters fill about 60% of the canvas height.
+🔬 In `create_character` standard mode, **`size` sets roughly the figure height, not the canvas**. The canvas grows around the figure: `size: 64` returned a 92×92 canvas with a 64–73px figure. So choose `size` from the target figure height. Crop or re-pivot the padded canvas in Godot.
 
-| Asset class | Canvas | Approx. figure height |
-|---|---|---|
-| Awa, NPCs, standard enemies | **64px** | ~38px |
-| Small enemies / critters | **48px** | ~29px |
-| Large enemies | **96px** | ~58px |
-| Bosses | **96–128px** | ~58–77px |
-| Map objects | Multiples of the 32px grid | — |
+| Asset class | `size` (≈ figure height) |
+|---|---|
+| Awa, NPCs, standard enemies | **40** (target ~38px) |
+| Small enemies / critters | **30** (target ~29px) |
+| Large enemies | **60** (target ~58px) |
+| Bosses | **60–80** |
+| Map objects | Canvas in multiples of the 32px grid |
 
 ---
 
@@ -101,7 +101,7 @@ Record every final prompt in ASSET_MANIFEST.md.
 - About 12 years old, with **long, straight ginger hair**, loose or loosely tied.
 - Inquisitive and capable: **an explorer, not a warrior.**
 - **Outfit:** knee-length tunic in **oatmeal and rust** tones, leggings, sturdy brown boots, and a brown leather **satchel** worn across the body (the diary lives here).
-- **Signature accent:** a **faded blue scarf**. It's her alone, makes her findable on green and brown screens, and echoes the cold half of the palette.
+- **Signature accent:** a **faded blue scarf**. PixelLab rarely gets it right, so it's fixed after the remap with `tools/recolour.py` (recipe in ASSET_MANIFEST §5). It's her alone, makes her findable on green and brown screens, and echoes the cold half of the palette.
 - **Weapon:** a plain wooden **walking stick**.
 
 ### 4.2 Hard rules
@@ -114,13 +114,14 @@ Record every final prompt in ASSET_MANIFEST.md.
 
 - **Variant A:** natural proportions (about 6 heads). The risk is that her head is only 6–7px.
 - **Variant B:** semi-natural (about 4 heads). Still clearly a real girl, not chibi.
-- Both get generated in Phase 0 and judged in the mock. **Winner:** _TBD_.
+- Both get generated in Phase 0 and judged in the mock. **Winner: Variant A** (`chr_awa_a` opt5: `stylized` preset, `size: 40`), chosen by Tom on 2026-09-25.
+- Round 1 (`size: 64`, custom proportions): figures came out ~2 tiles tall, and A and B looked the same. Round 2 uses `size: 40` with the `stylized` preset for A and `cartoon` for B.
 
 ### 4.4 Base prompt (Phase 0)
 
 ```
 12 year old girl explorer, long straight ginger hair loosely tied, knee-length oatmeal and rust tunic,
-faded blue scarf, brown leather satchel across body, leggings, sturdy brown boots,
+faded blue scarf, small leather satchel on a strap across body, leggings, sturdy brown boots,
 holding a plain wooden walking stick, curious expression, [natural proportions | slightly stylised ~4 heads tall],
 cosy English countryside, soft storybook pixel art, muted warm natural colours, gentle light
 ```
@@ -221,3 +222,5 @@ The eeriest areas may approach cold, lonely dread. **Never** jump scares, gore o
 |---|---|---|
 | 0.1 | 2026-09-24 | Initial provisional bible from the planning session |
 | 0.2 | 2026-09-25 | Tilesets use `high top-down`; added §3.0 tool choice per asset class; verified the parameter enums against the PixelLab MCP |
+| 0.3 | 2026-09-25 | §2.1: `size` is the figure height, not the canvas; Awa `size` 40. §4.4: satchel wording. Round 2 proportion test |
+| 0.4 | 2026-09-25 | §4.3: Variant A wins (opt5). §4.1: scarf colour fixed with `tools/recolour.py` |

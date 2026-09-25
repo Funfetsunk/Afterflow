@@ -1,0 +1,109 @@
+{
+ "background": "#92a984",
+ "items": [
+  {
+   "image": "art/final/chr_awa_a_opt1_s.png",
+   "at": [
+    6,
+    40
+   ],
+   "crop": [
+    28,
+    0,
+    36,
+    92
+   ]
+  },
+  {
+   "image": "art/final/chr_awa_a_opt2_s.png",
+   "at": [
+    65,
+    40
+   ],
+   "crop": [
+    28,
+    0,
+    36,
+    92
+   ]
+  },
+  {
+   "image": "art/final/chr_awa_a_opt3_s.png",
+   "at": [
+    124,
+    40
+   ],
+   "crop": [
+    28,
+    0,
+    36,
+    92
+   ]
+  },
+  {
+   "image": "art/final/chr_awa_a_opt4_s.png",
+   "at": [
+    183,
+    40
+   ],
+   "crop": [
+    28,
+    0,
+    36,
+    92
+   ]
+  },
+  {
+   "image": "art/final/chr_awa_b_opt1_s.png",
+   "at": [
+    242,
+    40
+   ],
+   "crop": [
+    28,
+    0,
+    36,
+    92
+   ]
+  },
+  {
+   "image": "art/final/chr_awa_b_opt2_s.png",
+   "at": [
+    301,
+    40
+   ],
+   "crop": [
+    28,
+    0,
+    36,
+    92
+   ]
+  },
+  {
+   "image": "art/final/chr_awa_b_opt3_s.png",
+   "at": [
+    360,
+    40
+   ],
+   "crop": [
+    28,
+    0,
+    36,
+    92
+   ]
+  },
+  {
+   "image": "art/final/chr_awa_b_opt4_s.png",
+   "at": [
+    419,
+    40
+   ],
+   "crop": [
+    28,
+    0,
+    36,
+    92
+   ]
+  }
+ ]
+}
