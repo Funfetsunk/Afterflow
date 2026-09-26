@@ -205,7 +205,7 @@ script = ExtResource("5_ctxe4")
 flag = &"fight_cleared"
 reward = NodePath("KeyA")
 
-[node name="M1" type="CharacterBody2D" parent="FightRoom" unique_id=1872493516 instance=ExtResource("6_tsseo")]
+[node name="M1" parent="FightRoom" unique_id=1872493516 instance=ExtResource("6_tsseo")]
 position = Vector2(400, 410)
 collision_layer = 4
 collision_mask = 129
@@ -213,25 +213,7 @@ motion_mode = 1
 script = ExtResource("7_telku")
 textures = Array[Texture2D]([ExtResource("8_hplr7"), ExtResource("9_nu3mj"), ExtResource("10_s267f"), ExtResource("11_d0pcm")])
 
-[node name="Sprite" type="Sprite2D" parent="FightRoom/M1" unique_id=1505930426]
-material = SubResource("ShaderMaterial_6hy8y")
-texture = ExtResource("8_hplr7")
-offset = Vector2(0, -9)
-
-[node name="Feet" type="CollisionShape2D" parent="FightRoom/M1" unique_id=1221781152]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_fqw82")
-
-[node name="Hitbox" type="Area2D" parent="FightRoom/M1" unique_id=1817988045]
-collision_layer = 64
-collision_mask = 2
-monitorable = false
-
-[node name="Shape" type="CollisionShape2D" parent="FightRoom/M1/Hitbox" unique_id=1448369853]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_b2nlc")
-
-[node name="M2" type="CharacterBody2D" parent="FightRoom" unique_id=2066277339 instance=ExtResource("6_tsseo")]
+[node name="M2" parent="FightRoom" unique_id=2066277339 instance=ExtResource("6_tsseo")]
 position = Vector2(560, 410)
 collision_layer = 4
 collision_mask = 129
@@ -239,25 +221,7 @@ motion_mode = 1
 script = ExtResource("7_telku")
 textures = Array[Texture2D]([ExtResource("8_hplr7"), ExtResource("9_nu3mj"), ExtResource("10_s267f"), ExtResource("11_d0pcm")])
 
-[node name="Sprite" type="Sprite2D" parent="FightRoom/M2" unique_id=466549336]
-material = SubResource("ShaderMaterial_2ydav")
-texture = ExtResource("8_hplr7")
-offset = Vector2(0, -9)
-
-[node name="Feet" type="CollisionShape2D" parent="FightRoom/M2" unique_id=738028857]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_fqw82")
-
-[node name="Hitbox" type="Area2D" parent="FightRoom/M2" unique_id=1860093601]
-collision_layer = 64
-collision_mask = 2
-monitorable = false
-
-[node name="Shape" type="CollisionShape2D" parent="FightRoom/M2/Hitbox" unique_id=1133202329]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_b2nlc")
-
-[node name="M3" type="CharacterBody2D" parent="FightRoom" unique_id=904694890 instance=ExtResource("6_tsseo")]
+[node name="M3" parent="FightRoom" unique_id=904694890 instance=ExtResource("6_tsseo")]
 position = Vector2(400, 492)
 collision_layer = 4
 collision_mask = 129
@@ -265,25 +229,7 @@ motion_mode = 1
 script = ExtResource("7_telku")
 textures = Array[Texture2D]([ExtResource("8_hplr7"), ExtResource("9_nu3mj"), ExtResource("10_s267f"), ExtResource("11_d0pcm")])
 
-[node name="Sprite" type="Sprite2D" parent="FightRoom/M3" unique_id=1212624311]
-material = SubResource("ShaderMaterial_10qnp")
-texture = ExtResource("8_hplr7")
-offset = Vector2(0, -9)
-
-[node name="Feet" type="CollisionShape2D" parent="FightRoom/M3" unique_id=280419656]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_fqw82")
-
-[node name="Hitbox" type="Area2D" parent="FightRoom/M3" unique_id=1899963375]
-collision_layer = 64
-collision_mask = 2
-monitorable = false
-
-[node name="Shape" type="CollisionShape2D" parent="FightRoom/M3/Hitbox" unique_id=594433054]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_b2nlc")
-
-[node name="B1" type="CharacterBody2D" parent="FightRoom" unique_id=554920952 instance=ExtResource("13_4d0sj")]
+[node name="B1" parent="FightRoom" unique_id=554920952 instance=ExtResource("13_4d0sj")]
 position = Vector2(560, 492)
 collision_layer = 4
 collision_mask = 129
@@ -299,25 +245,7 @@ telegraph_time = 0.55
 attack_time = 0.45
 rest_time = 0.7
 
-[node name="Sprite" type="Sprite2D" parent="FightRoom/B1" unique_id=1727395457]
-material = SubResource("ShaderMaterial_o1eyl")
-texture = ExtResource("14_7x5ss")
-offset = Vector2(0, -9)
-
-[node name="Feet" type="CollisionShape2D" parent="FightRoom/B1" unique_id=1284561209]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_vrj48")
-
-[node name="Hitbox" type="Area2D" parent="FightRoom/B1" unique_id=1043429094]
-collision_layer = 64
-collision_mask = 2
-monitorable = false
-
-[node name="Shape" type="CollisionShape2D" parent="FightRoom/B1/Hitbox" unique_id=1398577119]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_ndxm1")
-
-[node name="KeyA" type="Area2D" parent="FightRoom" unique_id=454678109 instance=ExtResource("18_y8dkh")]
+[node name="KeyA" parent="FightRoom" unique_id=454678109 instance=ExtResource("18_y8dkh")]
 position = Vector2(480, 492)
 collision_layer = 0
 collision_mask = 2
@@ -326,19 +254,11 @@ kind = 2
 flag = &"key_a"
 message = "A small key. There must be a lock somewhere."
 
-[node name="Sprite" type="Sprite2D" parent="FightRoom/KeyA" unique_id=789332340]
-position = Vector2(0, -4)
-texture = ExtResource("20_p6byi")
-
-[node name="Shape" type="CollisionShape2D" parent="FightRoom/KeyA" unique_id=1863956570]
-position = Vector2(0, -3)
-shape = SubResource("CircleShape2D_b6ond")
-
 [node name="BossRewards" type="Node2D" parent="." unique_id=1211037671 node_paths=PackedStringArray("warden")]
 script = ExtResource("21_sy2xh")
 warden = NodePath("../Warden")
 
-[node name="HeartLeaf" type="Area2D" parent="BossRewards" unique_id=578672 instance=ExtResource("18_y8dkh")]
+[node name="HeartLeaf" parent="BossRewards" unique_id=578672 instance=ExtResource("18_y8dkh")]
 position = Vector2(440, 120)
 collision_layer = 0
 collision_mask = 2
@@ -347,15 +267,7 @@ kind = 1
 flag = &"heart_leaf_1"
 message = "A heart-leaf. You feel sturdier: one more leaf on the sprig."
 
-[node name="Sprite" type="Sprite2D" parent="BossRewards/HeartLeaf" unique_id=1663206519]
-position = Vector2(0, -4)
-texture = ExtResource("22_s7fjs")
-
-[node name="Shape" type="CollisionShape2D" parent="BossRewards/HeartLeaf" unique_id=1459011574]
-position = Vector2(0, -3)
-shape = SubResource("CircleShape2D_b6ond")
-
-[node name="TornPage" type="Area2D" parent="BossRewards" unique_id=911945210 instance=ExtResource("18_y8dkh")]
+[node name="TornPage" parent="BossRewards" unique_id=911945210 instance=ExtResource("18_y8dkh")]
 position = Vector2(520, 120)
 collision_layer = 0
 collision_mask = 2
@@ -365,107 +277,30 @@ flag = &"torn_page_1"
 diary_entry = &"torn_page"
 message = "A torn page, in your own handwriting. You don't remember writing it."
 
-[node name="Sprite" type="Sprite2D" parent="BossRewards/TornPage" unique_id=145453769]
-position = Vector2(0, -4)
-texture = ExtResource("23_6crnn")
-
-[node name="Shape" type="CollisionShape2D" parent="BossRewards/TornPage" unique_id=252200245]
-position = Vector2(0, -3)
-shape = SubResource("CircleShape2D_b6ond")
-
-[node name="Player" type="CharacterBody2D" parent="." unique_id=2142728879 instance=ExtResource("24_aiwir")]
+[node name="Player" parent="." unique_id=2142728879 instance=ExtResource("24_aiwir")]
 position = Vector2(160, 492)
 collision_layer = 2
 collision_mask = 137
 motion_mode = 1
 script = ExtResource("25_0d87m")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Player" unique_id=2056404818]
-sprite_frames = ExtResource("26_w4iil")
-animation = &"idle_s"
-autoplay = "idle_s"
-offset = Vector2(0, -13)
-
-[node name="Feet" type="CollisionShape2D" parent="Player" unique_id=1515235686]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_dovo2")
-
-[node name="StickHitbox" type="Area2D" parent="Player" unique_id=1889145271]
-collision_layer = 32
-collision_mask = 4
-monitorable = false
-
-[node name="Shape" type="CollisionShape2D" parent="Player/StickHitbox" unique_id=1028840895]
-shape = SubResource("RectangleShape2D_gmlin")
-disabled = true
-
-[node name="Slash" type="Sprite2D" parent="Player" unique_id=1461538584]
-visible = false
-z_index = 2
-
-[node name="InteractProbe" type="Area2D" parent="Player" unique_id=479706673]
-collision_layer = 0
-collision_mask = 16
-monitorable = false
-
-[node name="Shape" type="CollisionShape2D" parent="Player/InteractProbe" unique_id=766264245]
-shape = SubResource("CircleShape2D_lvxji")
-
-[node name="LanternLight" type="PointLight2D" parent="Player" unique_id=1093822967]
-position = Vector2(0, -10)
-enabled = false
-color = Color(1, 0.86, 0.6, 1)
-energy = 1.1
-range_item_cull_mask = 3
-texture = ExtResource("27_ajgve")
-
 [node name="Camera" type="Camera2D" parent="Player" unique_id=381902012 node_paths=PackedStringArray("bounds_layer")]
 script = ExtResource("27_tsn33")
 bounds_layer = NodePath("../../Ground")
 room_size = Vector2(320, 176)
 
-[node name="DoorA" type="StaticBody2D" parent="." unique_id=1452271836 instance=ExtResource("28_0p32q")]
+[node name="DoorA" parent="." unique_id=1452271836 instance=ExtResource("28_0p32q")]
 position = Vector2(480, 368)
 script = ExtResource("29_cl0bd")
 flag = &"door_a"
 
-[node name="Sprite" type="Sprite2D" parent="DoorA" unique_id=392203517]
-texture = ExtResource("30_3bir2")
-
-[node name="Shape" type="CollisionShape2D" parent="DoorA" unique_id=1774840844]
-shape = SubResource("RectangleShape2D_uibdi")
-
-[node name="Touch" type="Area2D" parent="DoorA" unique_id=1358890198]
-collision_layer = 16
-collision_mask = 0
-script = ExtResource("31_htcvu")
-
-[node name="Shape" type="CollisionShape2D" parent="DoorA/Touch" unique_id=1768541009]
-position = Vector2(0, 6)
-shape = SubResource("RectangleShape2D_or8nn")
-
-[node name="BossDoor" type="StaticBody2D" parent="." unique_id=395288210 instance=ExtResource("28_0p32q")]
+[node name="BossDoor" parent="." unique_id=395288210 instance=ExtResource("28_0p32q")]
 position = Vector2(480, 192)
 script = ExtResource("29_cl0bd")
 flag = &"door_boss"
 locked_message = "A heavy door with the spiral carved into it. It needs a key."
 
-[node name="Sprite" type="Sprite2D" parent="BossDoor" unique_id=400344762]
-texture = ExtResource("32_iat6q")
-
-[node name="Shape" type="CollisionShape2D" parent="BossDoor" unique_id=1504826284]
-shape = SubResource("RectangleShape2D_uibdi")
-
-[node name="Touch" type="Area2D" parent="BossDoor" unique_id=633999887]
-collision_layer = 16
-collision_mask = 0
-script = ExtResource("31_htcvu")
-
-[node name="Shape" type="CollisionShape2D" parent="BossDoor/Touch" unique_id=1676467877]
-position = Vector2(0, 6)
-shape = SubResource("RectangleShape2D_or8nn")
-
-[node name="KeyB" type="Area2D" parent="." unique_id=1933110780 instance=ExtResource("18_y8dkh")]
+[node name="KeyB" parent="." unique_id=1933110780 instance=ExtResource("18_y8dkh")]
 position = Vector2(40, 216)
 collision_layer = 0
 collision_mask = 2
@@ -474,24 +309,11 @@ kind = 2
 flag = &"key_b"
 message = "Another small key, hidden where only a light would find it."
 
-[node name="Sprite" type="Sprite2D" parent="KeyB" unique_id=1694440184]
-position = Vector2(0, -4)
-texture = ExtResource("20_p6byi")
-
-[node name="Shape" type="CollisionShape2D" parent="KeyB" unique_id=612613328]
-position = Vector2(0, -3)
-shape = SubResource("CircleShape2D_b6ond")
-
-[node name="DarkMark" type="Node2D" parent="." unique_id=2108137407 instance=ExtResource("33_x8fmd")]
+[node name="DarkMark" parent="." unique_id=2108137407 instance=ExtResource("33_x8fmd")]
 position = Vector2(56, 200)
 script = ExtResource("34_eqeck")
 
-[node name="Mark" type="Sprite2D" parent="DarkMark" unique_id=464755049]
-light_mask = 2
-material = SubResource("CanvasItemMaterial_tyyjm")
-texture = ExtResource("35_73dpl")
-
-[node name="DarkMossling" type="CharacterBody2D" parent="." unique_id=667433134 instance=ExtResource("6_tsseo")]
+[node name="DarkMossling" parent="." unique_id=667433134 instance=ExtResource("6_tsseo")]
 position = Vector2(200, 280)
 collision_layer = 4
 collision_mask = 129
@@ -499,25 +321,7 @@ motion_mode = 1
 script = ExtResource("7_telku")
 textures = Array[Texture2D]([ExtResource("8_hplr7"), ExtResource("9_nu3mj"), ExtResource("10_s267f"), ExtResource("11_d0pcm")])
 
-[node name="Sprite" type="Sprite2D" parent="DarkMossling" unique_id=1816463347]
-material = SubResource("ShaderMaterial_cdta0")
-texture = ExtResource("8_hplr7")
-offset = Vector2(0, -9)
-
-[node name="Feet" type="CollisionShape2D" parent="DarkMossling" unique_id=483301434]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_fqw82")
-
-[node name="Hitbox" type="Area2D" parent="DarkMossling" unique_id=1173635601]
-collision_layer = 64
-collision_mask = 2
-monitorable = false
-
-[node name="Shape" type="CollisionShape2D" parent="DarkMossling/Hitbox" unique_id=1086831019]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_b2nlc")
-
-[node name="HallBarkling1" type="CharacterBody2D" parent="." unique_id=219992418 instance=ExtResource("13_4d0sj")]
+[node name="HallBarkling1" parent="." unique_id=219992418 instance=ExtResource("13_4d0sj")]
 position = Vector2(400, 300)
 collision_layer = 4
 collision_mask = 129
@@ -533,25 +337,7 @@ telegraph_time = 0.55
 attack_time = 0.45
 rest_time = 0.7
 
-[node name="Sprite" type="Sprite2D" parent="HallBarkling1" unique_id=1282846939]
-material = SubResource("ShaderMaterial_kjw2y")
-texture = ExtResource("14_7x5ss")
-offset = Vector2(0, -9)
-
-[node name="Feet" type="CollisionShape2D" parent="HallBarkling1" unique_id=1110873242]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_vrj48")
-
-[node name="Hitbox" type="Area2D" parent="HallBarkling1" unique_id=1895101089]
-collision_layer = 64
-collision_mask = 2
-monitorable = false
-
-[node name="Shape" type="CollisionShape2D" parent="HallBarkling1/Hitbox" unique_id=305319184]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_ndxm1")
-
-[node name="HallBarkling2" type="CharacterBody2D" parent="." unique_id=57451010 instance=ExtResource("13_4d0sj")]
+[node name="HallBarkling2" parent="." unique_id=57451010 instance=ExtResource("13_4d0sj")]
 position = Vector2(560, 236)
 collision_layer = 4
 collision_mask = 129
@@ -567,52 +353,11 @@ telegraph_time = 0.55
 attack_time = 0.45
 rest_time = 0.7
 
-[node name="Sprite" type="Sprite2D" parent="HallBarkling2" unique_id=1698687126]
-material = SubResource("ShaderMaterial_12bfc")
-texture = ExtResource("14_7x5ss")
-offset = Vector2(0, -9)
-
-[node name="Feet" type="CollisionShape2D" parent="HallBarkling2" unique_id=1310259608]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_vrj48")
-
-[node name="Hitbox" type="Area2D" parent="HallBarkling2" unique_id=1307107626]
-collision_layer = 64
-collision_mask = 2
-monitorable = false
-
-[node name="Shape" type="CollisionShape2D" parent="HallBarkling2/Hitbox" unique_id=29773491]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_ndxm1")
-
-[node name="Warden" type="CharacterBody2D" parent="." unique_id=1957906558 instance=ExtResource("36_al1du")]
+[node name="Warden" parent="." unique_id=1957906558 instance=ExtResource("36_al1du")]
 position = Vector2(480, 100)
 collision_layer = 4
 motion_mode = 1
 script = ExtResource("37_si8iv")
-
-[node name="Shockwave" type="Sprite2D" parent="Warden" unique_id=1218427870]
-visible = false
-position = Vector2(0, -4)
-texture = ExtResource("38_tn4ve")
-
-[node name="Sprite" type="Sprite2D" parent="Warden" unique_id=65432757]
-material = SubResource("ShaderMaterial_847jo")
-texture = ExtResource("39_y47bh")
-offset = Vector2(0, -20)
-
-[node name="Body" type="CollisionShape2D" parent="Warden" unique_id=7445199]
-position = Vector2(0, -6)
-shape = SubResource("RectangleShape2D_fnvwd")
-
-[node name="Hitbox" type="Area2D" parent="Warden" unique_id=1222120107]
-collision_layer = 64
-collision_mask = 2
-monitorable = false
-
-[node name="Shape" type="CollisionShape2D" parent="Warden/Hitbox" unique_id=354388365]
-position = Vector2(0, -12)
-shape = SubResource("CircleShape2D_y2afr")
 
 [node name="MapEdges" type="StaticBody2D" parent="." unique_id=553765258]
 
@@ -629,3 +374,258 @@ collision_mask = 0
 
 [node name="Shape" type="CollisionShape2D" parent="BossBarrier" unique_id=2089312118]
 shape = SubResource("RectangleShape2D_ajgve")
+
+[node name="Sprite" parent="FightRoom/M1"]
+material = SubResource("ShaderMaterial_6hy8y")
+texture = ExtResource("8_hplr7")
+offset = Vector2(0, -9)
+
+[node name="Feet" parent="FightRoom/M1"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_fqw82")
+
+[node name="Hitbox" parent="FightRoom/M1"]
+collision_layer = 64
+collision_mask = 2
+monitorable = false
+
+[node name="Shape" parent="FightRoom/M1/Hitbox"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_b2nlc")
+
+[node name="Sprite" parent="FightRoom/M2"]
+material = SubResource("ShaderMaterial_2ydav")
+texture = ExtResource("8_hplr7")
+offset = Vector2(0, -9)
+
+[node name="Feet" parent="FightRoom/M2"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_fqw82")
+
+[node name="Hitbox" parent="FightRoom/M2"]
+collision_layer = 64
+collision_mask = 2
+monitorable = false
+
+[node name="Shape" parent="FightRoom/M2/Hitbox"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_b2nlc")
+
+[node name="Sprite" parent="FightRoom/M3"]
+material = SubResource("ShaderMaterial_10qnp")
+texture = ExtResource("8_hplr7")
+offset = Vector2(0, -9)
+
+[node name="Feet" parent="FightRoom/M3"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_fqw82")
+
+[node name="Hitbox" parent="FightRoom/M3"]
+collision_layer = 64
+collision_mask = 2
+monitorable = false
+
+[node name="Shape" parent="FightRoom/M3/Hitbox"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_b2nlc")
+
+[node name="Sprite" parent="FightRoom/B1"]
+material = SubResource("ShaderMaterial_o1eyl")
+texture = ExtResource("14_7x5ss")
+offset = Vector2(0, -9)
+
+[node name="Feet" parent="FightRoom/B1"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_vrj48")
+
+[node name="Hitbox" parent="FightRoom/B1"]
+collision_layer = 64
+collision_mask = 2
+monitorable = false
+
+[node name="Shape" parent="FightRoom/B1/Hitbox"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_ndxm1")
+
+[node name="Sprite" parent="FightRoom/KeyA"]
+position = Vector2(0, -4)
+texture = ExtResource("20_p6byi")
+
+[node name="Shape" parent="FightRoom/KeyA"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_b6ond")
+
+[node name="Sprite" parent="BossRewards/HeartLeaf"]
+position = Vector2(0, -4)
+texture = ExtResource("22_s7fjs")
+
+[node name="Shape" parent="BossRewards/HeartLeaf"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_b6ond")
+
+[node name="Sprite" parent="BossRewards/TornPage"]
+position = Vector2(0, -4)
+texture = ExtResource("23_6crnn")
+
+[node name="Shape" parent="BossRewards/TornPage"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_b6ond")
+
+[node name="Sprite" parent="Player"]
+sprite_frames = ExtResource("26_w4iil")
+animation = &"idle_s"
+autoplay = "idle_s"
+offset = Vector2(0, -13)
+
+[node name="Feet" parent="Player"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_dovo2")
+
+[node name="StickHitbox" parent="Player"]
+collision_layer = 32
+collision_mask = 4
+monitorable = false
+
+[node name="Shape" parent="Player/StickHitbox"]
+shape = SubResource("RectangleShape2D_gmlin")
+disabled = true
+
+[node name="Slash" parent="Player"]
+visible = false
+z_index = 2
+
+[node name="InteractProbe" parent="Player"]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="Shape" parent="Player/InteractProbe"]
+shape = SubResource("CircleShape2D_lvxji")
+
+[node name="LanternLight" parent="Player"]
+position = Vector2(0, -10)
+enabled = false
+color = Color(1, 0.86, 0.6, 1)
+energy = 1.1
+range_item_cull_mask = 3
+texture = ExtResource("27_ajgve")
+
+[node name="Sprite" parent="DoorA"]
+texture = ExtResource("30_3bir2")
+
+[node name="Shape" parent="DoorA"]
+shape = SubResource("RectangleShape2D_uibdi")
+
+[node name="Touch" parent="DoorA"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("31_htcvu")
+
+[node name="Shape" parent="DoorA/Touch"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_or8nn")
+
+[node name="Sprite" parent="BossDoor"]
+texture = ExtResource("32_iat6q")
+
+[node name="Shape" parent="BossDoor"]
+shape = SubResource("RectangleShape2D_uibdi")
+
+[node name="Touch" parent="BossDoor"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("31_htcvu")
+
+[node name="Shape" parent="BossDoor/Touch"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_or8nn")
+
+[node name="Sprite" parent="KeyB"]
+position = Vector2(0, -4)
+texture = ExtResource("20_p6byi")
+
+[node name="Shape" parent="KeyB"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_b6ond")
+
+[node name="Mark" parent="DarkMark"]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_tyyjm")
+texture = ExtResource("35_73dpl")
+
+[node name="Sprite" parent="DarkMossling"]
+material = SubResource("ShaderMaterial_cdta0")
+texture = ExtResource("8_hplr7")
+offset = Vector2(0, -9)
+
+[node name="Feet" parent="DarkMossling"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_fqw82")
+
+[node name="Hitbox" parent="DarkMossling"]
+collision_layer = 64
+collision_mask = 2
+monitorable = false
+
+[node name="Shape" parent="DarkMossling/Hitbox"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_b2nlc")
+
+[node name="Sprite" parent="HallBarkling1"]
+material = SubResource("ShaderMaterial_kjw2y")
+texture = ExtResource("14_7x5ss")
+offset = Vector2(0, -9)
+
+[node name="Feet" parent="HallBarkling1"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_vrj48")
+
+[node name="Hitbox" parent="HallBarkling1"]
+collision_layer = 64
+collision_mask = 2
+monitorable = false
+
+[node name="Shape" parent="HallBarkling1/Hitbox"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_ndxm1")
+
+[node name="Sprite" parent="HallBarkling2"]
+material = SubResource("ShaderMaterial_12bfc")
+texture = ExtResource("14_7x5ss")
+offset = Vector2(0, -9)
+
+[node name="Feet" parent="HallBarkling2"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_vrj48")
+
+[node name="Hitbox" parent="HallBarkling2"]
+collision_layer = 64
+collision_mask = 2
+monitorable = false
+
+[node name="Shape" parent="HallBarkling2/Hitbox"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_ndxm1")
+
+[node name="Shockwave" parent="Warden"]
+visible = false
+position = Vector2(0, -4)
+texture = ExtResource("38_tn4ve")
+
+[node name="Sprite" parent="Warden"]
+material = SubResource("ShaderMaterial_847jo")
+texture = ExtResource("39_y47bh")
+offset = Vector2(0, -20)
+
+[node name="Body" parent="Warden"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_fnvwd")
+
+[node name="Hitbox" parent="Warden"]
+collision_layer = 64
+collision_mask = 2
+monitorable = false
+
+[node name="Shape" parent="Warden/Hitbox"]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_y2afr")

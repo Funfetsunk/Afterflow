@@ -34,6 +34,7 @@ Writes resources/tilesets/meadow.tres.
 """
 
 import json
+import re
 from pathlib import Path
 
 from PIL import Image
@@ -203,7 +204,10 @@ def main():
     atlases.append(a)
     atlases.sort(key=lambda at: at.sid)
 
-    lines = ['[gd_resource type="TileSet" format=3]', ""]
+    # keep the resource's uid across rebuilds, so scenes' references stay valid
+    old = re.search(r'uid="([^"]+)"', OUT.read_text().splitlines()[0]) if OUT.exists() else None
+    uid = f' uid="{old.group(1)}"' if old else ""
+    lines = [f'[gd_resource type="TileSet" format=3{uid}]', ""]
     for at in atlases:
         lines.append(f'[ext_resource type="Texture2D" path="{at.texture}" id="tex_{at.sid}"]')
     lines.append("")

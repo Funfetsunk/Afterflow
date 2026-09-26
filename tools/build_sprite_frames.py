@@ -14,6 +14,7 @@ Usage (from the project root, after tools/export_assets.py):
 """
 
 import argparse
+import re
 from pathlib import Path
 
 DIRS = "senw"
@@ -42,7 +43,10 @@ def main():
 
     out = Path(f"resources/sprites/{args.name}_frames.tres")
     out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text('[gd_resource type="SpriteFrames" format=3]\n\n' + "\n".join(ext)
+    # keep the resource's uid across rebuilds, so scenes' references stay valid
+    old = re.search(r'uid="([^"]+)"', out.read_text().splitlines()[0]) if out.exists() else None
+    uid = f' uid="{old.group(1)}"' if old else ""
+    out.write_text(f'[gd_resource type="SpriteFrames" format=3{uid}]\n\n' + "\n".join(ext)
                    + "\n\n[resource]\nanimations = [" + ", ".join(anims) + "]\n")
     print(f"{out}: {len(anims)} animations, {len(ext)} frames")
 

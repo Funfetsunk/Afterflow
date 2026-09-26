@@ -90,16 +90,6 @@ tile_set = ExtResource("1_5tfap")
 position = Vector2(330, 276)
 collision_mask = 129
 
-[node name="Sprite2" type="AnimatedSprite2D" parent="Player" unique_id=2056404818]
-sprite_frames = ExtResource("4_pirrm")
-animation = &"idle_s"
-autoplay = "idle_s"
-offset = Vector2(0, -13)
-
-[node name="Feet2" type="CollisionShape2D" parent="Player" unique_id=1515235686]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_dovo2")
-
 [node name="Camera" type="Camera2D" parent="Player" unique_id=1227232435 node_paths=PackedStringArray("bounds_layer")]
 position = Vector2(0, -12)
 script = ExtResource("5_a1oij")
@@ -122,82 +112,17 @@ shape = SubResource("WorldBoundaryShape2D_crd4m")
 [node name="Miller" parent="." unique_id=748650602 instance=ExtResource("6_eerem")]
 position = Vector2(424, 172)
 
-[node name="Sprite2" type="Sprite2D" parent="Miller" unique_id=87135788]
-texture = ExtResource("6_u6wnn")
-offset = Vector2(0, -13)
-
-[node name="TalkShape2" type="CollisionShape2D" parent="Miller" unique_id=71962468]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_dt2f5")
-
-[node name="Body2" type="StaticBody2D" parent="Miller" unique_id=190303607]
-collision_layer = 8
-collision_mask = 0
-
 [node name="Shrine" parent="." unique_id=561156043 instance=ExtResource("13_xa7g3")]
 position = Vector2(288, 136)
-
-[node name="Shape2" type="CollisionShape2D" parent="Shrine" unique_id=1606901790]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_l20gf")
-
-[node name="Glow2" type="PointLight2D" parent="Shrine" unique_id=1135960539]
-position = Vector2(-1, -22)
-color = Color(0.56, 0.83, 1, 1)
-energy = 0.6
-texture = ExtResource("15_ggci6")
-texture_scale = 0.5
 
 [node name="Mossling1" parent="." unique_id=1872493516 instance=ExtResource("15_f6pre")]
 position = Vector2(150, 264)
 
-[node name="Sprite2" type="Sprite2D" parent="Mossling1" unique_id=1505930426]
-material = SubResource("ShaderMaterial_24yrl")
-texture = ExtResource("8_en0bl")
-offset = Vector2(0, -9)
-
-[node name="Feet2" type="CollisionShape2D" parent="Mossling1" unique_id=1221781152]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_fqw82")
-
-[node name="Hitbox2" type="Area2D" parent="Mossling1" unique_id=1817988045]
-collision_layer = 64
-collision_mask = 2
-monitorable = false
-
 [node name="Mossling2" parent="." unique_id=672463641 instance=ExtResource("15_f6pre")]
 position = Vector2(488, 252)
 
-[node name="Sprite2" type="Sprite2D" parent="Mossling2" unique_id=195829037]
-material = SubResource("ShaderMaterial_aambb")
-texture = ExtResource("8_en0bl")
-offset = Vector2(0, -9)
-
-[node name="Feet2" type="CollisionShape2D" parent="Mossling2" unique_id=429308773]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_fqw82")
-
-[node name="Hitbox2" type="Area2D" parent="Mossling2" unique_id=1657859596]
-collision_layer = 64
-collision_mask = 2
-monitorable = false
-
 [node name="Mossling3" parent="." unique_id=455993692 instance=ExtResource("15_f6pre")]
 position = Vector2(150, 306)
-
-[node name="Sprite2" type="Sprite2D" parent="Mossling3" unique_id=130898392]
-material = SubResource("ShaderMaterial_tp7jw")
-texture = ExtResource("8_en0bl")
-offset = Vector2(0, -9)
-
-[node name="Feet2" type="CollisionShape2D" parent="Mossling3" unique_id=2400753]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_fqw82")
-
-[node name="Hitbox2" type="Area2D" parent="Mossling3" unique_id=1344439117]
-collision_layer = 64
-collision_mask = 2
-monitorable = false
 
 [node name="Lantern" parent="." unique_id=454678109 instance=ExtResource("22_oyy32")]
 position = Vector2(96, 252)
@@ -207,21 +132,8 @@ flag = "lantern_found"
 diary_entry = "lantern"
 message = "You found a lantern, cold on the old hearth. It lights at your touch. (Y or K to put it out or light it.)"
 
-[node name="Sprite2" type="Sprite2D" parent="Lantern" unique_id=789332340]
-position = Vector2(0, -4)
-texture = ExtResource("24_dlo55")
-
-[node name="Shape2" type="CollisionShape2D" parent="Lantern" unique_id=1863956570]
-position = Vector2(0, -3)
-shape = SubResource("CircleShape2D_b6ond")
-
 [node name="StoneMark" parent="." unique_id=2108137407 instance=ExtResource("25_f4igv")]
 position = Vector2(208, 256)
-
-[node name="Mark2" type="Sprite2D" parent="StoneMark" unique_id=464755049]
-light_mask = 2
-material = SubResource("CanvasItemMaterial_tyyjm")
-texture = ExtResource("27_uatcv")
 
 [node name="Spawns" type="Node2D" parent="." unique_id=2083670545]
 
@@ -249,3 +161,91 @@ shape = SubResource("RectangleShape2D_pmftr")
 script = ExtResource("30_ugxyy")
 message = ExtResource("intro_msg")
 once_flag = &"intro_seen"
+
+[node name="Sprite" parent="Player"]
+sprite_frames = ExtResource("4_pirrm")
+animation = &"idle_s"
+autoplay = "idle_s"
+offset = Vector2(0, -13)
+
+[node name="Feet" parent="Player"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_dovo2")
+
+[node name="Sprite" parent="Miller"]
+texture = ExtResource("6_u6wnn")
+offset = Vector2(0, -13)
+
+[node name="TalkShape" parent="Miller"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_dt2f5")
+
+[node name="Body" parent="Miller"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Shape" parent="Shrine"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_l20gf")
+
+[node name="Glow" parent="Shrine"]
+position = Vector2(-1, -22)
+color = Color(0.56, 0.83, 1, 1)
+energy = 0.6
+texture = ExtResource("15_ggci6")
+texture_scale = 0.5
+
+[node name="Sprite" parent="Mossling1"]
+material = SubResource("ShaderMaterial_24yrl")
+texture = ExtResource("8_en0bl")
+offset = Vector2(0, -9)
+
+[node name="Feet" parent="Mossling1"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_fqw82")
+
+[node name="Hitbox" parent="Mossling1"]
+collision_layer = 64
+collision_mask = 2
+monitorable = false
+
+[node name="Sprite" parent="Mossling2"]
+material = SubResource("ShaderMaterial_aambb")
+texture = ExtResource("8_en0bl")
+offset = Vector2(0, -9)
+
+[node name="Feet" parent="Mossling2"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_fqw82")
+
+[node name="Hitbox" parent="Mossling2"]
+collision_layer = 64
+collision_mask = 2
+monitorable = false
+
+[node name="Sprite" parent="Mossling3"]
+material = SubResource("ShaderMaterial_tp7jw")
+texture = ExtResource("8_en0bl")
+offset = Vector2(0, -9)
+
+[node name="Feet" parent="Mossling3"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_fqw82")
+
+[node name="Hitbox" parent="Mossling3"]
+collision_layer = 64
+collision_mask = 2
+monitorable = false
+
+[node name="Sprite" parent="Lantern"]
+position = Vector2(0, -4)
+texture = ExtResource("24_dlo55")
+
+[node name="Shape" parent="Lantern"]
+position = Vector2(0, -3)
+shape = SubResource("CircleShape2D_b6ond")
+
+[node name="Mark" parent="StoneMark"]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_tyyjm")
+texture = ExtResource("27_uatcv")

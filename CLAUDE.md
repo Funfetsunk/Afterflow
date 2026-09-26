@@ -58,6 +58,7 @@ Phase 2 plan (in order):
 
 How the slice is put together:
 - **Autoloads:** `Game` (state, save), `World` (area changes, fades, respawn), `HUD`, `Dialogue`, `Diary`, `Feedback` (hit-stop, shake, sparks). After adding an autoload, restart the editor (`EditorInterface.restart_editor(false)`, with everything saved) or the editor can't compile scripts that use it and silently drops their properties on save.
+- ⚠️ **Instanced scenes:** Godot MCP's `add_scene_instance` can leave the instance's children owned by the outer scene, which then saves copies of them ("incoming node's name clashes" on load, duplicates like `Sprite2`). After instancing and saving, run `python tools/fix_instance_dupes.py scenes/world/*.tscn` (it should report 0 blocks) and reload the scenes before committing.
 - **Areas** (`scenes/world/`): `meadow.tscn`, `woodland.tscn`, `hollow_oak.tscn` (room camera: `AreaCamera.room_size` 320×176). Each holds its own Player (with its Camera), `Spawns` markers (group `spawn`), exits (`area_exit.gd`), `MapEdges`.
 - **Props** (`scenes/props/`): pickup, shrine, NPC, locked door, faded mark (light-only sprite on light mask 2, lit only by the lantern), plus node scripts for exits, diary triggers, dark zones, room rewards, the boss room and one-off area messages. **Creatures** (`scenes/enemies/`): `creature.gd` (mossling HOPPER, barkling CHARGER) and `warden.gd`.
 - **Data:** dialogue in `resources/dialogue/*.tres` (`DialogueData`), diary pages in `resources/diary/*.tres` (`DiaryEntry`).
@@ -156,6 +157,7 @@ Install the dependency with `python -m pip install -r tools/requirements.txt`. E
 - **`tools/build_tileset.py`**: generates `resources/tilesets/meadow.tres` from the exported atlases: stable source ids, a corner-matching terrain set (grass, path, water, bank) with weighted fill variants, collision (physics layer 0 `world`, 1 `water`) and y-sort origins at each stamp's base. Re-run after `export_assets.py`; hand edits to the TileSet are overwritten.
 - **`tools/build_sprite_frames.py`**: generates a character's `resources/sprites/<name>_frames.tres` (animations `<anim>_<dir>`, `:once` for attacks) from its exported frames.
 - **`tools/kits/make_ui16.py`**, **`make_woodland16.py`**, **`make_dungeon16.py`**: Phase 2 art drawn in code (HUD, pickups, panels, effects; barkling, warden, doors, leaf-litter fills; the dungeon kit and the hollow oak).
+- **`tools/fix_instance_dupes.py`**: repairs scenes where an instance's children were saved as local copies (folds them back into property overrides).
 - **`tools/layout_to_tilemap.py`**: converts a mock layout into per-layer `tile_map_data` (plus a full-size preview PNG), so maps designed as mocks are painted into Godot cell for cell.
 - Python 3, Pillow. Keep the tools small, readable and documented.
 

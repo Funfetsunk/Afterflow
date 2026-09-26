@@ -155,38 +155,6 @@ shape = SubResource("WorldBoundaryShape2D_o33dc")
 [node name="Player" parent="." unique_id=2142728879 instance=ExtResource("4_miqg5")]
 position = Vector2(18, 184)
 
-[node name="Sprite2" type="AnimatedSprite2D" parent="Player" unique_id=2056404818]
-sprite_frames = ExtResource("6_iynvc")
-animation = &"idle_s"
-autoplay = "idle_s"
-offset = Vector2(0, -13)
-
-[node name="Feet2" type="CollisionShape2D" parent="Player" unique_id=1515235686]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_dovo2")
-
-[node name="StickHitbox2" type="Area2D" parent="Player" unique_id=1889145271]
-collision_layer = 32
-collision_mask = 4
-monitorable = false
-
-[node name="Slash2" type="Sprite2D" parent="Player" unique_id=1461538584]
-visible = false
-z_index = 2
-
-[node name="InteractProbe2" type="Area2D" parent="Player" unique_id=479706673]
-collision_layer = 0
-collision_mask = 16
-monitorable = false
-
-[node name="LanternLight2" type="PointLight2D" parent="Player" unique_id=1093822967]
-position = Vector2(0, -10)
-enabled = false
-color = Color(1, 0.86, 0.6, 1)
-energy = 1.1
-range_item_cull_mask = 3
-texture = ExtResource("7_f658f")
-
 [node name="Camera" type="Camera2D" parent="Player" unique_id=2106588045 node_paths=PackedStringArray("bounds_layer")]
 position = Vector2(0, -12)
 script = ExtResource("7_h030x")
@@ -195,78 +163,17 @@ bounds_layer = NodePath("../../Ground")
 [node name="StoneMark" parent="." unique_id=2108137407 instance=ExtResource("8_0kma7")]
 position = Vector2(336, 238)
 
-[node name="Mark2" type="Sprite2D" parent="StoneMark" unique_id=464755049]
-light_mask = 2
-material = SubResource("CanvasItemMaterial_tyyjm")
-texture = ExtResource("10_eq2xw")
-
 [node name="Barkling1" parent="." unique_id=1872493516 instance=ExtResource("11_fykc4")]
 position = Vector2(262, 122)
-
-[node name="Sprite2" type="Sprite2D" parent="Barkling1" unique_id=1505930426]
-material = SubResource("ShaderMaterial_m1872")
-texture = ExtResource("13_5rj01")
-offset = Vector2(0, -9)
-
-[node name="Feet2" type="CollisionShape2D" parent="Barkling1" unique_id=1221781152]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_fqw82")
-
-[node name="Hitbox2" type="Area2D" parent="Barkling1" unique_id=1817988045]
-collision_layer = 64
-collision_mask = 2
-monitorable = false
 
 [node name="Barkling2" parent="." unique_id=190047347 instance=ExtResource("11_fykc4")]
 position = Vector2(470, 236)
 
-[node name="Sprite2" type="Sprite2D" parent="Barkling2" unique_id=1460586765]
-material = SubResource("ShaderMaterial_5f5oy")
-texture = ExtResource("13_5rj01")
-offset = Vector2(0, -9)
-
-[node name="Feet2" type="CollisionShape2D" parent="Barkling2" unique_id=1366994896]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_fqw82")
-
-[node name="Hitbox2" type="Area2D" parent="Barkling2" unique_id=2080532237]
-collision_layer = 64
-collision_mask = 2
-monitorable = false
-
 [node name="Mossling1" parent="." unique_id=27427261 instance=ExtResource("18_1w1t5")]
 position = Vector2(150, 250)
 
-[node name="Sprite2" type="Sprite2D" parent="Mossling1" unique_id=1399046637]
-material = SubResource("ShaderMaterial_ovdjl")
-texture = ExtResource("19_favyy")
-offset = Vector2(0, -9)
-
-[node name="Feet2" type="CollisionShape2D" parent="Mossling1" unique_id=249011842]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_p1a5k")
-
-[node name="Hitbox2" type="Area2D" parent="Mossling1" unique_id=320850619]
-collision_layer = 64
-collision_mask = 2
-monitorable = false
-
 [node name="Mossling2" parent="." unique_id=480371561 instance=ExtResource("18_1w1t5")]
 position = Vector2(390, 160)
-
-[node name="Sprite2" type="Sprite2D" parent="Mossling2" unique_id=1639285633]
-material = SubResource("ShaderMaterial_hkq03")
-texture = ExtResource("19_favyy")
-offset = Vector2(0, -9)
-
-[node name="Feet2" type="CollisionShape2D" parent="Mossling2" unique_id=344348990]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_p1a5k")
-
-[node name="Hitbox2" type="Area2D" parent="Mossling2" unique_id=1741407126]
-collision_layer = 64
-collision_mask = 2
-monitorable = false
 
 [node name="SliceEnd" type="Node" parent="." unique_id=1579178917]
 script = ExtResource("24_5rj01")
@@ -295,3 +202,96 @@ position = Vector2(520, 130)
 use_parent_material = true
 position = Vector2(440, 150)
 scale = Vector2(0.8, 1.2)
+
+[node name="Sprite" parent="Player"]
+sprite_frames = ExtResource("6_iynvc")
+animation = &"idle_s"
+autoplay = "idle_s"
+offset = Vector2(0, -13)
+
+[node name="Feet" parent="Player"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_dovo2")
+
+[node name="StickHitbox" parent="Player"]
+collision_layer = 32
+collision_mask = 4
+monitorable = false
+
+[node name="Slash" parent="Player"]
+visible = false
+z_index = 2
+
+[node name="InteractProbe" parent="Player"]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="LanternLight" parent="Player"]
+position = Vector2(0, -10)
+enabled = false
+color = Color(1, 0.86, 0.6, 1)
+energy = 1.1
+range_item_cull_mask = 3
+texture = ExtResource("7_f658f")
+
+[node name="Mark" parent="StoneMark"]
+light_mask = 2
+material = SubResource("CanvasItemMaterial_tyyjm")
+texture = ExtResource("10_eq2xw")
+
+[node name="Sprite" parent="Barkling1"]
+material = SubResource("ShaderMaterial_m1872")
+texture = ExtResource("13_5rj01")
+offset = Vector2(0, -9)
+
+[node name="Feet" parent="Barkling1"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_fqw82")
+
+[node name="Hitbox" parent="Barkling1"]
+collision_layer = 64
+collision_mask = 2
+monitorable = false
+
+[node name="Sprite" parent="Barkling2"]
+material = SubResource("ShaderMaterial_5f5oy")
+texture = ExtResource("13_5rj01")
+offset = Vector2(0, -9)
+
+[node name="Feet" parent="Barkling2"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_fqw82")
+
+[node name="Hitbox" parent="Barkling2"]
+collision_layer = 64
+collision_mask = 2
+monitorable = false
+
+[node name="Sprite" parent="Mossling1"]
+material = SubResource("ShaderMaterial_ovdjl")
+texture = ExtResource("19_favyy")
+offset = Vector2(0, -9)
+
+[node name="Feet" parent="Mossling1"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_p1a5k")
+
+[node name="Hitbox" parent="Mossling1"]
+collision_layer = 64
+collision_mask = 2
+monitorable = false
+
+[node name="Sprite" parent="Mossling2"]
+material = SubResource("ShaderMaterial_hkq03")
+texture = ExtResource("19_favyy")
+offset = Vector2(0, -9)
+
+[node name="Feet" parent="Mossling2"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_p1a5k")
+
+[node name="Hitbox" parent="Mossling2"]
+collision_layer = 64
+collision_mask = 2
+monitorable = false
