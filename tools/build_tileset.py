@@ -21,8 +21,11 @@ sheet's own straight ledge tiles.
 
 Physics layer 0 is `world` (collision layer 1): walls, roofs, trees, fences,
 the ledge face. Physics layer 1 is `water` (collision layer 8). Terrain tiles
-block per quarter (a bank or water corner blocks its quarter); kit and stamp
-tiles block by the rules in main() below.
+block per quarter (a bank or water corner blocks its quarter). Houses, the
+gable, the hollow oak and dungeon walls block whole tiles; everything else
+blocks only at its footprint (tools/footprint.py: the solid base, not the crown
+or top), so Awa can walk behind trees, bushes, stones, fences and ruins. The
+baked woodland uses tools/kits/forest16_meta.json from tools/paint_forest.py.
 
 Stamp cells carry a y_sort_origin at the stamp's base, so on a y-sorted
 objects layer Awa walks behind a tree crown or the shrine and in front of
@@ -39,10 +42,13 @@ from pathlib import Path
 
 from PIL import Image
 
+from footprint import footprint, split_by_cells
+
 T = 16
 H = T // 2
 TS = Path("assets/tilesets")
 OUT = Path("resources/tilesets/meadow.tres")
+FOREST_META = Path("tools/kits/forest16_meta.json")
 
 TERRAINS = [("grass", "0.33, 0.49, 0.39"), ("path", "0.59, 0.42, 0.42"),
             ("water", "0.3, 0.4, 0.71"), ("bank", "0.18, 0.13, 0.18"), ("leaves", "0.3, 0.24, 0.14")]
@@ -57,6 +63,12 @@ def rect(x, y, w, h):
 
 
 FULL = rect(-H, -H, T, T)
+
+
+def local_rect(r):
+    """A rect in tile pixels (x0, y0, x1, y1; 0..16) as a centred collision polygon."""
+    x0, y0, x1, y1 = r
+    return rect(x0 - H, y0 - H, x1 - x0, y1 - y0)
 
 
 class Atlas:
@@ -110,11 +122,6 @@ def terrain_tile(atlas, cell, corners, lower, probability=None):
             t["polys"].append((WORLD if name == "bank" else WATER, rect(x, y, H, H)))
 
 
-def coverage(path, cell):
-    img = Image.open(path).convert("RGBA").crop((cell[0] * T, cell[1] * T, (cell[0] + 1) * T, (cell[1] + 1) * T))
-    return (T * T - img.getchannel("A").histogram()[0]) / (T * T)
-
-
 def main():
     for i, (name, _) in enumerate(TERRAINS):
         TERRAIN_INDEX[name] = i
@@ -148,25 +155,45 @@ def main():
     # 3-6: kits
     for sid, kit in ((3, "cottage16"), (4, "fence16"), (5, "ruin16"), (6, "forest16"), (8, "dungeon16")):
         a = Atlas(sid, f"res://assets/tilesets/{kit}.png")
-        png = TS / f"{kit}.png"
+        png = Image.open(TS / f"{kit}.png").convert("RGBA")
+        forest_meta = json.loads(FOREST_META.read_text()) if kit == "forest16" and FOREST_META.exists() else {}
         for name, cell in json.loads((TS / f"{kit}.json").read_text())["tiles"].items():
             t = a.tile(cell)
-            cov = coverage(png, cell)
-            block = {
-                "cottage16": not name.startswith("shadow") and not name.startswith("chimney"),
-                "fence16": True,
-                "ruin16": cov >= 0.3,
-                "forest16": cov >= 0.6,
-                "dungeon16": name.startswith("wall"),
-            }[kit]
-            if block:
-                t["polys"].append((WORLD, FULL))
+            img = png.crop((cell[0] * T, cell[1] * T, (cell[0] + 1) * T, (cell[1] + 1) * T))
+            if kit in ("cottage16", "dungeon16"):              # houses and dungeon walls are solid
+                if kit == "dungeon16" and name.startswith("wall") or                         kit == "cottage16" and not name.startswith(("shadow", "chimney")):
+                    t["polys"].append((WORLD, FULL))
+            elif kit == "fence16":                             # only the foot of the posts and rails
+                fp = footprint(img, depth=6)
+                if fp:
+                    t["polys"].append((WORLD, local_rect(fp)))
+            elif kit == "ruin16":                              # the wall's base strip; tops sort with it
+                if name.endswith("_bot"):
+                    fp = footprint(img, depth=10)
+                    if fp:
+                        t["polys"].append((WORLD, local_rect(fp)))
+                    t["y_sort_origin"] = H
+                else:
+                    t["y_sort_origin"] = T + H
+            elif kit == "forest16":                            # trunk bases and enclosed deep shade
+                m = forest_meta.get(name, {})
+                for r in m.get("rects", []):
+                    t["polys"].append((WORLD, local_rect(r)))
+                if m.get("y_sort"):
+                    t["y_sort_origin"] = m["y_sort"]
         atlases.append(a)
 
     # 7: stamps
     a = Atlas(7, "res://assets/tilesets/stamps.png")
+    stamps_png = Image.open(TS / "stamps.png").convert("RGBA")
     for name, s in json.loads((TS / "stamps.json").read_text())["stamps"].items():
         (ox, oy), (cols, rows) = s["origin"], s["size"]
+        img = stamps_png.crop((ox * T, oy * T, (ox + cols) * T, (oy + rows) * T))
+        base = {}                                       # (col, row) -> local rect of the footprint
+        if name.startswith(("oak", "birch", "bush", "standing_stone", "shrine")):
+            fp = footprint(img)
+            if fp:
+                base = split_by_cells(fp, T)
         for r in range(rows):
             for c in range(cols):
                 t = a.tile((ox + c, oy + r))
@@ -174,25 +201,17 @@ def main():
                 shadow_col = name.startswith("gable") and c == cols - 1
                 if name != "ford" and not shadow_col:
                     t["y_sort_origin"] = (rows - 1 - r) * T + H   # sort the whole stamp by its base
-                if name.startswith("gable"):
-                    block = c < cols - 1                      # the last column is the cast shadow
-                elif name.startswith(("oak", "birch")):
-                    block = bottom and c == cols // 2         # the trunk
-                elif name.startswith(("bush", "standing_stone", "shrine")):
-                    block = bottom
-                elif name == "hollow_oak":
-                    block = not (bottom and 1 <= c <= 3)      # the doorway at its foot is open
-                elif name == "ford":
+                if (c, r) in base:
+                    t["polys"].append((WORLD, local_rect(base[(c, r)])))
+                elif name.startswith("gable") and c < cols - 1:   # the last column is the cast shadow
+                    t["polys"].append((WORLD, FULL))
+                elif name == "hollow_oak" and not (bottom and 1 <= c <= 3):   # the doorway is open
+                    t["polys"].append((WORLD, FULL))
+                elif name == "ford" and r in (1, 2, 3) and c != 1:
                     # the lane runs down local x 8-23 (the cut is offset 8px): the left
                     # column blocks only its outer half, the right column all of it
-                    block = False
-                    if r in (1, 2, 3) and c != 1:
-                        layer = WORLD if r < 3 else WATER
-                        t["polys"].append((layer, rect(-H, -H, H, T) if c == 0 else FULL))
-                else:
-                    block = False                             # flowers, rubble
-                if block:
-                    t["polys"].append((WORLD, FULL))
+                    layer = WORLD if r < 3 else WATER
+                    t["polys"].append((layer, rect(-H, -H, H, T) if c == 0 else FULL))
     atlases.append(a)
 
     # 9: woodland floor Wang sheet (grass / leaf litter)

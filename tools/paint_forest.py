@@ -21,19 +21,29 @@ row shows trunks and shadows on the grass; crowns of the back row fill the top
 row. Gaps completely enclosed by crowns (unreachable from outside the forest
 without crossing a tree) are filled with deep shade 313638 so the woodland
 reads dense; openings that reach the edge stay grass. Width >= 3, height >= 3.
+
+For the TileSet, each tile's collision and y-sort origin are recorded in
+tools/kits/forest16_meta.json: trunk bases (tools/footprint.py), the enclosed
+deep shade and tiles of solid canopy (the wood's interior) block; crown tiles
+sort at their tree's base, so Awa can walk behind the ragged edge of a wood
+without disappearing into it.
 """
 
 import argparse
 import hashlib
 import json
 import sys
+from collections import defaultdict
 from pathlib import Path
 
 from PIL import Image
 
+from footprint import footprint, split_by_cells
+
 TILE = 16
 LIB_DIR = Path("art/final/tiles/forest16")
 LIB_INDEX = Path("tools/kits/forest16.json")
+META_INDEX = Path("tools/kits/forest16_meta.json")      # per tile: collision rects and y-sort origin
 PATTERN = ["oak_a", "oak_b", "oak_a", "birch_a", "oak_b", "oak_a", "oak_b"]
 
 
@@ -70,12 +80,18 @@ def main():
         start = c0 + ((base_row + c0) % 2)
         for col in range(start, c0 + w - 2, 2):       # oak stamps are 3 wide
             plantings.append((base_row, col, species(col, base_row)))
+    trunk_rects, covers = [], []                     # canvas-space footprints; (opaque bbox, base y)
     for base_row, col, name in sorted(plantings):     # back to front
         img = stamp_image(name)
         rows = img.height // TILE
         x = (col - c0) * TILE
         y = (base_row - rows + 1 - r0) * TILE
         canvas.alpha_composite(img, (x, y))
+        fp = footprint(img)
+        if fp:
+            trunk_rects.append((x + fp[0], y + fp[1], x + fp[2], y + fp[3]))
+            bx0, by0, bx1, by1 = img.getchannel("A").getbbox()
+            covers.append(((x + bx0, y + by0, x + bx1, y + by1), y + fp[3]))
 
     # deep shade only in gaps fully enclosed by crowns: flood the open area in from the edges
     shade = (0x31, 0x36, 0x38, 255)
@@ -91,13 +107,34 @@ def main():
             if 0 <= n[0] < cw and 0 <= n[1] < ch and n not in outside and pixels[n][3] == 0:
                 outside.add(n)
                 stack.append(n)
+    shaded = []
     for y in range(ch):
         for x in range(cw):
             if pixels[x, y][3] == 0 and (x, y) not in outside:
                 pixels[x, y] = shade
+                shaded.append((x, y))
+
+    # per cell (canvas-relative col, row): collision rects in cell-local pixels, y-sort origin
+    cell_rects = defaultdict(list)
+    for rect in trunk_rects:
+        for cell, local in split_by_cells(rect, TILE).items():
+            cell_rects[cell].append(list(local))
+    shade_box = {}
+    for x, y in shaded:                                # enclosed deep shade blocks too
+        cell = (x // TILE, y // TILE)
+        lx, ly = x % TILE, y % TILE
+        b = shade_box.get(cell, [lx, ly, lx + 1, ly + 1])
+        shade_box[cell] = [min(b[0], lx), min(b[1], ly), max(b[2], lx + 1), max(b[3], ly + 1)]
+    for cell, box in shade_box.items():
+        cell_rects[cell].append(box)
+    def y_sort_for(cell):
+        cx, cy = cell[0] * TILE, cell[1] * TILE
+        bases = [base for (x0, y0, x1, y1), base in covers if x0 < cx + TILE and x1 > cx and y0 < cy + TILE and y1 > cy]
+        return max(bases) - cy if bases else 0
 
     LIB_DIR.mkdir(parents=True, exist_ok=True)
     index = json.loads(LIB_INDEX.read_text()) if LIB_INDEX.exists() else {}
+    meta = json.loads(META_INDEX.read_text()) if META_INDEX.exists() else {}
     items, new = [], 0
     for r in range(h):
         for c in range(w):
@@ -110,8 +147,13 @@ def main():
                 cell.save(path)
                 index[key] = path.as_posix()
                 new += 1
+            if key not in meta:
+                full = cell.getchannel("A").getextrema()[0] == 255      # solid canopy: the wood's interior
+                meta[key] = {"rects": [[0, 0, TILE, TILE]] if full else cell_rects.get((c, r), []),
+                             "y_sort": y_sort_for((c, r))}
             items.append({"image": index[key], "cell": [c0 + c, r0 + r]})
     LIB_INDEX.write_text(json.dumps(index, indent=1))
+    META_INDEX.write_text(json.dumps(meta, indent=1))
 
     layout = json.loads(args.layout.read_text()) if args.layout.exists() else {"items": []}
     layout["items"].extend(items)
